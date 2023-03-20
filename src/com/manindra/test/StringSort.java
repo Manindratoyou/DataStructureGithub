@@ -5,9 +5,7 @@ public class StringSort {
     public static void main(String[] args) {
 
         String str="MANINDRA";
-
         char[] arr=str.toCharArray();
-
         char temp;
 
         for (int i=0;i< arr.length;i++){
