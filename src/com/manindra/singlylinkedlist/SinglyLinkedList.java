@@ -35,8 +35,8 @@ public class SinglyLinkedList {
 
         sll.insertAtGivenPosition(1,11);
         sll.insertAtGivenPosition(2,8);
-        sll.insertAtGivenPosition(1,10);
-        sll.insertAtGivenPosition(2,65);
+        sll.insertAtGivenPosition(3,10);
+        sll.insertAtGivenPosition(4,65);
         sll.insertAtGivenPosition(5,40);
 
         sll.display();
@@ -45,7 +45,7 @@ public class SinglyLinkedList {
         //System.out.println(sll.deleteFirst().data);
         //sll.display();
 
-        System.out.println(sll.deleteLast().data);
+        sll.deleteAtGivenPosition(3);
         sll.display();
     }
     public void insertFirst(int value){
@@ -108,6 +108,21 @@ public class SinglyLinkedList {
         }
         previous.next=null;//break the chain
         return current;
+    }
+    //delete node of a singly linked list from given position
+    public void deleteAtGivenPosition(int position){
+        if (position==1)
+            head=head.next;
+        else {
+            ListNode previous=head;
+            int count=1;
+            while (count<position-1){
+                previous=previous.next;
+                count++;
+            }
+            ListNode current=previous.next;
+            previous.next=current.next;
+        }
     }
     public void display(){
         ListNode current=head;
