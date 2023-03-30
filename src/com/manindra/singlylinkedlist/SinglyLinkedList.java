@@ -17,7 +17,8 @@ public class SinglyLinkedList {
     public static void main(String[] args) {
 
         SinglyLinkedList sll=new SinglyLinkedList();
-        /*sll.head=new ListNode(10);
+
+/*        sll.head=new ListNode(10);
         ListNode second=new ListNode(1);
         ListNode third=new ListNode(8);
         ListNode fourth=new ListNode(11);
@@ -45,8 +46,15 @@ public class SinglyLinkedList {
         //System.out.println(sll.deleteFirst().data);
         //sll.display();
 
-        sll.deleteAtGivenPosition(3);
-        sll.display();
+        //sll.deleteAtGivenPosition(3);
+        //sll.display();
+
+        if (sll.findElement(sll.head,65))
+             System.out.println("Search key Found");
+        else
+             System.out.println("Search key not found");
+
+
     }
     public void insertFirst(int value){
         ListNode newNode=new ListNode(value);
@@ -123,6 +131,20 @@ public class SinglyLinkedList {
             ListNode current=previous.next;
             previous.next=current.next;
         }
+    }
+
+    //search an element in a singly linked list
+    public boolean findElement(ListNode head,int searchKey){
+        if (head==null)
+            return false;
+        ListNode current=head;
+        while (current!=null){
+            if (current.data==searchKey)
+                return true;
+            current=current.next;
+
+        }
+        return false;
     }
     public void display(){
         ListNode current=head;
