@@ -54,6 +54,11 @@ public class SinglyLinkedList {
         else
              System.out.println("Search key not found");
 
+        ListNode rev=sll.reverse(sll.head);
+        sll.display1(rev);
+
+       // sll.display();
+
 
     }
     public void insertFirst(int value){
@@ -146,7 +151,30 @@ public class SinglyLinkedList {
         }
         return false;
     }
+    //reverse a sll
+    public ListNode reverse(ListNode head){
+        if (head==null)
+            return head;
+        ListNode current=head;
+        ListNode previous=null;
+        ListNode next=null;
+        while (current!=null){
+            next=current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
+        }
+        return previous;
+    }
     public void display(){
+        ListNode current=head;
+        while (current!=null){
+            System.out.print(current.data +"->");
+            current=current.next;
+        }
+        System.out.println("null");
+    }
+    public void display1(ListNode head){
         ListNode current=head;
         while (current!=null){
             System.out.print(current.data +"->");
