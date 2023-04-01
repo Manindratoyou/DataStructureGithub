@@ -62,7 +62,8 @@ public class SinglyLinkedList {
 
         //ListNode nthNode=sll.getNthNodeFromEnd(2);
         //System.out.println("N th node from end is ="+nthNode.data);
-        sll.removeDuplicates();
+       // sll.removeDuplicates();
+        sll.insertInSortedList(21);
 
         sll.display();
 
@@ -218,6 +219,24 @@ public class SinglyLinkedList {
                 current=current.next;
         }
     }
+    //insert a node in a sorted sll
+    public ListNode insertInSortedList(int value){
+        ListNode newNode=new ListNode(value);
+        if (head==null)
+            return newNode;
+        ListNode current=head;
+        ListNode temp=null;
+        while (current!=null && current.data<newNode.data){
+            temp=current;
+            current=current.next;
+        }
+        newNode.next=current;
+        temp.next=newNode;
+        return head;
+    }
+
+
+
     public void display(){
         ListNode current=head;
         while (current!=null){
