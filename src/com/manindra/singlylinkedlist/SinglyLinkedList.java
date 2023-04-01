@@ -35,10 +35,11 @@ public class SinglyLinkedList {
         //sll.insertLast(1);
 
         sll.insertAtGivenPosition(1,11);
-        sll.insertAtGivenPosition(2,8);
-        sll.insertAtGivenPosition(3,10);
-        sll.insertAtGivenPosition(4,65);
-        sll.insertAtGivenPosition(5,40);
+        sll.insertAtGivenPosition(2,18);
+        sll.insertAtGivenPosition(3,18);
+        sll.insertAtGivenPosition(4,20);
+        sll.insertAtGivenPosition(5,35);
+        sll.insertAtGivenPosition(6,40);
 
         sll.display();
         System.out.println("length is "+sll.findLength());
@@ -59,10 +60,11 @@ public class SinglyLinkedList {
         //ListNode middleNode=sll.getMiddleNode();
         //System.out.println("Middle Node Is "+middleNode.data);
 
-        ListNode nthNode=sll.getNthNodeFromEnd(2);
-        System.out.println("N th node from end is ="+nthNode.data);
+        //ListNode nthNode=sll.getNthNodeFromEnd(2);
+        //System.out.println("N th node from end is ="+nthNode.data);
+        sll.removeDuplicates();
 
-       // sll.display();
+        sll.display();
 
 
     }
@@ -203,6 +205,18 @@ public class SinglyLinkedList {
             mainPointer=mainPointer.next;
         }
         return mainPointer;
+    }
+    //remove duplicate from sorted sll
+    public void removeDuplicates(){
+        if (head==null)
+            return ;
+        ListNode current=head;
+        while (current!=null && current.next!=null){
+            if (current.data==current.next.data)
+                current.next=current.next.next;
+            else
+                current=current.next;
+        }
     }
     public void display(){
         ListNode current=head;
