@@ -56,8 +56,11 @@ public class SinglyLinkedList {
 
         //ListNode rev=sll.reverse(sll.head);
         //sll.display1(rev);
-        ListNode middleNode=sll.getMiddleNode();
-        System.out.println("Middle Node Is "+middleNode.data);
+        //ListNode middleNode=sll.getMiddleNode();
+        //System.out.println("Middle Node Is "+middleNode.data);
+
+        ListNode nthNode=sll.getNthNodeFromEnd(2);
+        System.out.println("N th node from end is ="+nthNode.data);
 
        // sll.display();
 
@@ -179,6 +182,27 @@ public class SinglyLinkedList {
             fastpointer=fastpointer.next.next;
         }
         return slowPointer;
+    }
+    //nth node from end of sll
+    public ListNode getNthNodeFromEnd(int n){
+        if (head==null)
+            return null;
+        if (n<=0)
+            throw new IllegalArgumentException("Inavlid value n"+n);
+        ListNode mainPointer=head;
+        ListNode refPointer=head;
+        int count=0;
+        while (count<n){
+            if (refPointer==null)
+                throw new IllegalArgumentException(n+"n is greater than the no of nodes in list");
+            refPointer=refPointer.next;
+            count++;
+        }
+        while (refPointer!=null){
+            refPointer=refPointer.next;
+            mainPointer=mainPointer.next;
+        }
+        return mainPointer;
     }
     public void display(){
         ListNode current=head;
