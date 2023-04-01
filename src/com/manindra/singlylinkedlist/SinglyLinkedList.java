@@ -54,8 +54,10 @@ public class SinglyLinkedList {
         else
              System.out.println("Search key not found");
 
-        ListNode rev=sll.reverse(sll.head);
-        sll.display1(rev);
+        //ListNode rev=sll.reverse(sll.head);
+        //sll.display1(rev);
+        ListNode middleNode=sll.getMiddleNode();
+        System.out.println("Middle Node Is "+middleNode.data);
 
        // sll.display();
 
@@ -165,6 +167,18 @@ public class SinglyLinkedList {
             current=next;
         }
         return previous;
+    }
+    // find middle node in a sll
+    public ListNode getMiddleNode(){
+        if (head==null)
+            return null;
+        ListNode slowPointer=head;
+        ListNode fastpointer=head;
+        while (fastpointer!=null && fastpointer.next!=null){
+            slowPointer=slowPointer.next;
+            fastpointer=fastpointer.next.next;
+        }
+        return slowPointer;
     }
     public void display(){
         ListNode current=head;
