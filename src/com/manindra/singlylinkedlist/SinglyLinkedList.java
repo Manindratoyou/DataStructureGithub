@@ -34,15 +34,14 @@ public class SinglyLinkedList {
         //sll.insertLast(8);
         //sll.insertLast(1);
 
-        sll.insertAtGivenPosition(1,11);
+      /*  sll.insertAtGivenPosition(1,11);
         sll.insertAtGivenPosition(2,18);
         sll.insertAtGivenPosition(3,18);
         sll.insertAtGivenPosition(4,20);
         sll.insertAtGivenPosition(5,35);
         sll.insertAtGivenPosition(6,40);
-
         sll.display();
-        System.out.println("length is "+sll.findLength());
+        System.out.println("length is "+sll.findLength());*/
 
         //System.out.println(sll.deleteFirst().data);
         //sll.display();
@@ -50,10 +49,11 @@ public class SinglyLinkedList {
         //sll.deleteAtGivenPosition(3);
         //sll.display();
 
-        if (sll.findElement(sll.head,65))
+       /* if (sll.findElement(sll.head,65))
              System.out.println("Search key Found");
         else
              System.out.println("Search key not found");
+       */
 
         //ListNode rev=sll.reverse(sll.head);
         //sll.display1(rev);
@@ -64,9 +64,28 @@ public class SinglyLinkedList {
         //System.out.println("N th node from end is ="+nthNode.data);
        // sll.removeDuplicates();
        // sll.insertInSortedList(21);
-        sll.deleteNode(18);//first key will be deleted
+        //sll.deleteNode(18);//first key will be deleted
 
+        ListNode first=new ListNode(1);
+        ListNode second=new ListNode(2);
+        ListNode third=new ListNode(3);
+        ListNode fourth=new ListNode(4);
+        ListNode fifth=new ListNode(5);
+        ListNode sixth=new ListNode(6);
+
+        sll.head=first;
+        first.next=second;
+        second.next=third;
+        third.next=fourth;
+        fourth.next=fifth;
+        fifth.next=sixth;
+        sixth.next=third;
+
+        //sll.display();
+        System.out.println("loop found at node "+sll.containsLoop().data);
+        sll.removeLoop();
         sll.display();
+
 
 
     }
@@ -250,6 +269,61 @@ public class SinglyLinkedList {
         if (current==null)
             return;
         temp.next=current.next;
+    }
+    //detect a loop in a sll
+    /*public boolean containsLoop(){
+        ListNode fastPointer=head;
+        ListNode slowPointer=head;
+        while (fastPointer!=null && fastPointer.next!=null){
+            fastPointer=fastPointer.next.next;
+            slowPointer=slowPointer.next;
+            if (slowPointer==fastPointer) {
+                return true;
+            }
+        }
+        return false;
+    }*/
+
+    //start of a loop
+    public ListNode containsLoop(){
+        ListNode fastPointer=head;
+        ListNode slowPointer=head;
+        while (fastPointer!=null && fastPointer.next!=null){
+            fastPointer=fastPointer.next.next;
+            slowPointer=slowPointer.next;
+            if (slowPointer==fastPointer) {
+                return getStartingNode(slowPointer);
+            }
+        }
+        return null;
+    }
+    public ListNode getStartingNode(ListNode slowPointer){
+        ListNode temp=head;
+        while (slowPointer!=temp){
+            temp=temp.next;
+            slowPointer=slowPointer.next;
+        }
+        return temp;
+    }
+    public void removeLoop(){
+        ListNode fastPointer=head;
+        ListNode slowPointer=head;
+        while (fastPointer!=null && fastPointer.next!=null){
+            fastPointer=fastPointer.next.next;
+            slowPointer=slowPointer.next;
+            if (fastPointer==slowPointer){
+                removeLoopFromNode(slowPointer);
+                return;
+            }
+        }
+    }
+    private void  removeLoopFromNode(ListNode slowPointer){
+        ListNode temp=head;
+        while (temp.next!=slowPointer.next){
+            temp=temp.next;
+            slowPointer=slowPointer.next;
+        }
+        slowPointer.next=null;
     }
 
 
