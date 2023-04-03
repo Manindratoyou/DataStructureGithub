@@ -1,5 +1,7 @@
 package com.manindra.singlylinkedlist;
 
+import java.util.List;
+
 public class SinglyLinkedList {
 
     private ListNode head;
@@ -66,7 +68,7 @@ public class SinglyLinkedList {
        // sll.insertInSortedList(21);
         //sll.deleteNode(18);//first key will be deleted
 
-        ListNode first=new ListNode(1);
+/*        ListNode first=new ListNode(1);
         ListNode second=new ListNode(2);
         ListNode third=new ListNode(3);
         ListNode fourth=new ListNode(4);
@@ -81,11 +83,29 @@ public class SinglyLinkedList {
         fifth.next=sixth;
         sixth.next=third;
 
-        //sll.display();
         System.out.println("loop found at node "+sll.containsLoop().data);
         sll.removeLoop();
-        sll.display();
+        sll.display();*/
 
+        SinglyLinkedList sll1=new SinglyLinkedList();
+        sll1.insertLast(1);
+        sll1.insertLast(4);
+        sll1.insertLast(8);
+        sll1.insertLast(9);
+
+        SinglyLinkedList sll2=new SinglyLinkedList();
+        sll2.insertLast(3);
+        sll2.insertLast(5);
+        sll2.insertLast(9);
+        sll2.insertLast(14);
+        sll2.insertLast(14);
+        sll2.insertLast(20);
+
+        sll1.display();
+        sll2.display();
+
+        ListNode result=merge(sll1.head,sll2.head);
+        sll.display1(result);
 
 
     }
@@ -324,6 +344,26 @@ public class SinglyLinkedList {
             slowPointer=slowPointer.next;
         }
         slowPointer.next=null;
+    }
+    //merge two sorted list
+    public static ListNode merge(ListNode a, ListNode b){
+        ListNode dummy=new ListNode(0);
+        ListNode tail=dummy;
+        while (a!=null && b!=null){
+            if (a.data<=b.data){
+                tail.next=a;
+                a=a.next;
+            }else {
+                tail.next=b;
+                b=b.next;
+            }
+            tail=tail.next;
+        }
+        if (a==null)
+            tail.next=b;
+        else
+            tail.next=a;
+        return dummy.next;
     }
 
 
