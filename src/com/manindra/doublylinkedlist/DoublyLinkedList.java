@@ -31,6 +31,25 @@ public class DoublyLinkedList {
     //up ------------impl of doublylinkedlist------------------
     //=========================================================
 
-
+    public void displayForward(){
+        if (head==null)
+            return;
+        ListNode temp=head;
+        while (temp!=null){
+            System.out.println(temp.data+ "-->");
+            temp=temp.next;
+        }
+        System.out.println("null");
+    }
+    public void displayBackward() {
+        if (tail == null)
+            return;
+        ListNode temp = tail;
+        while (temp != null) {
+            System.out.println(temp.data + "-->");
+            temp = temp.previous;
+        }
+        System.out.println("null");
+    }
 
 }
