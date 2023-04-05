@@ -1,12 +1,15 @@
 package com.manindra.util;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSumProblem {
 
     public static void main(String[] args) {
         int [] arr={2,11,5,10,7,8};
-        int result [] =twoSum(arr,9);
+        //int result [] =twoSum(arr,9);
+        int result[] =twoSumSecondWay(arr,9);
         printArray(result);
 
     }
@@ -27,6 +30,21 @@ public class TwoSumProblem {
                 right--;
         }
             return new int[0];
+    }
+    //two sum problem solution second way
+    public static int[] twoSumSecondWay(int[] numbers,int target){
+        int[] result=new int[2];
+        Map<Integer,Integer> map=new HashMap<>();
+        for (int i=0;i< numbers.length;i++){
+            if (!map.containsKey(target-numbers[i])){
+                map.put(numbers[i],i );
+            }else {
+                result[1]=i;
+                result[0]= map.get(target-numbers[i]);
+                return result;
+            }
+        }
+        throw new IllegalArgumentException("two numbers not found");
     }
 
     static void printArray(int[] arr){
