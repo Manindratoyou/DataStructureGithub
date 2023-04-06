@@ -5,9 +5,13 @@ public class DoublyLinkedList {
     public static void main(String[] args) {
 
         DoublyLinkedList dll=new DoublyLinkedList();
-        dll.insertFirst(10);
-        dll.insertFirst(4);
-        dll.insertFirst(12);
+        //dll.insertFirst(10);
+        //dll.insertFirst(4);
+        //dll.insertFirst(12);
+
+        dll.insertLast(10);
+        dll.insertLast(4);
+        dll.insertLast(13);
 
         dll.displayForward();
         dll.displayBackward();
@@ -53,6 +57,18 @@ public class DoublyLinkedList {
             newNode.next=head;
             head=newNode;
             length++;
+    }
+    //insert node at end of a dll
+    public void insertLast(int value){
+        ListNode newNode=new ListNode(value);
+        if (isEmpty())
+            head=newNode;
+        else {
+            tail.next=newNode;
+            newNode.previous=tail;
+        }
+        tail=newNode;
+        length++;
     }
 
     public void displayForward(){
