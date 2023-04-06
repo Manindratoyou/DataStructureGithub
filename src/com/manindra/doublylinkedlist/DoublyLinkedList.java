@@ -2,6 +2,17 @@ package com.manindra.doublylinkedlist;
 
 public class DoublyLinkedList {
 
+    public static void main(String[] args) {
+
+        DoublyLinkedList dll=new DoublyLinkedList();
+        dll.insertFirst(10);
+        dll.insertFirst(4);
+        dll.insertFirst(12);
+
+        dll.displayForward();
+        dll.displayBackward();
+    }
+
     private ListNode head;
     private ListNode tail;
     private int length;
@@ -31,12 +42,25 @@ public class DoublyLinkedList {
     //up ------------impl of doublylinkedlist------------------
     //=========================================================
 
+    //insert the node at the beginning of dll
+    public void insertFirst(int value){
+        ListNode newNode=new ListNode(value);
+        if (isEmpty())
+            tail=newNode;
+            else {
+            head.previous = newNode;
+        }
+            newNode.next=head;
+            head=newNode;
+            length++;
+    }
+
     public void displayForward(){
         if (head==null)
             return;
         ListNode temp=head;
         while (temp!=null){
-            System.out.println(temp.data+ "-->");
+            System.out.print(temp.data+ "-->");
             temp=temp.next;
         }
         System.out.println("null");
@@ -46,7 +70,7 @@ public class DoublyLinkedList {
             return;
         ListNode temp = tail;
         while (temp != null) {
-            System.out.println(temp.data + "-->");
+            System.out.print(temp.data + "-->");
             temp = temp.previous;
         }
         System.out.println("null");
