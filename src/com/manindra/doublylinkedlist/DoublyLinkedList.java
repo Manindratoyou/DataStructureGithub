@@ -1,5 +1,7 @@
 package com.manindra.doublylinkedlist;
 
+import java.util.NoSuchElementException;
+
 public class DoublyLinkedList {
 
     public static void main(String[] args) {
@@ -14,6 +16,7 @@ public class DoublyLinkedList {
         dll.insertLast(13);
 
         dll.displayForward();
+        dll.deleteFirst();
         dll.displayBackward();
     }
 
@@ -43,7 +46,7 @@ public class DoublyLinkedList {
     public int length(){
         return length;
     }
-    //up ------------impl of doublylinkedlist------------------
+    //up ------------impl of doubly linked list------------------
     //=========================================================
 
     //insert the node at the beginning of dll
@@ -69,6 +72,22 @@ public class DoublyLinkedList {
         }
         tail=newNode;
         length++;
+    }
+    //delete first node in doubly linked list
+    public ListNode deleteFirst(){
+        if (isEmpty())
+            throw new NoSuchElementException();
+        ListNode temp=head;
+        if (head==tail)
+            tail=null;
+        else
+        {
+            head.next.previous=null;
+        }
+        head=head.next;
+        temp.next=null;
+        length--;
+        return temp;
     }
 
     public void displayForward(){
