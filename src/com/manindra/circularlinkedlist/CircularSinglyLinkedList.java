@@ -103,7 +103,7 @@ public class CircularSinglyLinkedList {
     //remove first node from csll
     public ListNode removeFirst(){
         if (isEmpty())
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("Circular Singly Linked List Is Empty");
         ListNode temp=last.next;
         if (last.next==last)
             last=null;
