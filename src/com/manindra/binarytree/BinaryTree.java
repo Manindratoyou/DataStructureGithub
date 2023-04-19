@@ -1,12 +1,15 @@
 package com.manindra.binarytree;
 
+import java.util.Stack;
+
 public class BinaryTree {
 
     public static void main(String[] args) {
 
         BinaryTree binaryTree=new BinaryTree();
         binaryTree.createBinaryTree();
-        binaryTree.preOrder(binaryTree.root);
+        //binaryTree.preOrderRecursive(binaryTree.root);
+        binaryTree.preOrderIterative(binaryTree.root);
 
     }
 
@@ -40,11 +43,26 @@ public class BinaryTree {
 
     }
     //recursive preorder traversal
-    public void preOrder(TreeNode root){
+    public void preOrderRecursive(TreeNode root){
         if (root==null)
             return;
         System.out.print(root.data+ " ");
-        preOrder(root.left);
-        preOrder(root.right);
+        preOrderRecursive(root.left);
+        preOrderRecursive(root.right);
+    }
+    //iterative preorder traversal
+    public void preOrderIterative(TreeNode root){
+        if (root==null)
+            return;
+        Stack<TreeNode> stack=new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode temp=stack.pop();
+            System.out.print(temp.data+ " ");
+            if (temp.right!=null)
+                stack.push(temp.right);
+            if (temp.left!=null)
+                stack.push(temp.left);
+        }
     }
 }
