@@ -11,7 +11,9 @@ public class BinaryTree {
         //binaryTree.preOrderRecursive(binaryTree.root);
         //binaryTree.preOrderIterative(binaryTree.root);
         //binaryTree.inOrderRecursive(binaryTree.root);
-        binaryTree.inOrderIterative(binaryTree.root);
+        //binaryTree.inOrderIterative(binaryTree.root);
+        //binaryTree.postOrderRecursive(binaryTree.root);
+        binaryTree.postOrderIterative(binaryTree.root);
 
     }
 
@@ -94,5 +96,37 @@ public class BinaryTree {
           }
         }
     }
+    //Recursive Postorder traversal of a Binary Tree
+    public void postOrderRecursive(TreeNode root){
+        if (root==null)
+            return;
+        inOrderRecursive(root.left);
+        inOrderRecursive(root.right);
+        System.out.print(root.data+ " ");
+    }
+    //Iterative Postorder traversal of a Binary Tree
+    public void postOrderIterative(TreeNode root){
 
+        TreeNode current=root;
+        Stack<TreeNode> stack=new Stack<>();
+        while (current!=null || !stack.isEmpty()){
+            if (current!=null){
+                stack.push(current);
+                current=current.left;
+            }
+            else {
+                TreeNode temp=stack.peek().right;
+                if (temp==null){
+                    temp=stack.pop();
+                    System.out.print(temp.data + " ");
+                    while (!stack.isEmpty() && temp==stack.peek().right){
+                        temp=stack.pop();
+                        System.out.print(temp.data + " ");
+                    }
+                }else {
+                   current=temp;
+                }
+            }
+        }
+    }
 }
