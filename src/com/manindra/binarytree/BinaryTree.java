@@ -10,7 +10,8 @@ public class BinaryTree {
         binaryTree.createBinaryTree();
         //binaryTree.preOrderRecursive(binaryTree.root);
         //binaryTree.preOrderIterative(binaryTree.root);
-        binaryTree.inOrderRecursive(binaryTree.root);
+        //binaryTree.inOrderRecursive(binaryTree.root);
+        binaryTree.inOrderIterative(binaryTree.root);
 
     }
 
@@ -74,6 +75,24 @@ public class BinaryTree {
         inOrderRecursive(root.left);
         System.out.print(root.data+ " ");
         inOrderRecursive(root.right);
+    }
+    //iterative inorder traversal
+    public void inOrderIterative(TreeNode root){
+        if (root==null)
+            return;
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode temp=root;
+        while (!stack.isEmpty() || temp!=null){
+          if (temp!=null){
+              stack.push(temp);
+              temp=temp.left;
+          }
+          else {
+              temp=stack.pop();
+              System.out.print(temp.data +" ");
+              temp=temp.right;
+          }
+        }
     }
 
 }
