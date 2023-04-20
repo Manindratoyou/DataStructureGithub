@@ -19,6 +19,7 @@ public class AlternatingCharactorHcRank {
             else
                 stack.push(s.charAt(i));
         }
+        System.out.println(stack);
         return deletions;
 
     }
