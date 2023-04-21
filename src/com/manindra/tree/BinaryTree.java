@@ -1,4 +1,4 @@
-package com.manindra.binarytree;
+package com.manindra.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
