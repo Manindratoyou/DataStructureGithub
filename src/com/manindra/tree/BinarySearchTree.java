@@ -9,6 +9,12 @@ public class BinarySearchTree {
         bst.insert(7);
         bst.insert(1);
         bst.inOrderPrint(bst.root);
+        System.out.println();
+        if(null != bst.search(bst.root, 7)) {
+            System.out.println("Key Found");
+        }
+        else
+            System.out.println("Key Not found");
     }
 
     private TreeNode root;
@@ -36,6 +42,15 @@ public class BinarySearchTree {
         else
             root.right=insert(root.right,value);
         return root;
+    }
+    //Search a key
+    public TreeNode search(TreeNode root,int key){
+        if (root==null || root.data==key)
+            return root;
+        if (key<root.data)
+            return search(root.left,key);
+        else
+            return search(root.right,key);
     }
 
     //print
