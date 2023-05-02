@@ -10,10 +10,10 @@ public class InsertionSort {
     }
 
     public static void insertionSort(int[] n){
-        for (int i=0;i<n.length;i++){
+        for (int i=1;i<n.length;i++){
             int temp=n[i];
             int j=i-1;
-            while (j>0 && n[j]>temp){
+            while (j>=0 && n[j]>temp){
                 n[j+1]=n[j];
                 j=j-1;
             }
