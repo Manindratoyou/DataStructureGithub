@@ -10,10 +10,11 @@ public class ThirdHighest {
         int thirdHighest=arr[0];
 
         for (int i=1;i< arr.length;i++){
-            if (arr[i]>highest)
-                thirdHighest=secondHighest;
-            secondHighest=highest;
-            highest=arr[i];
+            if (arr[i]>highest) {
+                thirdHighest = secondHighest;
+                secondHighest = highest;
+                highest = arr[i];
+            }
         }
         System.out.println("first "+highest);
         System.out.println("second "+secondHighest);
