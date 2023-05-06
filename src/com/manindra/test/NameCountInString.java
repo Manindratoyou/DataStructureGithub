@@ -8,7 +8,7 @@ public class NameCountInString {
 
     public static int  nameCount(String s){
 
-        String name="Manindra";
+        String name="manindra";
         int index=0;
         int count=0;
 
