@@ -7,7 +7,7 @@ public class Prime {
         System.out.println(isPrimeSolutionOne(7));
         System.out.println(isPrimeSolutionTwo(127));
         System.out.println(isPrimeSolutionThree(1031));
-        //printPrimes(10);
+        printPrimes(30);
     }
 
     //solution one (Q7 Notes)
@@ -33,7 +33,7 @@ public class Prime {
     static boolean isPrimeSolutionTwo(int n){ //O(sqrt(n))-time complexity
         if (n==1)
             return false;
-        for (int i=2;i*i<n;i++){ //for (int i=2;i<Math.sqrt(n);i++){
+        for (int i=2;i*i<=n;i++){ //for (int i=2;i<Math.sqrt(n);i++){
             if (n%i==0)
                 return false;
         }
@@ -59,7 +59,7 @@ public class Prime {
     //print prime number from 1 to n(q10)
     static void printPrimes(int n){
         for (int i=2;i<n;i++){
-            if (isPrimeSolutionOne(i))
+            if (isPrimeSolutionTwo(i))
                 System.out.print(i +" ");
         }
     }
