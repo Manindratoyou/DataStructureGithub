@@ -9,6 +9,8 @@ public class SieveOfEratosthenes {
         printPrimesSolOne(25);
         System.out.println();
         printPrimesSolTwo(25);
+        System.out.println();
+        printPrimesSolThree(25);
     }
 
     static void printPrimesSolOne(int n){ //time complexity o(n *Sqrt(n))
@@ -30,6 +32,19 @@ public class SieveOfEratosthenes {
         for (int i=2;i<=n;i++){
             if (isPrime[i])
                 System.out.print(i+ " ");
+        }
+    }
+    static void printPrimesSolThree(int n){
+        boolean [] isPrime=new boolean[n+1];
+        Arrays.fill(isPrime,true);
+
+        for (int i=2;i<=n;i++){
+            if (isPrime[i])
+                System.out.print(i+ " ");
+
+            for (int j=i*i;j<=n;j=j+i){
+                isPrime[j]=false;
+            }
         }
     }
 
