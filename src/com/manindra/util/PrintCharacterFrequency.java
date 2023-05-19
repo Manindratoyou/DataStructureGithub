@@ -44,4 +44,26 @@ public class PrintCharacterFrequency {
         return frequencyMap;
     }
 
+    /*
+    public static void main(String[] args) {
+        String test="I am a software developer";
+        int[] feq = characterCount(test);
+        int temp=0;
+        for (int i : feq) {
+                String s1 = (char) temp++ + "   " + i;
+                System.out.println(s1);
+
+        }
+    }
+
+    static int[] characterCount(String input){
+        int [] result=new int[256];
+        for (int i=0;i<input.length();i++){
+            char currentCharacter=input.charAt(i);
+            result[currentCharacter]++;
+        }
+        return result;
+    }
+     */
+
 }
