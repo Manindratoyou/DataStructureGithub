@@ -22,7 +22,6 @@ public class MaximumSumCircularSubArray {
         return result;
     }
     static int maxCircularSumArraySolTwo(int [] arr,int n){
-
         int max_normal=normalMaxSum(arr,n);
         if (max_normal<0)
             return max_normal;
