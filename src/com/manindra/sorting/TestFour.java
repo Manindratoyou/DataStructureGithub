@@ -13,6 +13,7 @@ class MyCmp implements Comparator<Integer>{
         return o1%2-o2%2;
     }
 }
+
 public class TestFour {
 
     public static void main(String[] args) {
