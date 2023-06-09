@@ -58,6 +58,7 @@ public class ArrayFrequencies {
         Map<Integer,Integer> hm=new HashMap<>();
 
         for (int i=0;i<n;i++){
+            //hm.put(arr[i],hm.get(arr[i])==null ? 1: hm.get(arr[i])+1 );
             if (hm.containsKey(arr[i]))
                 hm.put(arr[i],hm.get(arr[i])+1);
             else
