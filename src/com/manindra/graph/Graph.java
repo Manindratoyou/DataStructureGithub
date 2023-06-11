@@ -2,6 +2,7 @@ package com.manindra.graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Graph {
 
@@ -53,9 +54,14 @@ public class Graph {
         g.addEdge(2,4);
         System.out.println(g);
         g.BreadthFirstSearch(0);
+        System.out.println();
+        System.out.println("========");
+        g.DepthFirstSearch(0);
+        System.out.println();
+        g.DepthFirstSearchRecursive();
     }
 
-    public void BreadthFirstSearch(int s){
+    public void BreadthFirstSearch(int s){ //iterative
         boolean [] visited=new boolean[V];
         Queue<Integer> queue=new LinkedList<>();
         visited[s]=true;
@@ -69,6 +75,37 @@ public class Graph {
                     queue.offer(v);
                 }
             }
+        }
+    }
+    public void DepthFirstSearch(int s){ //iterative
+        boolean [] visited=new boolean[V];
+        Stack<Integer> stack=new Stack<>();
+        stack.push(s);
+        while (!stack.isEmpty()){
+            int u=stack.pop();
+            if (!visited[u]){
+                visited[u]=true;
+                System.out.print(u+" ");
+                for (int v :adj[u]){
+                    if (!visited[v])
+                        stack.push(v);
+                }
+            }
+        }
+    }
+    public void DepthFirstSearchRecursive(){ //recursive //check this method
+        boolean [] visited=new boolean[V];
+        for (int v=0;v<V;v++){
+            if (!visited[v])
+                dfs(v,visited);
+        }
+    }
+    public void dfs(int v ,boolean[] visited){
+        visited[v]=true;
+        System.out.print(v+ " ");
+        for (int w :adj[v]){
+            if (!visited[w])
+                dfs(w,visited);
         }
     }
 }
