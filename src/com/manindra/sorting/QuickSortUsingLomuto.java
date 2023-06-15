@@ -11,7 +11,7 @@ public class QuickSortUsingLomuto {
         System.out.println(Arrays.toString(arr));
     }
 
-    static void quickSortUsingLomuto(int [] arr ,int low ,int high){
+    static void quickSortUsingLomuto(int [] arr ,int low ,int high){// tc 0(nlogn) as Q(logn)
         if (low<high){
             int partition=lomutoPartition(arr ,low ,high);
             quickSortUsingLomuto(arr, low, partition-1);
