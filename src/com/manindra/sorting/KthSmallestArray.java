@@ -41,7 +41,9 @@ public class KthSmallestArray {
         for (int i=0;i<arr.length-1;i++){
             integerSet.add(arr[i]);
         }
-        Iterator<Integer> itr = integerSet.iterator();
+        return integerSet.stream().skip(k-1).findFirst()
+                .orElseThrow(IndexOutOfBoundsException::new);
+        /*Iterator<Integer> itr = integerSet.iterator();
         int value = 0;
         for(int i = 0; itr.hasNext(); i++) {
             value = itr.next();
@@ -49,7 +51,7 @@ public class KthSmallestArray {
                 break;
             }
         }
-        return value;
+        return value;*/
     }
 
     static int lomutoPartition(int [] arr,int low,int high){
@@ -72,4 +74,4 @@ public class KthSmallestArray {
         return i+1;// return pivot element
     }
 
-}
+}//check for more solution from internet
