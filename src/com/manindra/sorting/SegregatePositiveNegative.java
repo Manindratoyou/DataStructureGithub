@@ -25,7 +25,7 @@ public class SegregatePositiveNegative {
         for (int j=0;j< arr.length;j++)
             arr[j]=temp[j];
     }
-    static void segregatePositiveNegativesolTwo(int [] arr){
+    static void segregatePositiveNegativesolTwo(int [] arr){ //hoare partition
        int i=-1,j= arr.length;
        while (true){
            do {
