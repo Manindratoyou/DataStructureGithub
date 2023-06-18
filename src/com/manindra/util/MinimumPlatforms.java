@@ -9,7 +9,7 @@ public class MinimumPlatforms {
         int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
 
         //int minPlatforms = findMinPlatforms(arr, dep);
-        int minPlatforms = meetingMaxGuest(arr, dep);
+        int minPlatforms = maximumPlateForm(arr, dep);
         System.out.println("Minimum number of platforms required: " + minPlatforms);
     }
     public static int findMinPlatforms(int[] arr, int[] dep) {
@@ -34,18 +34,19 @@ public class MinimumPlatforms {
 
         return maxPlatforms;
     }
-    static int meetingMaxGuest(int [] arival,int [] departure){
-        Arrays.sort(arival);
-        Arrays.sort(departure);
+    static int maximumPlateForm(int [] arivalArray,int [] departureArray){ //0(nlogn)
+        Arrays.sort(arivalArray);
+        Arrays.sort(departureArray);
 
-        int i=1,j=0,maxPlatforms=1,platformsNeeded=1;
-        while (i< arival.length && j< departure.length){
-            if (arival[i]<departure[j]){
+        int arivalPointer=1,departurePointer=0,maxPlatforms=1,platformsNeeded=1;
+
+        while (arivalPointer< arivalArray.length && departurePointer< departureArray.length){
+            if (arivalArray[arivalPointer]<departureArray[departurePointer]){
                 platformsNeeded++;
-                i++;
+                arivalPointer++;
             }else {
                 platformsNeeded--;
-                j++;
+                departurePointer++;
             }
             maxPlatforms=Math.max(platformsNeeded,maxPlatforms);
         }
