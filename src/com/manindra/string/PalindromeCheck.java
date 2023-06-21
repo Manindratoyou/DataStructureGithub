@@ -1,6 +1,10 @@
 package com.manindra.string;
 
-public class PalindromeCheck {
+/*
+A string is said to be a palindrome if
+it is the same if we start reading it from left to right or right to left
+ */
+public class PalindromeCheck { //String Palindrome
 
     public static void main(String[] args) {
         System.out.println(isPalSolutionOne("ABBA"));

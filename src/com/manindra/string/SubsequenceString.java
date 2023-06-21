@@ -1,5 +1,8 @@
 package com.manindra.string;
 
+/*
+All subsequence of ABC are : "", "A", "B", "C", "AB", "AC", "BC", "ABC"
+ */
 public class SubsequenceString {
 
     public static void main(String[] args) {
@@ -7,7 +10,7 @@ public class SubsequenceString {
         System.out.println(isSubSeqRecursive("ABCD","AD",4,2));
     }
 
-    static boolean isSubSeqIterative(String s1,String s2){
+    static boolean isSubSeqIterative(String s1,String s2){ //tc 0(m+n) as 0(1)
         int n=s1.length();
         int m=s2.length();
         /*if (n<m){
@@ -20,7 +23,7 @@ public class SubsequenceString {
         }
         return (j==m);
     }
-    static boolean isSubSeqRecursive(String s1,String s2,int n,int m){
+    static boolean isSubSeqRecursive(String s1,String s2,int n,int m){ //tc & as-0(m+n)
 
         if (m==0)
             return true;
