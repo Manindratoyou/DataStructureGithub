@@ -6,11 +6,12 @@ public class ConstructLPSArray {
     public static void main(String[] args) {
         String txt="abacabad";
         int [] lps=new int[txt.length()];
-        fillLpsSolOne(txt,lps);
+        //fillLpsSolOne(txt,lps);
+        fillLpsSolTwo(txt,lps);
         for (int i=0;i<txt.length();i++)
             System.out.print(lps[i]+" ");
     }
-    static void fillLpsSolOne(String str,int [] lps){
+    static void fillLpsSolOne(String str,int [] lps){//tc 0(n3)
         for (int i=0;i<str.length();i++)
             lps[i]=longProperPrefixSuffix(str,i+1);
     }
@@ -25,6 +26,26 @@ public class ConstructLPSArray {
                 return length;
         }
         return 0;
+    }
+
+    static void fillLpsSolTwo(String str,int [] lps){ //tc o(n)
+        int n=str.length(),length=0;
+        lps[0]=0;
+        int i=1;
+        while (i<n){
+            if (str.charAt(i)==str.charAt(length)){
+                length++;
+                lps[i]=length;
+                i++;
+            }else {
+                if (length==0){
+                    lps[i]=0;
+                    i++;
+                }else {
+                    length=lps[length-1];
+                }
+            }
+        }
     }
 
 }
