@@ -17,6 +17,10 @@ public class RepeatingElement {
         System.out.println(repeatingElementSolOneSuperNaive(arr));
         System.out.println(repeatingElementSolTwoNaive(arr));
         System.out.println(repeatingElementSolThreeEfficient(arr));
+        int [] arr3={1,3,2,4,6,5,7,3}; //removed zero
+        System.out.println(repeatingElementSolFour(arr3));
+        int [] arr4={0,2,1,3,5,4,6,2}; //original array
+        System.out.println(repeatingElementSolFive(arr4));
 
     }
 
@@ -43,5 +47,31 @@ public class RepeatingElement {
             visited[arr[i]]=true;
         }
         return -1;
+    }
+    static int repeatingElementSolFour(int [] arr){ //tc o(n) AS O(1)
+        int slow=arr[0],fast=arr[0];
+        do {
+            slow=arr[slow];
+            fast=arr[arr[fast]];
+        }while (slow!=fast);
+            slow=arr[0];
+            while (slow!=fast){
+                slow=arr[slow];
+                fast=arr[fast];
+            }
+            return slow;
+    }
+    static int repeatingElementSolFive(int [] arr){ //tc o(n) AS O(1)
+        int slow=arr[0]+1,fast=arr[0]+1;
+        do {
+            slow=arr[slow]+1;
+            fast=arr[arr[fast]+1]+1;
+        }while (slow!=fast);
+        slow=arr[0]+1;
+        while (slow!=fast){
+            slow=arr[slow]+1;
+            fast=arr[fast]+1;
+        }
+        return slow-1;
     }
 }
