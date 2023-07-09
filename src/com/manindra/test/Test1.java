@@ -39,7 +39,6 @@ public class Test1 {
                     return new Person(firstName, surname);
                 })
                 .collect(Collectors.toList());
-
         // Printing the list of Person objects
         persons.forEach(person -> System.out.println(person.getFirstName() + " " + person.getSurname()));
     }
