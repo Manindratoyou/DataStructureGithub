@@ -4,6 +4,7 @@ public class PowerSetUsingBitwise {
     public static void main(String[] args) {
         String s="abc";int n=3; //2^3=8
         printPowerSet(s);
+
     }
 
     static void printPowerSet(String s){
