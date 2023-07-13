@@ -1,3 +1,5 @@
+package com.manindra.hashing;
+
 class HashNode {
     String key;
     int value;
