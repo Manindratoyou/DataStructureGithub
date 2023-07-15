@@ -38,7 +38,7 @@ public class HashChaining {
         hash.insert(56);
         hash.insert(72);
         System.out.println(hash.search(70));
-        hash.delete(72);
+        //hash.delete(72); // delete not working properly instead of second index deleting first index
         System.out.println(hash.search(15));
     }
 }
