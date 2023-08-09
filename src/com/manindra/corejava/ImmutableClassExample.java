@@ -36,7 +36,7 @@ public class ImmutableClassExample {
         System.out.println(s.getMetaData());
 
         // Uncommenting below line causes error
-        // s.regNo = 102;
+        // s.regNumber= 102;
 
         map.put("3", "third");
         // Remains unchanged due to deep copy in constructor
