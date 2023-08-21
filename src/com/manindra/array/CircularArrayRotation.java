@@ -11,7 +11,8 @@ public class CircularArrayRotation {
         System.out.println("Original Array");
         System.out.println(Arrays.toString(arr));
         System.out.println("After "+rotations+" Rotations");
-        rotateArrayCircularly(arr,rotations);
+        //rotateArrayCircularly(arr,rotations);
+        rotateArrayCircularlySolutionTwo(arr,rotations);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -29,5 +30,24 @@ public class CircularArrayRotation {
 
         //copy elements back to the original array
         System.arraycopy(temp,0,arr,0,n);
+    }
+
+    public static void rotateArrayCircularlySolutionTwo(int [] arr,int rotations){
+        int n=arr.length;
+        rotations=rotations%n;
+        reverseArray(arr,0,n-1);
+        reverseArray(arr,0,rotations-1);
+        reverseArray(arr,rotations,n-1);
+
+
+    }
+    public static void reverseArray(int [] arr,int start,int end){
+        while (start<end){
+            int temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
+        }
     }
 }
