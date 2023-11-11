@@ -8,8 +8,8 @@ public class Solution169 { //Majority Element
     public static void main(String[] args) {
 
         int [] arr={2,2,1,1,1,2,2};
-        //System.out.println(majorityElement(arr));
-        majorityElementSolTwo(arr);
+        System.out.println(majorityElement(arr));
+        System.out.println(majorityElementSolTwo(arr));
     }
 
     static int majorityElement(int [] arr){ //TC : 0(n) AS:0(1)
