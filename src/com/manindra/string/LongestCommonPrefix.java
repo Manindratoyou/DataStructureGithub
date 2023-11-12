@@ -38,5 +38,18 @@ public class LongestCommonPrefix {
         String[] input = {"geeksforgeeks", "geeks", "geek", "geezer"};
         System.out.println( "The longest Common Prefix is : " +
                 gfg.longestCommonPrefix(input));
+
+        System.out.println(LongestCommonPrefix(input));
+    }
+
+    static String LongestCommonPrefix(String [] arr){
+
+        String prefix=arr[0];
+        for (int i=0;i< arr.length;i++){
+            while (arr[i].indexOf(prefix)!=0){
+                prefix=prefix.substring(0,prefix.length()-1);
+            }
+        }
+        return prefix;
     }
 }
