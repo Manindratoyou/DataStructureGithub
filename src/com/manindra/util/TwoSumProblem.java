@@ -1,8 +1,6 @@
 package com.manindra.util;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TwoSumProblem {
 
@@ -45,6 +43,25 @@ public class TwoSumProblem {
             }
         }
         throw new IllegalArgumentException("two numbers not found");
+    }
+
+    static int[] targetSumSolutionThree(int[] arr, int target) {
+        Set<Integer> seen = new HashSet<>();
+        int[] temp = new int[2];
+
+        for (int num : arr) {
+            int complement = target - num;
+
+            if (seen.contains(complement)) {
+                temp[0] = complement;
+                temp[1] = num;
+                break; // Break after finding the first pair
+            }
+
+            seen.add(num);
+        }
+
+        return temp;
     }
 
     static void printArray(int[] arr){
