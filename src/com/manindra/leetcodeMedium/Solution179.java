@@ -44,4 +44,20 @@ public class Solution179 { //largest number
 
         return result.toString();
     }
+
+    static String largestNumberSolutionTwo(int [] nums){
+        //converts integers to strings for easy comparison
+        String [] arr=Arrays.stream(nums).mapToObj(String::valueOf).toArray(String[] ::new);
+
+        //sort the string using a lambda expression for comparator
+        Arrays.sort(arr,(a,b)->(b+a).compareTo(a+b));
+
+        //handle the case where the array consists of only zero
+        if(arr[0].equals("0"))
+            return "0";
+
+        //concatenate the sorted strings to form the largest number
+
+        return String.join("",arr);
+    }
 }
