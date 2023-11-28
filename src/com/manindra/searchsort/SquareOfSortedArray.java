@@ -7,7 +7,11 @@ public class SquareOfSortedArray {
     public static void main(String[] args) {
 
         int [] arr={-4,-1,0,3,10};
+        int [] nums={-7,-4,1,0,3,10};
         Arrays.stream(sortedSquare(arr)).sequential().forEach(System.out::println);
+        System.out.println("=========");
+        int [] result=sortedSquaresSolutionTwo(nums);
+        System.out.println(Arrays.toString(result));
     }
 
     public static int[] sortedSquare(int [] arr){
@@ -23,6 +27,35 @@ public class SquareOfSortedArray {
                 j--;
             }
         }
+        return result;
+    }
+
+    static int[] sortedSquaresSolutionTwo(int[] nums) {
+
+        int[] result = new int[nums.length];
+
+        // Square all elements
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = nums[i] * nums[i];
+        }
+
+        int head = 0;
+        int tail = nums.length - 1;
+
+        // Set them at right place in the result array
+        for (int pos = nums.length - 1; pos >= 0; pos--) {
+
+            if (nums[head] > nums[tail]) {
+                result[pos] = nums[head];
+                // Increment head pointer
+                head++;
+            } else {
+                result[pos] = nums[tail];
+                // Increment tail pointer
+                tail--;
+            }
+        }
+
         return result;
     }
 }
