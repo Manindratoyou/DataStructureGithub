@@ -9,6 +9,7 @@ public class Solution14 {
         String [] strings={"flower","flow","flight"};
         String [] strings1=new String[]{"flower","flow","flight"};
         System.out.println(longestCommonPrefix(strings));
+        System.out.println(longestCommonPrefixSolutionTwo(strings1));
     }
 
     public static String longestCommonPrefix(String[] strs){
@@ -31,5 +32,25 @@ public class Solution14 {
 
         String pre=strs[0].substring(0,i);
         return pre;
+    }
+
+    public static String longestCommonPrefixSolutionTwo(String[] strs){
+
+
+        StringBuilder result=new StringBuilder();
+
+        //sort the array
+        Arrays.sort(strs);
+
+        //get the first and last string
+        char [] first=strs[0].toCharArray();
+        char [] last=strs[strs.length-1].toCharArray();
+
+        for (int i=0;i< first.length;i++){
+            if (first[i] !=last[i])
+                break;
+            result.append(first[i]);
+        }
+        return result.toString();
     }
 }
