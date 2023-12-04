@@ -29,19 +29,20 @@ public class Solution283 {
     }
 
     public void moveZeroes(int[] nums) {
-        int nonZeroIndex = 0; // Index to keep track of the next position for non-zero elements
 
-        // Traverse the array
+        // Start with the first position
+        int insertPosition = 0;
+
         for (int i = 0; i < nums.length; i++) {
+            // FIll all non-zero numbers
             if (nums[i] != 0) {
-                // If the current element is non-zero, move it to the nonZeroIndex position
-                nums[nonZeroIndex] = nums[i];
-                // If nonZeroIndex is less than the current index, set the current index to zero
-                if (nonZeroIndex != i) {
-                    nums[i] = 0;
-                }
-                nonZeroIndex++; // Increment the nonZeroIndex
+                nums[insertPosition] = nums[i];
+                insertPosition++;
             }
+        }
+
+        while (insertPosition < nums.length) {
+            nums[insertPosition++] = 0;
         }
     }
 
