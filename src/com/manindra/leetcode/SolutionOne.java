@@ -10,7 +10,9 @@ public class SolutionOne {
         int [] arr={2,11,5,10,7,8};
         int targetSum=9;
         int [] result=solutionOne(arr,targetSum);
+        int [] result2=solutionTwo(arr,targetSum);
         System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result2));
     }
 
     public static int [] solutionOne(int [] numbers,int targetSum){
@@ -26,5 +28,26 @@ public class SolutionOne {
             }
         }
         throw new IllegalArgumentException("Numbers Not found");
+    }
+
+    static int[] solutionTwo(int[] nums, int target) {
+
+        // Create a HashMap
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            // Get the complement using the target value
+            int complement = target - nums[i];
+
+            // Search the hashmap for complement, if found, we got our pair
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+
+            // Put the element in hashmap for subsequent searches.
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
     }
 }
