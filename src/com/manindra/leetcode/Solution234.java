@@ -1,5 +1,8 @@
 package com.manindra.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution234 {
 
     public static void main(String[] args) {
@@ -13,14 +16,16 @@ public class Solution234 {
         Solution234 solution = new Solution234();
 
         // Check if the linked list is a palindrome
-        boolean isPalindrome = solution.isPalindrome(head);
+       // boolean isPalindrome = solution.isPalindrome(head);
 
         // Print the result
-        if (isPalindrome) {
+        /*if (isPalindrome) {
             System.out.println("The linked list is a palindrome.");
         } else {
             System.out.println("The linked list is not a palindrome.");
-        }
+        }*/
+
+        System.out.println(isPalindromeSolutionTwo(head));
     }
 
     public boolean isPalindrome(ListNode head) {
@@ -56,6 +61,25 @@ public class Solution234 {
             }
             firstHalf = firstHalf.next;
             secondHalf = secondHalf.next;
+        }
+
+        return true;
+    }
+
+    //solution two
+    static boolean isPalindromeSolutionTwo(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        List<Integer> list=new ArrayList<>();
+        while (head!=null){
+            list.add(head.val);
+            head=head.next;
+        }
+        int start=0,end=list.size()-1;
+        while (start<end){
+            if (list.get(start)!=list.get(end)) return false;
+            start++;end--;
         }
 
         return true;
