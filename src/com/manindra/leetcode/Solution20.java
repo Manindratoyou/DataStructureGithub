@@ -6,7 +6,31 @@ import java.util.Stack;
 public class Solution20 {
 
     public static void main(String[] args) {
+        String bracket= "{()[{()()}]}";
+        System.out.println(validateBracket(bracket));//true
+        System.out.println(validateBracket("]")); // Output: false
+    }
 
+    static boolean validateBracket(String bracket) {
+        Stack<Character> characterStack = new Stack<>();
+        for (int i = 0; i < bracket.length(); i++) {
+            char currentCharacter = bracket.charAt(i);
+            if (currentCharacter == '(' || currentCharacter == '{' || currentCharacter == '[') {
+                characterStack.push(currentCharacter);
+            } else {
+                // Check if the stack is not empty before peeking
+                if (!characterStack.isEmpty() &&
+                        ((currentCharacter == ')' && characterStack.peek() == '(') ||
+                                (currentCharacter == '}' && characterStack.peek() == '{') ||
+                                (currentCharacter == ']' && characterStack.peek() == '['))) {
+                    characterStack.pop();
+                } else {
+                    // If the stack is empty or the characters don't match, it's not balanced
+                    return false;
+                }
+            }
+        }
+        return characterStack.isEmpty();
     }
 
     public boolean isValid(String s){
