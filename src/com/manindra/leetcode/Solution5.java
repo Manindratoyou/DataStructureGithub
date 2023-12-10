@@ -7,7 +7,9 @@ public class Solution5 {
 
         Solution5 solution = new Solution5();
         //System.out.println(solution.longestPalindrome("babad"));
-        System.out.println(solution.longestPalindromeSolTwo("babad"));
+        //System.out.println(solution.longestPalindromeSolTwo("babad"));
+        System.out.println(solution.longestPalindromeSolutionThree("abrbadaadab"));
+        //System.out.println(solution.longestPalindromeSolutionThree("abrbadaadab").length());
     }
 
     public String longestPalindrome(String s) {
@@ -71,5 +73,50 @@ public class Solution5 {
             }
         }
         return s.substring(start, end + 1);
+    }
+
+    String longestPalindromeSolutionThree(String str) {
+
+        if (str.length() <= 1)
+            return str;
+
+        String LPS = "";
+
+        for (int i = 1; i < str.length(); i++) {
+
+            // Consider odd length
+            int low = i;
+            int high = i;
+            while(str.charAt(low) == str.charAt(high)) {
+                low--;
+                high++;
+
+                if (low == -1 || high == str.length())
+                    break;
+            }
+
+            String palindrome = str.substring(low+1, high);
+            if (palindrome.length() > LPS.length()) {
+                LPS = palindrome;
+            }
+
+            // Consider even length
+            low = i-1;
+            high = i;
+            while(str.charAt(low) == str.charAt(high)) {
+                low--;
+                high++;
+
+                if (low == -1 || high == str.length())
+                    break;
+            }
+
+            palindrome = str.substring(low+1, high);
+            if (palindrome.length() > LPS.length()) {
+                LPS = palindrome;
+            }
+        }
+
+        return LPS;
     }
 }
