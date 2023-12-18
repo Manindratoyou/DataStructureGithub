@@ -1,6 +1,8 @@
 package com.manindra.string;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Anagram {
 
@@ -9,6 +11,7 @@ public class Anagram {
     public static void main(String[] args) {
         System.out.println(areAnagramSolOne("listen","silent"));
         System.out.println(areAnagramSolTwo("listen","silent"));
+        System.out.println(areAnagramSolThree("listen","silent"));
     }
 
     static boolean areAnagramSolOne(String s1,String s2){
@@ -35,6 +38,26 @@ public class Anagram {
             if (count[i]!=0)
                 return false;
         }
+        return true;
+    }
+
+    static boolean areAnagramSolThree(String s1,String s2){
+        if (s1.length()!=s2.length())
+            return false;
+
+        Map<Character,Integer> countMap=new HashMap<>();
+
+        for (char c:s1.toCharArray()){
+            countMap.put(c, countMap.getOrDefault(c,0)+1);
+        }
+
+        for (char c:s2.toCharArray()){
+           if (!countMap.containsKey(c) || countMap.get(c)==0)
+               return false;
+
+           countMap.put(c, countMap.get(c)-1);
+        }
+
         return true;
 
     }

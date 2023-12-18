@@ -1,6 +1,7 @@
 package com.manindra.string;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public class LeftMostFirstNonRepChar {
 
@@ -8,6 +9,13 @@ public class LeftMostFirstNonRepChar {
         System.out.println(leftMostNPSolOne("geeksforgeeks"));
         System.out.println(leftMostNPSolTwo("geeksforgeeks"));
         System.out.println(leftMostNPSolThree("geeksforgeeks"));
+
+        String input = "leetcode";
+        Optional<Character> result = findLeftmostNonRepeatingCharacter(input);
+        result.ifPresentOrElse(
+                c -> System.out.println("Leftmost non-repeating character: " + c),
+                () -> System.out.println("No non-repeating character found.")
+        );
     }
     static int leftMostNPSolOne(String str){//naive solution o(n2) time complexity
         for (int i=0;i<str.length();i++){
@@ -51,5 +59,12 @@ public class LeftMostFirstNonRepChar {
                 res=Math.min(res,FI[i]);
         }
         return res==Integer.MAX_VALUE ? -1 :res;
+    }
+
+    static Optional<Character> findLeftmostNonRepeatingCharacter(String input) {
+        return input.chars()
+                .mapToObj(c -> (char) c)
+                .filter(c -> input.indexOf(c) == input.lastIndexOf(c))
+                .findFirst();
     }
 }

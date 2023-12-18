@@ -18,4 +18,32 @@ public class DeleteElement {
             arr[j]=arr[j+1];
         return arraySize-1;
     }
+    static int[] deleteElement(int[] arr, int key) {
+        int index = -1;
+
+        // Find the index of the key
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == key) {
+                index = i;
+                break;
+            }
+        }
+
+        // If the key is not found, return the original array
+        if (index == -1) {
+            return arr;
+        }
+
+        // Create a new array with size one less than the original array
+        int[] result = new int[arr.length - 1];
+
+        // Copy elements before the key
+        System.arraycopy(arr, 0, result, 0, index);
+
+        // Copy elements after the key
+        System.arraycopy(arr, index + 1, result, index, arr.length - index - 1);
+
+        return result;
+    }
+
 }
