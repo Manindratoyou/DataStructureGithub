@@ -61,10 +61,19 @@ public class LeftMostFirstNonRepChar {
         return res==Integer.MAX_VALUE ? -1 :res;
     }
 
+    //left most non repeating character
     static Optional<Character> findLeftmostNonRepeatingCharacter(String input) {
         return input.chars()
                 .mapToObj(c -> (char) c)
                 .filter(c -> input.indexOf(c) == input.lastIndexOf(c))
+                .findFirst();
+    }
+
+    //left most repeating character
+    static Optional<Character> findLeftmostRepeatingCharacter(String input) {
+        return input.chars()
+                .mapToObj(c -> (char) c)
+                .filter(c -> input.indexOf(c) != input.lastIndexOf(c))
                 .findFirst();
     }
 }

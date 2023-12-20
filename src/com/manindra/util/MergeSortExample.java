@@ -18,7 +18,7 @@ public class MergeSortExample {
     }
 
     static void mergeSort(int [] arr,int low,int high){
-        if (high>low){
+        if (high>low){ //if (low<high) {
           //find the middle point of the array
           int mid=low+(high-low)/2;
 
