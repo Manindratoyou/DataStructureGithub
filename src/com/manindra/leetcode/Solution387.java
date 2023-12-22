@@ -2,6 +2,7 @@ package com.manindra.leetcode;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class Solution387 { //FirstUniqueCharacter
 
@@ -20,6 +21,13 @@ public class Solution387 { //FirstUniqueCharacter
         System.out.println(firstUniqueCharSolTwo(input3));
         System.out.println(firstUniqueCharSolTwo(input4));
         System.out.println(firstUniqueCharSolTwo(input5));
+
+        String input = "leetcode";
+        Optional<Character> result = findLeftmostNonRepeatingCharacter(input);
+        result.ifPresentOrElse(
+                c -> System.out.println("Leftmost non-repeating character: " + c),
+                () -> System.out.println("No non-repeating character found.")
+        );
 
     }
 
@@ -62,5 +70,26 @@ public class Solution387 { //FirstUniqueCharacter
         // If no unique character is found, return -1
         return -1;
 
+    }
+
+    static Optional<Character> findLeftmostNonRepeatingCharacter(String input) {
+        return input.chars()
+                .mapToObj(c -> (char) c)
+                .filter(c -> input.indexOf(c) == input.lastIndexOf(c))
+                .findFirst();
+    }
+
+    //
+    static Optional<Character> findLeftmostNonRepeatingCharacterSol(String input) {
+        Map<Character, Long> charCountMap = input.chars()
+                .mapToObj(c -> (char) c)
+                .collect(LinkedHashMap::new,
+                        (map, c) -> map.merge(c, 1L, Long::sum),
+                        LinkedHashMap::putAll);
+
+        return charCountMap.entrySet().stream()
+                .filter(entry -> entry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst();
     }
 }

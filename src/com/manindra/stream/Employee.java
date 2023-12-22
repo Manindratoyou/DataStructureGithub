@@ -1,5 +1,7 @@
 package com.manindra.stream;
 
+import java.util.Objects;
+
 public class Employee {
 
     private int empId;
@@ -36,5 +38,19 @@ public class Employee {
                 ", empName='" + empName + '\'' +
                 ", empSal=" + empSal +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return empId == employee.empId && Double.compare(employee.empSal, empSal) == 0 &&
+                Objects.equals(empName, employee.empName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empId, empName, empSal);
     }
 }

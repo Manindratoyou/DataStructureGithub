@@ -1,5 +1,7 @@
 package com.manindra.leetcode;
 
+import java.util.stream.IntStream;
+
 /*
 Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
 Output: true
@@ -33,5 +35,10 @@ public class Solution1832 { //Check if the Sentence Is Pangram
             if (sentence.contains(String.valueOf(ch))) ch++;
             else return false;
         return true;
+    }
+
+    static boolean checkIfPangramStream(String sentence) {
+        return IntStream.rangeClosed('a', 'z')
+                .allMatch(ch -> sentence.contains(String.valueOf((char) ch)));
     }
 }
