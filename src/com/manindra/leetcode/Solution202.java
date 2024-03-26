@@ -1,6 +1,7 @@
 package com.manindra.leetcode;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Solution202 { //Happy Number
 
@@ -35,6 +36,12 @@ public class Solution202 { //Happy Number
         System.out.println(result3);
         System.out.println(result4);
         System.out.println(result5);
+        System.out.println("==============");
+        System.out.println(isHappySolutionTwo(19));
+        System.out.println(isHappySolutionTwo(4));
+        System.out.println(isHappySolutionTwo(7));
+        System.out.println(isHappySolutionTwo(100));
+        System.out.println(isHappySolutionTwo(123));
 
     }
 
@@ -56,15 +63,30 @@ public class Solution202 { //Happy Number
         return sum;
     }
 
-    public boolean isHappySolutionTwo(int n){
-        int slow=n;
-        int fast=n;
+    static boolean isHappySolutionTwo(int n){
 
-        do {
-            slow=getNext(slow);
-            fast=getNext(getNext(fast));
-        }while (slow !=fast);
+        Set<Integer> usedIntegers=new HashSet<>();
+        while (true){
 
-        return slow==1;
+            //find the sum of square
+            int sum=0;
+            while (n!=0){
+                sum+=Math.pow(n%10,2.0);
+                n=n/10;
+            }
+
+            //if sum is 1 return true
+            if (sum==1)
+                return true;
+
+            //else the new number is current sum
+            n=sum;
+
+            //check if we already encounter that number
+            if (usedIntegers.contains(n))
+                return false;
+
+            usedIntegers.add(n);
+        }
     }
 }
