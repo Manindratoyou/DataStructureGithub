@@ -1,6 +1,8 @@
 package com.manindra.leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 /*
@@ -15,12 +17,13 @@ public class Solution1859 { //Sorting the Sentence
         System.out.println(sortSentence(s));
         System.out.println(sortSentenceSolutionTwo(s));
         System.out.println(sortSentenceSolutionThree(s));
+        System.out.println(sortSentenceSolutionFour(s));
     }
 
 
     //Time Complexity: O(n log n) where n is the length of the input string.
     //Auxiliary Space: O(n)
-    static String sortSentence(String s) {
+    public static String sortSentence(String s) {
         String[] words = s.split(" ");
         Arrays.sort(words, (a, b) -> a.charAt(a.length() - 1) - b.charAt(b.length() - 1));
         return String.join(" ", Arrays.stream(words).map(word -> word.substring(0, word.length() - 1)).
@@ -29,7 +32,7 @@ public class Solution1859 { //Sorting the Sentence
 
     //Time Complexity: O(n log n) where n is the number of words in the input string.
     //Auxiliary Space: O(n)
-    static String sortSentenceSolutionTwo(String s) {
+    public static String sortSentenceSolutionTwo(String s) {
         String[] words = s.split(" ");
         TreeMap<Integer, String> wordMap = new TreeMap<>();
 
@@ -41,7 +44,7 @@ public class Solution1859 { //Sorting the Sentence
         return String.join(" ", wordMap.values());
     }
 
-    static String sortSentenceSolutionThree(String s) {
+    public static String sortSentenceSolutionThree(String s) {
         String[] words = s.split(" ");
         String[] sortedWords = new String[words.length];
 
@@ -51,6 +54,32 @@ public class Solution1859 { //Sorting the Sentence
         }
 
         return String.join(" ", sortedWords);
+    }
+
+    public static String sortSentenceSolutionFour(String s) {
+
+        // Map to store words in correct order
+        Map<Integer, String> indexWordMap = new HashMap<>();
+
+        // Split each word based on space
+        for (String word : s.split(" ")) {
+            int lastIndex = word.length() - 1;
+
+            // get the word and index separately
+            int index = word.charAt(lastIndex) - '0';
+            String actualWord = word.substring(0, lastIndex);
+
+            indexWordMap.put(index, actualWord);
+        }
+
+        // Build the actual string
+        StringBuilder actualString = new StringBuilder();
+        for (Map.Entry<Integer, String> indexWord : indexWordMap.entrySet()) {
+            actualString.append(indexWord.getValue());
+            actualString.append(" ");
+        }
+
+        return actualString.toString().trim();
     }
 
 }
