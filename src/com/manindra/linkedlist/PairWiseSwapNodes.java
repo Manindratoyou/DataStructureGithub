@@ -15,7 +15,8 @@ public class PairWiseSwapNodes {
         printLinkedList(head);
 
         // Performing pairwise swap
-        head = pairWiseSwap(head);
+        //head = pairWiseSwap(head);
+        head = pairWiseSwapSolutionTwo(head);
 
         System.out.println("Linked List after Pairwise Swapping:");
         printLinkedList(head);
@@ -34,6 +35,35 @@ public class PairWiseSwapNodes {
         }
         return head;
     }
+
+    static Node pairWiseSwapSolutionTwo(Node head) {
+        // Check if the list is empty or contains only one node
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // Initialize pointers for swapping
+        Node current = head.next.next;
+        Node previous = head;
+        head = head.next;
+        head.next = previous;
+
+        // Perform pairwise swapping for remaining nodes
+        while (current != null && current.next != null) {
+            // Swap nodes
+            previous.next = current.next;
+            previous = current;
+            Node next = current.next.next;
+            current.next.next = current;
+            current = next;
+        }
+
+        // Link the remaining node if the list contains an odd number of nodes
+        previous.next = current;
+
+        return head;
+    }
+
 
     static void printLinkedList(Node head) {
         Node temp = head;
