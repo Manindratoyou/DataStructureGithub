@@ -37,4 +37,34 @@ public class MissingNumber {
         return missingNumber;
 
     }
+
+    static int[] findMissingNumberArray(int [] arr,int [] brr){
+
+        TreeMap<Integer,Integer> integerFrequencyMap=new TreeMap<>();
+
+        //add element to original list
+        for (int i: brr){
+            int freq=integerFrequencyMap.getOrDefault(i,0);
+            freq++;
+            integerFrequencyMap.put(i,freq);
+        }
+
+        //remove element of new list
+        for (int i: arr){
+            int freq=integerFrequencyMap.get(i);
+            freq--;
+            if (freq==0)
+                integerFrequencyMap.remove(i);
+            else
+                integerFrequencyMap.put(i,freq);
+        }
+
+        //create the result array
+        int [] result=new int[integerFrequencyMap.size()];
+        int i=0;
+        for (Map.Entry<Integer,Integer> integerIntegerEntry : integerFrequencyMap.entrySet())
+            result[i++]=integerIntegerEntry.getKey();
+
+        return result;
+    }
 }
