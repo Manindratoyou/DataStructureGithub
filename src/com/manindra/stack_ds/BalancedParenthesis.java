@@ -8,6 +8,7 @@ public class BalancedParenthesis {
 
         String str="{}([()])";
         System.out.println(isBalanced(str));
+
     }
 
     static boolean isBalanced(String str){
