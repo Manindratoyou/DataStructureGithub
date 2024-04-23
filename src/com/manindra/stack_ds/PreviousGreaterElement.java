@@ -9,6 +9,8 @@ public class PreviousGreaterElement {
         int[] arr = {15, 10, 18, 12, 4, 6, 2, 8};
         //printPreviousGreaterElement(arr);
         printPreviousGreaterElementUsingStack(arr);
+        System.out.println();
+        printPreviousGreaterElementSolutionThree(arr);
     }
 
     static void printPreviousGreaterElement(int[] arr) {
@@ -42,5 +44,21 @@ public class PreviousGreaterElement {
             System.out.print(previousGreater + " ");
             stack.add(arr[i]);
         }
+    }
+
+    static void printPreviousGreaterElementSolutionThree(int[] arr) {
+
+        Stack<Integer> stack = new Stack<>();
+
+       for (int i=0;i< arr.length;i++){
+           //pop element from stack while stack is not empty and top of stack is smaller than the arr[i]
+           while (stack.isEmpty()==false && arr[i]>=stack.peek())
+               stack.pop();
+
+           //if stack=empty=no previous greater element is present else top of stack is previous greater
+           int result=stack.isEmpty() ? -1 : stack.peek();
+           System.out.print(result+" ");
+           stack.push(arr[i]);
+       }
     }
 }
