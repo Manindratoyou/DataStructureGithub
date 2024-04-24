@@ -1,6 +1,6 @@
 package com.manindra.leetcodeMedium;
 
-public class Solution198 {
+public class Solution198 { //House Robber
 
     public static void main(String[] args) {
 
