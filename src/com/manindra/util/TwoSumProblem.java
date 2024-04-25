@@ -70,4 +70,56 @@ public class TwoSumProblem {
         }
         System.out.println();
     }
+    /*
+    static int [] twoSumSorting(int [] arr,int target){
+        int [] copyArray= Arrays.copyOf(arr,arr.length);
+        Arrays.sort(copyArray);
+
+        int head=0;
+        int tail= copyArray.length-1;
+
+        int num1 = 0,num2=0;
+        while (head<tail){
+            int sum=copyArray[head]+copyArray[tail];
+            if (sum<target)
+                head++;
+            else if (sum>target) {
+                tail--;
+            }
+            else {
+                num1=copyArray[head];
+                num2=copyArray[tail];
+                break;
+            }
+        }
+        //create the result array with indices
+        int [] result=new int[2];
+        for (int i=0;i<arr.length;i++){
+            if (arr[i]==num1)
+                result[0]=i;
+            if (arr[i]==num2)
+                result[1]=i;
+        }
+        return result;
+    }
+    static int [] twoSumHashing(int [] arr,int target){
+
+        Map<Integer,Integer> map=new HashMap<>();
+
+        for (int i=0;i<arr.length;i++){
+
+            //get the complement using the target value
+            int complement=target-arr[i];
+
+            //search the hashmap for complement ,if found we got our pair
+            if(map.containsKey(complement))
+                return new int[]{map.get(complement),i};
+
+            //put the element for subsequent search
+            map.put(arr[i],i);
+
+        }
+        throw new IllegalArgumentException("NO Two Sum Solution");
+    }
+     */
 }

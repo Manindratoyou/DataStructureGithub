@@ -1,8 +1,24 @@
 package com.manindra.hackerrank;
 
-import java.util.Scanner;
-
 public class RepeatedString {
+
+    public static void main(String[] args) {
+        // Test cases
+        String s1 = "aba";
+        long n1 = 10;
+        long result1 = repeatedString(s1, n1);
+        System.out.println("Test Case 1: " + result1);
+
+        String s2 = "abcac";
+        long n2 = 10;
+        long result2 = repeatedString(s2, n2);
+        System.out.println("Test Case 2: " + result2);
+
+        String s3 = "a";
+        long n3 = 1000000000000L;
+        long result3 = repeatedString(s3, n3);
+        System.out.println("Test Case 3: " + result3);
+    }
 
     static long repeatedString(String s, long n) {
         long aCountInString = 0;
@@ -24,18 +40,5 @@ public class RepeatedString {
         return totalCount;
     }
 
-    /*
-    aba
-    10
-     */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        long n = scanner.nextLong();
-        scanner.close();
-
-        long result = repeatedString(s, n);
-        System.out.println(result);
-    }
 }
 
