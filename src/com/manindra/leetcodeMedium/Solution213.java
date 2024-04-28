@@ -1,6 +1,6 @@
 package com.manindra.leetcodeMedium;
 
-public class Solution213 {
+public class Solution213 { //House Robber 2
 
     public static void main(String[] args) {
         int [] nums={1,2,3,1};

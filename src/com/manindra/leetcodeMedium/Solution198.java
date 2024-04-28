@@ -6,6 +6,7 @@ public class Solution198 { //House Robber
 
         int [] nums={2,7,9,3,1};
         System.out.println(rob(nums));
+        System.out.println(rob2(nums));
     }
 
     static int rob(int [] nums){
@@ -28,5 +29,25 @@ public class Solution198 { //House Robber
         }
 
         return dp[nums.length-1];
+    }
+
+    static int rob2(int [] nums){
+        return robHelper(nums, 0); // Start the recursion from the first house
+    }
+
+    // Helper function for recursive approach
+    static int robHelper(int[] nums, int index) {
+        // Base case: If index is out of bounds, return 0
+        if (index >= nums.length)
+            return 0;
+
+        // Case 1: Rob current house and skip next house
+        int include = nums[index] + robHelper(nums, index + 2);
+
+        // Case 2: Skip current house and move to next house
+        int exclude = robHelper(nums, index + 1);
+
+        // Return the maximum loot for the current state
+        return Math.max(include, exclude);
     }
 }
