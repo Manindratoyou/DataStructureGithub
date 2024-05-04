@@ -1,7 +1,5 @@
 package com.manindra.leetcodeEasy;
 
-import java.util.LinkedList;
-import java.util.Queue;
 
 class MaximumDepthOfABinaryTree { //solution 104
 
