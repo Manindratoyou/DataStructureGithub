@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 public class CeilingOnLeftSideInAnArray { //check this
 
+
     public static void main(String[] args) {
         int[] arr = {2, 8, 30, 15, 25, 12};
        // printCeiling(arr, arr.length);
