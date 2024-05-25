@@ -1,4 +1,4 @@
-package com.manindra.tree_ds;
+package com.manindra.tree_ds_and_bst;
 
 import java.util.*;
 

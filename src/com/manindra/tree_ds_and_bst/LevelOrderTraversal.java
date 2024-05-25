@@ -1,9 +1,9 @@
-package com.manindra.tree_ds;
+package com.manindra.tree_ds_and_bst;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class MaximumWidthOfBinaryTree {
+public class LevelOrderTraversal { //or breadth first search
 
     public static void main(String[] args) {
 
@@ -22,30 +22,23 @@ public class MaximumWidthOfBinaryTree {
         root.left.right = new Node(50);
         root.right = new Node(30);
         root.right.right = new Node(70);
-        System.out.println(maxWidth(root));
+        printLevel(root);
 
     }
 
-    static int maxWidth(Node root) {
+    static void printLevel(Node root) {
         if (root == null)
-            return 0;
+            return;
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
-        int result = 0;
         while (queue.isEmpty() == false) {
-            int count = queue.size();
-            result = Math.max(count, result);
-            for (int i = 0; i < count; i++) {
-                Node current = queue.poll();
-                //System.out.print(current.key + " ");
-                if (current.left != null)
-                    queue.add(current.left);
-                if (current.right != null)
-                    queue.add(current.right);
-            }
-            //System.out.println();
+            Node current = queue.poll();
+            System.out.print(current.key+" ");
+            if (current.left != null)
+                queue.add(current.left);
+            if (current.right != null)
+                queue.add(current.right);
         }
-        return result;
     }
 
     static class Node {

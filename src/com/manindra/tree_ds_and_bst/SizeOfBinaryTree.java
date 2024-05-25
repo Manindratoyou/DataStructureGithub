@@ -1,6 +1,6 @@
-package com.manindra.tree_ds;
+package com.manindra.tree_ds_and_bst;
 
-public class PrintNodeAtDistanceK {
+public class SizeOfBinaryTree {
 
     public static void main(String[] args) {
 
@@ -19,22 +19,17 @@ public class PrintNodeAtDistanceK {
         root.left.right = new Node(50);
         root.right = new Node(30);
         root.right.right = new Node(70);
-
-        int k = 2;
-        printKDistance(root, k);
+        System.out.println(size(root));
 
     }
 
-    static void printKDistance(Node root, int k) {
+    static int size(Node root) {
         if (root == null)
-            return;
-        if (k == 0)
-            System.out.print(root.key + " ");
-        else {
-            printKDistance(root.left, k - 1);
-            printKDistance(root.right, k - 1);
-        }
+            return 0;
+        else
+            return 1 + size(root.left) + size(root.right);
     }
+
 
     static class Node {
 

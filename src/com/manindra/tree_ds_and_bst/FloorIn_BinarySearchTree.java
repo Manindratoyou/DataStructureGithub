@@ -1,10 +1,11 @@
-package com.manindra.tree_ds;
+package com.manindra.tree_ds_and_bst;
 
-public class Ceil_In_BinarySearchTree {
+public class FloorIn_BinarySearchTree {
 
     public static void main(String[] args) {
+
         /*
-          15
+         15
         /  \
       10    20
      / \   /  \
@@ -20,25 +21,25 @@ public class Ceil_In_BinarySearchTree {
         root.right.right = new Node(25);
 
         int x = 13;
-        Node ceilNode = ceil(root, x);
+        Node floorNode = floor(root, x);
 
-        if (ceilNode != null) {
-            System.out.println("Ceiling value of " + x + " is: " + ceilNode.key);
+        if (floorNode != null) {
+            System.out.println("Floor value of " + x + " is: " + floorNode.key);
         } else {
-            System.out.println("Ceiling value of " + x + " does not exist in the BST");
+            System.out.println("Floor value of " + x + " does not exist in the BST");
         }
     }
 
-    static Node ceil(Node root, int x) {
+    static Node floor(Node root, int x) {
         Node result = null;
         while (root != null) {
             if (root.key == x)
                 return root;
-            else if (root.key < x) {
-                root = root.right;
+            else if (root.key > x) {
+                root = root.left;
             } else {
                 result = root;
-                root = root.left;
+                root = root.right;
             }
         }
         return result;

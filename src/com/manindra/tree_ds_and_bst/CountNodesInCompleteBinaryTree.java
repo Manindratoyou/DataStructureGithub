@@ -1,4 +1,4 @@
-package com.manindra.tree_ds;
+package com.manindra.tree_ds_and_bst;
 
 /*
 A complete binary tree is a special type of binary tree where all the levels of the tree are filled
