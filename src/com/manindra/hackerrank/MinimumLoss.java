@@ -11,6 +11,7 @@ public class MinimumLoss {
         System.out.println(minimumLoss(Arrays.asList(20L, 15L, 8L, 2L, 12L)));
     }
 
+
     static void minLoss(int[] prices) {
         int minLoss = Integer.MAX_VALUE;
         for (int i = 0; i < prices.length; i++) {
