@@ -9,7 +9,6 @@ public class PrintPermutations {
         printPermutations(input, 0, input.length() - 1);
     }
 
-
     // Naive solution to print permutations
     static void printPermutations(String input, int left, int right) {
         // If we reach the end of the string
