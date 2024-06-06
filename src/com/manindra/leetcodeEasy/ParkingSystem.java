@@ -3,6 +3,7 @@ package com.manindra.leetcodeEasy;
 public class ParkingSystem { //solution 1603
 
     public static void main(String[] args) {
+
         // Creating a parking system with 3 big, 4 medium, and 5 small slots
         ParkingSystem parkingSystem = new ParkingSystem(3, 4, 5);
 
