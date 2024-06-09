@@ -1,4 +1,4 @@
-package com.manindra.dynamicPrograming_ds;
+package com.manindra.dynamicProgramming_ds;
 
 import java.util.Arrays;
 
