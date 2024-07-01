@@ -6,8 +6,10 @@ public class Solution58 {
 
         Solution58 solution58=new Solution58();
         String s="Hello World";
-        int result=solution58.lengthOfLastWord(s);
-        int result1= solution58.lengthOfLastWordSolTwo(s);
+        String s1="fly me   to the moon  ";
+        String s2="luffy is still joyboy";
+        int result=solution58.lengthOfLastWord(s2);
+        int result1= solution58.lengthOfLastWordSolTwo(s2);
         System.out.println("Length of Last Word : "+result);
         System.out.println("Length of Last Word : "+result1);
     }
@@ -34,5 +36,26 @@ public class Solution58 {
             i--;
         }
         return length;
+    }
+    int lengthOfLastWord3(String s) {
+
+        int count = 0;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+
+            // a letter is found so count
+            if (s.charAt(i) != ' ') {
+                count++;
+            }
+            else {
+                // it's a white space instead
+                // Did we already started to count a word ?
+                // Yes so we found the last word
+                if (count > 0)
+                    return count;
+            }
+        }
+
+        return count;
     }
 }
