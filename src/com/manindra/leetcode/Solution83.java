@@ -38,6 +38,26 @@ public class Solution83 { //83. Remove Duplicates from Sorted List
         return head;
     }
 
+    ListNode removeDuplicates(ListNode head) {
+
+        ListNode prev = head;
+        ListNode temp = prev.next;
+
+        while (temp != null) {
+            if (temp.val == prev.val) {
+                temp = temp.next;
+                continue;
+            }
+
+            prev.next = temp;
+            prev = temp;
+            temp = temp.next;
+        }
+
+        prev.next = null;
+        return head;
+    }
+
     static void printLinkedList(ListNode head){
         ListNode current=head;
         while (current !=null){
