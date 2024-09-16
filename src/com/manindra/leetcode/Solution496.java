@@ -20,7 +20,10 @@ Explanation: The next greater element for each value of nums1 is as follows:
 
         int[] nums1 = {4, 1, 2};
         int[] nums2 = {1, 3, 4, 2};
-        int [] result=nextGreaterElement(nums1,nums2);
+        //int [] result=nextGreaterElement(nums1,nums2);
+        //int[] result = nextGreaterElement2(nums1, nums2);
+        //int[] result = nextGreaterElement3(nums1, nums2);
+        int[] result = nextGreaterElement4(nums1, nums2);
         System.out.println(Arrays.toString(result));
 
     }
@@ -60,5 +63,69 @@ Explanation: The next greater element for each value of nums1 is as follows:
             nums1[i] = numberNGE.get(nums1[i]);
 
         return nums1;
+    }
+
+    static int[] nextGreaterElement2(int[] nums1, int[] nums2) {
+        int[] result = new int[nums1.length];
+        boolean found = false;
+        for (int i = 0; i < nums1.length; i++) {
+            found = false;
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i] == nums2[j]) {
+                    found = true;
+                }
+                if (found && nums2[j] > nums1[i]) {
+                    result[i] = nums2[j];
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] == 0)
+                result[i] = -1;
+        }
+        return result;
+    }
+
+    static int[] nextGreaterElement3(int[] nums1, int[] nums2) {
+
+        int[] result = new int[nums1.length];
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums2.length; i++) {
+            map.put(nums2[i], i);
+        }
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = map.get(nums1[i]) + 1; j < nums2.length; j++) {
+                if (nums2[j] > nums1[i]) {
+                    result[i] = nums2[j];
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] == 0)
+                result[i] = -1;
+        }
+        return result;
+    }
+
+    static int[] nextGreaterElement4(int[] nums1, int[] nums2) {
+
+        int[] result = new int[nums1.length];
+        Map<Integer, Integer> map = new HashMap<>();
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < nums2.length; i++) {
+            while (!stack.isEmpty() && stack.peek() < nums2[i]) {
+                map.put(stack.pop(), nums2[i]);
+            }
+            stack.push(nums2[i]);
+        }
+        for (int i : stack) {
+            map.put(i, -1);
+        }
+        for (int i = 0; i < nums1.length; i++) {
+            result[i] = map.get(nums1[i]);
+        }
+        return result;
     }
 }

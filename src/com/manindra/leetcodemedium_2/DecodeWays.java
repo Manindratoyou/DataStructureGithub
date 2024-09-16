@@ -10,7 +10,9 @@ public class DecodeWays { //solution 91
     public static void main(String[] args) {
 
         String s = "12";
+        String s1 = "122016";
         System.out.println(numDecoding(s));
+        System.out.println(numDecoding(s1));
 
     }
 
