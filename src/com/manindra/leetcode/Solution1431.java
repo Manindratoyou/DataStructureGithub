@@ -20,7 +20,9 @@ public class Solution1431 { //Kids With the Greatest Number of Candies
 
         int [] candies = {2,3,5,1,3}; int extraCandies = 3;
         List<Boolean> result=kidsWithCandies(candies,extraCandies);
+        List<Boolean> result2=kidsWithCandiesSolTwo(candies,extraCandies);
         System.out.println(result);
+        System.out.println(result2);
     }
 
 
@@ -39,7 +41,7 @@ public class Solution1431 { //Kids With the Greatest Number of Candies
     //Solution 2: Using Iteration
     //Time Complexity: O(n) where n is the number of elements in the candies array.
     //Auxiliary Space: O(n) for the result list.
-    public List<Boolean> kidsWithCandiesSolTwo(int[] candies, int extraCandies) {
+    static List<Boolean> kidsWithCandiesSolTwo(int[] candies, int extraCandies) {
         int maxCandies = getMaxCandiesSolTwo(candies);
         List<Boolean> result = new ArrayList<>();
 
@@ -50,7 +52,7 @@ public class Solution1431 { //Kids With the Greatest Number of Candies
         return result;
     }
 
-    private int getMaxCandiesSolTwo(int[] candies) {
+    static int getMaxCandiesSolTwo(int[] candies) {
         int max = 0;
         for (int candy : candies) {
             max = Math.max(max, candy);
