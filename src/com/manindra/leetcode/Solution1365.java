@@ -17,53 +17,51 @@ public class Solution1365 {
 
     public static void main(String[] args) {
 
-        int [] nums={8,1,2,2,3};
+        int[] nums = {8, 1, 2, 2, 3};
         System.out.println(Arrays.toString(smallerNumbersThanCurrent(nums)));
         //System.out.println(Arrays.toString(smallerNumbersThanCurrentSolTwo(nums)));
 
     }
 
-    static int [] smallerNumbersThanCurrent(int [] nums){
+    static int[] smallerNumbersThanCurrent(int[] nums) {
 
-        //create bucket for counting sort
-        int [] buckets=new int[10];
+        // Create buckets for counting sort
+        int[] buckets = new int[102];
 
-        //get frequency of each element
-        for (int num: nums){
+        // Get frequency of each element
+        for (int num : nums) {
             buckets[num]++;
         }
 
-        //count smaller numbers than each element
-        for (int i=1;i< buckets.length;i++){
-            buckets[i]+=buckets[i-1];
+        // Count smaller numbers than each element
+        for (int i = 1; i < buckets.length; i++) {
+            buckets[i] += buckets[i - 1];
         }
 
-        //populate the result
-        int [] result=new int[nums.length];
-        for (int i=0;i< result.length;i++){
-            if (nums[i]==0)
-                result[i]=0;
-            else
-                result[i]=buckets[nums[i]-1];
+        // Populate the result
+        int[] result = new int[nums.length];
+        for (int i = 0; i < result.length; i++) {
+            if (nums[i] == 0) result[i] = 0;
+            else result[i] = buckets[nums[i] - 1];
         }
+
         return result;
     }
 
-    static int[]  smallerNumbersThanCurrentSolTwo(int [] nums){
 
-        int [] result=new int[nums.length];
-        for (int i=0;i< nums.length;i++){
-            int count=0;
-            for (int j=0;j< nums.length;j++){
-                if (nums[i]>nums[j])
-                    count++;
+    static int[] smallerNumbersThanCurrentSolTwo(int[] nums) {
+
+        int[] result = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            int count = 0;
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[i] > nums[j]) count++;
             }
-            result[i]=count;
+            result[i] = count;
             System.out.println(count);
         }
         return result;
     }
-
 
 
 }
