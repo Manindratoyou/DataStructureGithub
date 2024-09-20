@@ -3,7 +3,7 @@ package com.manindra.leetcode;
 import java.util.HashSet;
 import java.util.Set;
 
-public class IntersectionOfTwoLinkedLists {
+public class IntersectionOfTwoLinkedLists { //solution 160
 
     public static void main(String[] args) {
         // Create linked list 1: 1 -> 2 -> 3 -> 6 -> 7
