@@ -1,6 +1,6 @@
 package com.manindra.leetcode;
 
-public class Solution283 {
+public class Solution283 { //Move Zeroes
 
     public static void main(String[] args) {
         Solution283 solution = new Solution283();
