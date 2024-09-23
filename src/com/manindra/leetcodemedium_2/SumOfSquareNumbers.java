@@ -16,7 +16,7 @@ public class SumOfSquareNumbers {
 
         int e = 73;
         boolean result3 = solution.judgeSquareSum(c);
-        System.out.println("Can " + e + " be expressed as the sum of two squares? " + result); // Expected output: true
+        System.out.println("Can " + e + " be expressed as the sum of two squares? " + result3); // Expected output: true
 
     }
 
