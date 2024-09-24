@@ -1,6 +1,6 @@
 package com.manindra.leetcodeMedium;
 
-public class Solution48 {
+public class Solution48 { //RotateImage
 
     public static void main(String[] args) {
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution47 {
+public class Solution47 { //Permutations II
     /*
 Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
 
