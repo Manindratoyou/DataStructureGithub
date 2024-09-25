@@ -2,7 +2,7 @@ package com.manindra.leetcode;
 
 import java.util.Arrays;
 
-public class Solution14 {
+public class Solution14 { //Longest Common Prefix
 
     public static void main(String[] args) {
 
