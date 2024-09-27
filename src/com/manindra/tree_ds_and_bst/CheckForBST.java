@@ -14,8 +14,9 @@ public class CheckForBST { //In Order Traversal of Binary Search Tree is always 
 
         // Checking if the created tree is a BST
         //if (isBST(root)) {
+        if (isBalanced(root)>0) {
         //if (isBSTSolutionTwo(root,Integer.MIN_VALUE,Integer.MAX_VALUE)) {
-        if (isBSTSolutionThree(root)) {
+        //if (isBSTSolutionThree(root)) {
             System.out.println("The tree is a BST.");
         } else {
             System.out.println("The tree is not a BST.");
@@ -91,6 +92,21 @@ public class CheckForBST { //In Order Traversal of Binary Search Tree is always 
         previous= root.key;
 
         return isBSTSolutionThree(root.right);
+    }
+    public static int isBalanced(Node root){
+        if(root==null)
+            return 0;
+        int lh=isBalanced(root.left);
+        if(lh==-1)
+            return -1;
+        int rh=isBalanced(root.right);
+        if(rh==-1)
+            return -1;
+
+        if(Math.abs(lh-rh)>1)
+            return -1;
+        else
+            return Math.max(lh,rh)+1;
     }
 
     static class Node {
