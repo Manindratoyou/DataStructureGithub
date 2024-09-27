@@ -18,29 +18,30 @@ public class Solution763 {
 
         String s = "ababcbacadefegdehijhklij";
         System.out.println(partitionLabels(s));
+        System.out.println(partitionLabels2(s));
     }
 
-    static List<Integer> partitionLabels(String str){
+    static List<Integer> partitionLabels(String str) {
 
-        List<Integer> partition=new ArrayList<>();
+        List<Integer> partition = new ArrayList<>();
 
-        for (int i=0;i<str.length();i++){
+        for (int i = 0; i < str.length(); i++) {
 
             //get first and last index of first character
-            int startIndex=i;
-            int endIndex=str.lastIndexOf(str.charAt(startIndex));
+            int startIndex = i;
+            int endIndex = str.lastIndexOf(str.charAt(startIndex));
 
-            for (int s=startIndex+1;s<=endIndex-1;s++){
+            for (int s = startIndex + 1; s <= endIndex - 1; s++) {
 
                 //find last index of any subsequent character
-                int lastIndexOfNextChar=str.lastIndexOf(str.charAt(s));
+                int lastIndexOfNextChar = str.lastIndexOf(str.charAt(s));
 
-                if (lastIndexOfNextChar>endIndex){
+                if (lastIndexOfNextChar > endIndex) {
                     //update endIndex if required
-                    endIndex=lastIndexOfNextChar;
+                    endIndex = lastIndexOfNextChar;
                 }
             }
-            partition.add(endIndex-startIndex+1);
+            partition.add(endIndex - startIndex + 1);
             //i=endIndex+1;
             // Increment i using a while loop
             while (i < endIndex) {
@@ -49,6 +50,33 @@ public class Solution763 {
         }
         return partition;
     }
+
+    static List<Integer> partitionLabels2(String str) {
+
+        List<Integer> partitions = new ArrayList<>();
+
+        for (int i = 0; i < str.length(); ) {
+
+            // Get first and last index of first character
+            int startIndex = i;
+            int endIndex = str.lastIndexOf(str.charAt(startIndex));
+
+            for (int s = startIndex + 1; s <= endIndex - 1; s++) {
+
+                // Find last index of any subsequent characters
+                int lastIndexOfNextChar = str.lastIndexOf(str.charAt(s));
+
+                if (lastIndexOfNextChar > endIndex) {
+                    // Update endIndex if required
+                    endIndex = lastIndexOfNextChar;
+                }
+            }
+            partitions.add(endIndex - startIndex + 1);
+            i = endIndex + 1;
+        }
+        return partitions;
+    }
+
 
     public List<Integer> partitionLabelsSolutionTwo(String s) {
         List<Integer> result = new ArrayList<>();
