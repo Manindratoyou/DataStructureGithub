@@ -13,7 +13,9 @@ public class SumOfUniqueElement { //solution 1748
     public static void main(String[] args) {
 
         int [] nums={1,2,3,2};
+        int [] nums1={1,1,1,1,1};
         System.out.println(sumOfUnique(nums));
+        System.out.println(sumOfUnique2(nums1));
     }
 
     static int sumOfUnique(int [] nums){
@@ -33,6 +35,24 @@ public class SumOfUniqueElement { //solution 1748
                 sum+= entry.getKey();
             }
         }
+        return sum;
+    }
+
+    static int sumOfUnique2(int[] nums) {
+
+        // Create a frequency array to store the frequency
+        int[] freq = new int[101];
+        int sum = 0;
+
+        for (int num : nums)
+            freq[num]++;
+
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] == 1) {
+                sum += i;
+            }
+        }
+
         return sum;
     }
 }
