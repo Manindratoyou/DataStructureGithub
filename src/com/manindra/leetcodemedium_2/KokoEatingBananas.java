@@ -9,7 +9,8 @@ public class KokoEatingBananas { //solution 875
 
         // Create an instance of the class and call the method
         KokoEatingBananas solution = new KokoEatingBananas();
-        int result = solution.minEatingSpeedBruteForce(piles, h);
+        //int result = solution.minEatingSpeedBruteForce(piles, h);
+        int result = solution.minEatingSpeed(piles, h);
 
         // Print the result
         System.out.println("Minimum eating speed to finish bananas in " + h + " hours: " + result);
