@@ -1,6 +1,6 @@
 package com.manindra.tree_ds_and_bst;
 
-public class PrintKthSmallest2 {
+public class PrintKthSmallest2 { //Naive
 
     public static void main(String args[]) {
         Node root = new Node(15);

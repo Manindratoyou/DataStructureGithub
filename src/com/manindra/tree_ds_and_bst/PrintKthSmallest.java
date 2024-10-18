@@ -2,7 +2,7 @@ package com.manindra.tree_ds_and_bst;
 
 import java.util.Arrays;
 
-public class PrintKthSmallest {
+public class PrintKthSmallest { //Efficient
 
     public static Node insert(Node root, int x) {
         if (root == null)
