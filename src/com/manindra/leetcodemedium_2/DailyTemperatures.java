@@ -13,27 +13,26 @@ public class DailyTemperatures { //solution739
     }
 
 
-    static int [] dailyTemperatures(int [] temperatures){
+    static int[] dailyTemperatures(int[] temperatures) {
 
-        Stack<Integer> helperStack=new Stack<>();
-         int n= temperatures.length;
-         int [] result=new int[n];
+        Stack<Integer> stack = new Stack<>();
+        int n = temperatures.length;
+        int[] result = new int[n];
 
-         for (int idx=n-1;idx>=0;idx--) {
-             //popping all indices with a lower or equal
-             //temperature than the current index
+        for (int i = n - 1; i >= 0; i--) {
+            //popping all indices with a lower or equal
+            //temperature than the current index
 
-             while (!helperStack.isEmpty() && temperatures[idx] >= temperatures[helperStack.peek()]) {
-                 helperStack.pop();
-             }
-
-             //if the stack still has elements then the next warmer temperature exists!
-             if (!helperStack.isEmpty()) {
-                 result[idx]=helperStack.peek()-idx;
-             }
-             //inserting current index in the stack
-             helperStack.push(idx);
-         }
-         return result;
+            while (!stack.isEmpty() && temperatures[i] >= temperatures[stack.peek()]) {
+                stack.pop();
+            }
+            //if the stack still has elements then the next warmer temperature exists!
+            if (!stack.isEmpty()) {
+                result[i] = stack.peek() - i;
+            }
+            //inserting current index in the stack
+            stack.push(i);
+        }
+        return result;
     }
 }
