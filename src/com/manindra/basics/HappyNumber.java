@@ -1,5 +1,8 @@
 package com.manindra.basics;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
 Input: n = 19
 Output: True
@@ -16,10 +19,13 @@ Auxiliary Space: O(1).
  */
 public class HappyNumber {
 
-    public static void main(String[] args)
-    {
-        int n = 13;
-        if (isHappynumber(n))
+    public static void main(String[] args) {
+
+        System.out.println(Math.pow(3,3));
+        //int n = 13;//61
+        int n = 61;
+        //if (isHappynumber(n))
+        if (isHappy(n))
             System.out.println(n +
                     " is a Happy number");
         else
@@ -61,6 +67,34 @@ public class HappyNumber {
             n /= 10;
         }
         return squareSum;
+    }
+
+
+    static boolean isHappy(int n) {
+
+        Set<Integer> usedIntegers = new HashSet<>();
+        while (true) {
+
+            // Find the sum of squares
+            int sum = 0;
+            while (n != 0) {
+                sum += Math.pow(n % 10, 2.0);
+                n = n / 10;
+            }
+
+            // If sum is 1, return true
+            if (sum == 1)
+                return true;
+
+            // Else, the new number is the current sum
+            n = sum;
+
+            // Check if we have already encountered
+            // that number
+            if (usedIntegers.contains(n))
+                return false;
+            usedIntegers.add(n);
+        }
     }
 
 
