@@ -18,6 +18,7 @@ public class Solution1859 { //Sorting the Sentence
         System.out.println(sortSentenceSolutionTwo(s));
         System.out.println(sortSentenceSolutionThree(s));
         System.out.println(sortSentenceSolutionFour(s));
+        System.out.println(sortSentenceSolutionFive(s));
     }
 
 
@@ -80,6 +81,26 @@ public class Solution1859 { //Sorting the Sentence
         }
 
         return actualString.toString().trim();
+    }
+
+    static String sortSentenceSolutionFive(String s) {
+        // Split the sentence into words
+        String[] words = s.split(" ");
+
+        // Create an array to hold the sorted words
+        String[] sortedSentence = new String[words.length];
+
+        // Loop through each word
+        for (String word : words) {
+            // Find the position by getting the last character and convert to integer
+            int position = Character.getNumericValue(word.charAt(word.length() - 1)) - 1;
+
+            // Place the word (excluding the position digit) in the correct position
+            sortedSentence[position] = word.substring(0, word.length() - 1);
+        }
+
+        // Join the sorted words into a sentence
+        return String.join(" ", sortedSentence);
     }
 
 }
