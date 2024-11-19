@@ -29,9 +29,8 @@ public class Triangle { //solution 120
 
                 // Add the minimum amongst 2 adjacent elements
                 // from bottom level
-                dp[level][i] = triangle.get(level).get(i)
-                        + Math.min(
-                        dp[level + 1][i], dp[level + 1][i + 1]);
+                dp[level][i] = triangle.get(level).get(i) +
+                        Math.min(dp[level + 1][i], dp[level + 1][i + 1]);
             }
 
         }
