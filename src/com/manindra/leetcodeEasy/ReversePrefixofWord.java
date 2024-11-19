@@ -8,6 +8,7 @@ public class ReversePrefixofWord { //solution 2000
         String word = "abcdefd";
         char ch = 'd';
         System.out.println(reversePrefix(word, ch)); // Expected output: "dcbaefd"
+        System.out.println(reversePrefixSolutionTwo(word, ch)); // Expected output: "dcbaefd"
     }
 
     static String reversePrefix(String word, char ch) {
@@ -33,5 +34,22 @@ public class ReversePrefixofWord { //solution 2000
         }
 
         return result.toString();
+    }
+
+    static String reversePrefixSolutionTwo(String word, char ch) {
+        // Find the index of the first occurrence of ch
+        int index = word.indexOf(ch);
+
+        // If the character is not found, return the original word
+        if (index == -1) {
+            return word;
+        }
+
+        // Reverse the prefix using StringBuilder
+        StringBuilder prefix = new StringBuilder(word.substring(0, index + 1));
+        prefix.reverse();
+
+        // Append the rest of the word
+        return prefix.append(word.substring(index + 1)).toString();
     }
 }
