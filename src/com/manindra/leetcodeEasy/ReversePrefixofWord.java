@@ -7,6 +7,10 @@ public class ReversePrefixofWord { //solution 2000
     public static void main(String[] args) {
         String word = "abcdefd";
         char ch = 'd';
+        String word1 = " xyxzxe";
+        char ch1 = 'x';
+        String word2 = "abcd";
+        char ch2 = 'z';
         System.out.println(reversePrefix(word, ch)); // Expected output: "dcbaefd"
         System.out.println(reversePrefixSolutionTwo(word, ch)); // Expected output: "dcbaefd"
     }
