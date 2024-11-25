@@ -10,8 +10,9 @@ public class Solution1991 { //question same as solution 724
         int[] nums4 = {1, -1, 1, -1, 1};  // Middle index: 2
         int[] nums5 = {0, 0, 0, 0, 0};    // Any index can be the middle: 0
 
-        // Printing results
         System.out.println("Middle Index of nums1: " + findMiddleIndex(nums1)); // Output: 3
+        System.out.println("Middle Index of nums1: " + findMiddleIndexSolutionTwo(nums1)); // Output: 3
+        System.out.println("Middle Index of nums1: " + findMiddleIndexSolutionThree(nums1)); // Output: 3
         System.out.println("Middle Index of nums2: " + findMiddleIndex(nums2)); // Output: -1
         System.out.println("Middle Index of nums3: " + findMiddleIndex(nums3)); // Output: 0
         System.out.println("Middle Index of nums4: " + findMiddleIndex(nums4)); // Output: 2
@@ -19,29 +20,29 @@ public class Solution1991 { //question same as solution 724
     }
 
     public static int findMiddleIndex(int[] nums) {
-        int n=nums.length;
-        int [] prefixSum=new int[n];
-        int  [] suffixSum=new int[n];
+        int n = nums.length;
+        int[] prefixSum = new int[n];
+        int[] suffixSum = new int[n];
 
-        prefixSum[0]=nums[0];
-        suffixSum[n-1]=nums[n-1];
+        prefixSum[0] = nums[0];
+        suffixSum[n - 1] = nums[n - 1];
 
-        for (int i=1;i<n;i++){
-            prefixSum[i]=prefixSum[i-1]+nums[i];
+        for (int i = 1; i < n; i++) {
+            prefixSum[i] = prefixSum[i - 1] + nums[i];
         }
-        for (int i=n-2;i>=0;i--){
-            suffixSum[i]=suffixSum[i+1]+nums[i];
+        for (int i = n - 2; i >= 0; i--) {
+            suffixSum[i] = suffixSum[i + 1] + nums[i];
         }
 
-        for (int i=0;i< n;i++){
-            if (prefixSum[i]==suffixSum[i])
+        for (int i = 0; i < n; i++) {
+            if (prefixSum[i] == suffixSum[i])
                 return i;
         }
 
         return -1;
     }
 
-    public static int findMiddleIndexSolutionThree(int[] nums) {
+    public static int findMiddleIndexSolutionTwo(int[] nums) {
         // Step 1: Calculate the total sum of the array
         int totalSum = 0;
         for (int num : nums) {
@@ -66,7 +67,7 @@ public class Solution1991 { //question same as solution 724
         return -1;
     }
 
-    static  int pivotIndexSolutionThree(int[] nums) {
+    static int findMiddleIndexSolutionThree(int[] nums) {
 
         // Calculate the sum of the array
         int rightSum = 0;
