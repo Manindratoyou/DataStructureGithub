@@ -13,7 +13,8 @@ public class Solution2574 { //Left and Right Sum Differences
     public static void main(String[] args) {
 
         int [] arr={10,4,8,3};
-        System.out.println(Arrays.toString(leftRightDifference(arr)));
+        //System.out.println(Arrays.toString(leftRightDifference(arr)));
+        System.out.println(Arrays.toString(leftRightDifferenceSolutionTwo(arr)));
     }
 
     static int[] leftRightDifference(int[] nums) {
@@ -35,4 +36,32 @@ public class Solution2574 { //Left and Right Sum Differences
         }
         return nums;
     }
+    static int[] leftRightDifferenceSolutionTwo(int[] nums) {
+
+        int rightSum = 0;
+        int leftSum = 0;
+
+        // Calculate the total right sum
+        for (int num : nums) {
+            rightSum += num;
+        }
+
+        // Iterate through the array
+        for (int i = 0; i < nums.length; i++) {
+            // Get the value at index i
+            int val = nums[i];
+
+            // Update the right sum
+            rightSum -= val;
+
+            // Find the difference
+            nums[i] = Math.abs(leftSum - rightSum);
+
+            // Update the left sum
+            leftSum += val;
+        }
+
+        return nums;
+    }
+
 }
