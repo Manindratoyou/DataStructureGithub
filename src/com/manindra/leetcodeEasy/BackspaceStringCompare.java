@@ -7,9 +7,10 @@ public class BackspaceStringCompare {
     public static void main(String[] args) {
         BackspaceStringCompare stringCompare=new BackspaceStringCompare();
         //String s = "ab#c", t = "ad#c";
-        String s = "ab##", t = "c#d#";
-        System.out.println(stringCompare.backspaceCompare(s,t));
-        System.out.println(backspaceCompareSolutionTwo(s,t));
+        //String s = "ab##", t = "c#d#";
+        String s1 = "ab#cde#f##xy", t1 = "acxy";
+        System.out.println(stringCompare.backspaceCompare(s1,t1));
+        System.out.println(backspaceCompareSolutionTwo(s1,t1));
     }
 
     public boolean backspaceCompare(String s, String t) {
