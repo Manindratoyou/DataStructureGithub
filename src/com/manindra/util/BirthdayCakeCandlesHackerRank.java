@@ -1,6 +1,7 @@
 package com.manindra.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BirthdayCakeCandlesHackerRank {
@@ -14,6 +15,7 @@ public class BirthdayCakeCandlesHackerRank {
         li.add(8);
         li.add(8);
         System.out.println(birthdayCakeCandles(li));
+        System.out.println(birthdayCakeCandles2(li));
     }
 
     public static int birthdayCakeCandles(List<Integer> candles) {
@@ -33,6 +35,21 @@ public class BirthdayCakeCandlesHackerRank {
         }
         return result;
 
+    }
+
+    public static int birthdayCakeCandles2(List<Integer> candles) {
+        // Write your code here
+        Collections.sort(candles);
+        int count = 1;
+        int largest = candles.get(candles.size()-1);
+        for(int i=candles.size()-2;i>=0;i--){
+            if(candles.get(i)!=largest){
+                break;
+            }else{
+                count++;
+            }
+        }
+        return count;
     }
 
 }
