@@ -22,6 +22,22 @@ public class CountingValleys {
         return valleys;
     }
 
+    public static int countingValleys2(int steps, String path) {
+        int sum = 0;
+        int vally = 0;
+        for (int i = 0; i < steps; i++) {
+            if (path.charAt(i) == 'U') {
+                if (sum == -1) {
+                    vally++;
+                }
+                sum++;
+            } else {
+                sum--;
+            }
+        }
+        return vally;
+    }
+
     /*
 
     _/\      _
@@ -37,7 +53,8 @@ public class CountingValleys {
         String path = scanner.next();
         scanner.close();
 
-        int result = countingValleys(steps, path);
+        //int result = countingValleys(steps, path);
+        int result = countingValleys2(steps, path);
         System.out.println(result);
     }
 }
