@@ -10,10 +10,11 @@ public class Solution128 { //Longest Consecutive Sequence
     public static void main(String[] args) {
 
         int[] nums = {100, 4, 200, 1, 3, 2};
-        int[] nums1 = {9, 1, 4, 7, 3, -1, 0, 5, 100, 101, 8, -1, 6};
+        int[] nums1 = {0, 1, 9, 6, 5, -1};
+        int[] nums2 = {9, 1, 4, 7, 3, -1, 0, 5, 100, 101, 8, -1, 6};
         System.out.println(longestConsecutive(nums));
         System.out.println(longestConsecutiveSolTwo(nums1));
-        //System.out.println(longestConsecutiveSolThree(nums1));
+        System.out.println(longestConsecutiveSolThree(nums2));
 
     }
 
