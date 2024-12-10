@@ -10,16 +10,19 @@ public class Solution128 { //Longest Consecutive Sequence
     public static void main(String[] args) {
 
         int[] nums = {100, 4, 200, 1, 3, 2};
+        int[] nums1 = {9, 1, 4, 7, 3, -1, 0, 5, 100, 101, 8, -1, 6};
         System.out.println(longestConsecutive(nums));
-        //debug
+        System.out.println(longestConsecutiveSolTwo(nums1));
+        //System.out.println(longestConsecutiveSolThree(nums1));
+
     }
 
     static int longestConsecutive(int[] nums) {
 
         int longestLength = 0;
-        Map<Integer, Boolean> numberTravelledMap = new HashMap<>();
+        Map<Integer, Boolean> map = new HashMap<>();
         for (int num : nums) {
-            numberTravelledMap.put(num, Boolean.FALSE);
+            map.put(num, Boolean.FALSE);
         }
 
         for (int num : nums) {
@@ -27,11 +30,10 @@ public class Solution128 { //Longest Consecutive Sequence
 
             // Check in forward direction
             int nextNum = num + 1;
-            while (numberTravelledMap.containsKey(nextNum) &&
-                    numberTravelledMap.get(nextNum) == false) {
+            while (map.containsKey(nextNum) && map.get(nextNum) == false) {
 
                 currentLength++;
-                numberTravelledMap.put(nextNum, Boolean.TRUE);
+                map.put(nextNum, Boolean.TRUE);
 
                 // Move to the next number
                 nextNum++;
@@ -39,11 +41,10 @@ public class Solution128 { //Longest Consecutive Sequence
 
             // Check in reverse direction
             int prevNum = num - 1;
-            while (numberTravelledMap.containsKey(prevNum) &&
-                    numberTravelledMap.get(prevNum) == false) {
+            while (map.containsKey(prevNum) && map.get(prevNum) == false) {
 
                 currentLength++;
-                numberTravelledMap.put(prevNum, Boolean.TRUE);
+                map.put(prevNum, Boolean.TRUE);
 
                 // Move to the previous number
                 prevNum--;
