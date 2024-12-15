@@ -1,6 +1,6 @@
 package com.manindra.leetcodemedium_2;
 
-public class LongestCommonSubsequence { //solution 1143
+public class LongestCommonSubsequence { //solution 1143 /similar common child hacker rank
 
     public static void main(String[] args) {
 

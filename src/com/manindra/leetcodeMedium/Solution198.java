@@ -5,8 +5,10 @@ public class Solution198 { //House Robber
     public static void main(String[] args) {
 
         int [] nums={2,7,9,3,1};
+        int [] nums1={2,7,3,1,4,2,1,8}; //7 ,4 ,8
+        int [] nums2={6,9,6}; //greedy approach will fail
         System.out.println(rob(nums));
-        System.out.println(rob2(nums));
+        System.out.println(rob2(nums1));
     }
 
     static int rob(int [] nums){
