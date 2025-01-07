@@ -1,5 +1,7 @@
 package com.manindra.hackerrank;
 
+import java.util.stream.IntStream;
+
 public class RepeatedString {
 
     public static void main(String[] args) {
@@ -20,24 +22,66 @@ public class RepeatedString {
         System.out.println("Test Case 3: " + result3);
     }
 
-    static long repeatedString(String s, long n) {
-        long aCountInString = 0;
+    public static long repeatedString(String s, long n) {
+        // Count occurrences of 'a' in the input string
+        long countInString = s.chars().filter(ch -> ch == 'a').count();
+
+        // Calculate full repetitions and remainder
+        long fullRepetitions = n / s.length();
+        long remainder = n % s.length();
+
+        // Count 'a' in the remainder substring
+        long countInRemainder = IntStream.range(0, (int) remainder)
+                .filter(i -> s.charAt(i) == 'a')
+                .count();
+
+        return fullRepetitions * countInString + countInRemainder;
+    }
+
+    public static long repeatedString2(String s, long n) {
+        // Count occurrences of 'a' in the input string
+        long countInString = 0;
         for (char c : s.toCharArray()) {
             if (c == 'a') {
-                aCountInString++;
+                countInString++;
             }
         }
 
-        long totalCount = aCountInString * (n / s.length());
+        // Calculate full repetitions and remainder
+        long fullRepetitions = n / s.length();
+        long remainder = n % s.length();
 
-        long remainingChars = n % s.length();
-        for (int i = 0; i < remainingChars; i++) {
+        // Count 'a' in the remainder substring
+        long countInRemainder = 0;
+        for (int i = 0; i < remainder; i++) {
             if (s.charAt(i) == 'a') {
-                totalCount++;
+                countInRemainder++;
             }
         }
 
-        return totalCount;
+        return fullRepetitions * countInString + countInRemainder;
+    }
+
+    public static long repeatedString3(String s, long n) {
+        int a_count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a')
+                a_count++;
+        }
+        long reminder = n % s.length();
+        if (reminder == 0)
+            return (n / s.length()) * a_count;
+        long count = noOfA(s, reminder);
+        return (n / s.length()) * a_count + count;
+    }
+
+    public static int noOfA(String s, long reminder) {
+        int count = 0;
+        for (int i = 0; i < reminder; i++) {
+            if (s.charAt(i) == 'a')
+                count++;
+        }
+        return count;
     }
 
 }
