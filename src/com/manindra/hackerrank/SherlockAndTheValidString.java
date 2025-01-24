@@ -18,21 +18,24 @@ public class SherlockAndTheValidString {
 
     public static String isValid(String s) {
         // Write your code here
-        Map<Character, Integer> charFreqMap = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
+        Map<Character, Integer> map = new HashMap<>();
+        /*for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            int freq = charFreqMap.getOrDefault(c, 0);
-            charFreqMap.put(c, ++freq);
+            int freq = map.getOrDefault(c, 0);
+            map.put(c, ++freq);
+        }*/
+        for (char c: s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
         }
 
-        int[] arr = new int[charFreqMap.size()];
+        int[] arr = new int[map.size()];
         int idx = 0;
-        for (Map.Entry<Character, Integer> characterIntegerEntry : charFreqMap.entrySet()) {
+        for (Map.Entry<Character, Integer> characterIntegerEntry : map.entrySet()) {
             arr[idx++] = characterIntegerEntry.getValue();
         }
         Arrays.sort(arr);
 
-        if (charFreqMap.size() == 1) return "YES";
+        if (map.size() == 1) return "YES";
 
         int first = arr[0];
         int second = arr[1];
