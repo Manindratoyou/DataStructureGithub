@@ -2,6 +2,7 @@ package com.manindra.hackerrank;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TwoStrings {
 
@@ -9,7 +10,10 @@ public class TwoStrings {
 
         String s1="and",s2="art";
         System.out.println(twoStrings(s1,s2));
-        System.out.println(twoStringMethodTwo(s1,s2));
+        System.out.println(twoStrings2(s1,s2));
+        System.out.println(twoStrings3(s1,s2));
+        System.out.println(twoStrings4(s1,s2));
+        System.out.println(twoStrings5(s1,s2));
 
     }
 
@@ -38,7 +42,24 @@ public class TwoStrings {
         return "NO";
     }
 
-    static String twoStringMethodTwo(String s1,String s2){
+    static String twoStrings2(String s1, String s2) {
+        Set<Character> set = new HashSet<>();
+
+        // Add characters of s1 to the set
+        for (char c : s1.toCharArray()) {
+            set.add(c);
+        }
+
+        // Check if any character of s2 exists in the set
+        for (char c : s2.toCharArray()) {
+            if (set.contains(c)) {
+                return "YES";
+            }
+        }
+        return "NO";
+    }
+
+    static String twoStrings3(String s1,String s2){
         s1=s1.toLowerCase();
         s2=s2.toLowerCase();
 
@@ -58,5 +79,24 @@ public class TwoStrings {
             }
         }
         return "NO";
+    }
+
+    static String twoStrings4(String s1, String s2) {
+        Set<Character> set1 = s1.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
+        return s2.chars().mapToObj(c -> (char) c).anyMatch(set1::contains) ? "YES" : "NO";
+    }
+
+    static String twoStrings5(String s1, String s2) {
+        int mask1 = 0, mask2 = 0;
+
+        for (char c : s1.toCharArray()) {
+            mask1 |= (1 << (c - 'a'));  // Set bit for character
+        }
+
+        for (char c : s2.toCharArray()) {
+            mask2 |= (1 << (c - 'a'));  // Set bit for character
+        }
+
+        return (mask1 & mask2) != 0 ? "YES" : "NO";
     }
 }
