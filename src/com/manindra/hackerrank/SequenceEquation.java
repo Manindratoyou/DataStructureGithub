@@ -11,7 +11,8 @@ public class SequenceEquation {
         List<Integer> p = Arrays.asList(4, 3, 5, 1, 2);
 
         // Call the function
-        List<Integer> result = permutationEquation(p);
+        //List<Integer> result = permutationEquation(p);
+        List<Integer> result = permutationEquation3(p);
 
         // Print output
         for (int val : result) {
@@ -85,6 +86,27 @@ public class SequenceEquation {
             }
         }
         return -1; // Return -1 if the value is not found
+    }
+
+    public static List<Integer> permutationEquation3(List<Integer> p) {
+        // p = [4 3 5 1 2]
+        // 1 2 3 4 5
+
+        //1)size of arry
+        int n = p.size();//5
+        //2) find index of 1 to n in arraylist p
+        ArrayList<Integer> all = new ArrayList<>();
+        for(int i=1; i<=n; i++){
+            all.add(p.indexOf(i)+1);
+        }
+        //all = [4,5,2,1,3];
+        //3) find index of all elemnts in arraylist p
+        ArrayList<Integer> al2 = new ArrayList<>();
+        for(int i=0; i<n; i++) {
+            al2.add(p.indexOf(all.get(i))+1);
+        }
+        //al2 = [1,3,5,4,2];
+        return al2;
     }
 }
 
