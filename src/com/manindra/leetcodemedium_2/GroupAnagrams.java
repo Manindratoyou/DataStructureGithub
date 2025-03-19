@@ -1,6 +1,7 @@
 package com.manindra.leetcodemedium_2;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class GroupAnagrams { //solution 49
 
@@ -85,6 +86,19 @@ public class GroupAnagrams { //solution 49
             c++;
         }
         return frequencyString.toString();
+    }
+
+    //
+    public static void streamSolution(String[] args) {
+
+        String[] name={"eat","tea","tan","ate","Nat","bat"};
+        List<String> convertList = Arrays.asList(name);
+        Collection<List<String>> resultValue = convertList.stream().collect(Collectors
+                .groupingBy(x -> Arrays.stream(x.toLowerCase().split(""))
+                        .sorted().collect(Collectors.toList()))).values();
+
+
+        System.out.println(resultValue);
     }
 
 }
