@@ -23,7 +23,7 @@ public class InvertTree { // solution 226
         InvertTree treeInverter = new InvertTree();
 
         // Invert the tree using the recursive method
-        TreeNode invertedRootRecursive = treeInverter.invertTreeRecursive(root);
+        TreeNode invertedRootRecursive = treeInverter.invertTreeRecursive2(root);
         System.out.println("Inverted Tree (Recursive): ");
         printTree(invertedRootRecursive);
 
@@ -61,7 +61,7 @@ public class InvertTree { // solution 226
         System.out.println();
     }
 
-    TreeNode invertTreeRecursive(TreeNode root) {
+    /*TreeNode invertTreeRecursive(TreeNode root) {
         if (root == null)
             return null;
 
@@ -71,6 +71,18 @@ public class InvertTree { // solution 226
 
         invertTreeRecursive(root.left);
         invertTreeRecursive(root.right);
+
+        return root;
+    }*/
+    TreeNode invertTreeRecursive2(TreeNode root) {
+        if (root == null)
+            return null;
+
+        TreeNode left = invertTreeRecursive2(root.left);
+        TreeNode right = invertTreeRecursive2(root.right);
+
+        root.left = right;
+        root.right = left;
 
         return root;
     }
@@ -92,8 +104,10 @@ public class InvertTree { // solution 226
             node.right = temp;
 
             // Add left and right of this node to the queue
-            if (node.left != null) queue.add(node.left);
-            if (node.right != null) queue.add(node.right);
+            if (node.left != null)
+                queue.add(node.left);
+            if (node.right != null)
+                queue.add(node.right);
         }
         return root;
     }
