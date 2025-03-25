@@ -16,4 +16,16 @@ public class CountEachCharactor {
 
         charCount.forEach((character, count) -> System.out.println(character + ": " + count));
     }
+
+    /*public static void main(String[] args) {
+        String s = "string data to count each character";
+
+        LinkedHashMap<String, Long> wordCount = Arrays.stream(s.split(" "))
+                .map(String::toLowerCase)
+                .collect(Collectors.groupingBy(
+                        st -> st, LinkedHashMap::new, Collectors.counting()
+                ));
+
+        System.out.println(wordCount);
+    }*/
 }
