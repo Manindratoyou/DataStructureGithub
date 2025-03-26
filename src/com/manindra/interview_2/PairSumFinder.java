@@ -7,7 +7,9 @@ public class PairSumFinder {
         int[] arr = {1, 2, 5, 6, 7};
         int k = 8;
         findPairs(arr, k);
-        System.out.println();
+        System.out.println("===========");
+        countPairsTwoPointers(arr,k);
+        System.out.println("==============");
         List<int[] > list=findPairs2(arr,k);
 
         for (int[] l: list)
@@ -43,6 +45,21 @@ public class PairSumFinder {
         }
 
         return pairs;
+    }
+
+    static void countPairsTwoPointers(int[] nums, int target) {
+        Arrays.sort(nums);
+        int count = 0;
+        int left = 0, right = nums.length - 1;
+
+        while (left < right) {
+            if (nums[left] + nums[right] == target) {
+                System.out.println(nums[left] +" "+  nums[right]);
+                left++;
+            } else {
+                right--;
+            }
+        }
     }
 }
 
