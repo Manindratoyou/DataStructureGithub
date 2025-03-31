@@ -3,7 +3,7 @@ package com.manindra.leetcodeMedium;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution54 {
+public class Solution54 { //Spiral Matrix
 
     public static void main(String[] args) {
 
