@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.heap_ds_leetcode;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
