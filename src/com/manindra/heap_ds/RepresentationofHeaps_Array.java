@@ -81,4 +81,15 @@ public class RepresentationofHeaps_Array {
         System.out.println(heap);
     }
 
+    /*
+    How to check if a given array represents a Binary Heap?
+    boolean isHeap(int arr[], int n) {
+    for (int i = 0; i <= (n - 2) / 2; i++) {
+        if (arr[i] < arr[2 * i + 1] || (2 * i + 2 < n && arr[i] < arr[2 * i + 2]))
+            return false;
+    }
+    return true;
+}
+     */
+
 }
