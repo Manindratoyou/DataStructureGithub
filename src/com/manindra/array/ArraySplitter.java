@@ -1,8 +1,6 @@
 package com.manindra.array;
 
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArraySplitter {
@@ -11,23 +9,24 @@ public class ArraySplitter {
         int[] input = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int splitSize = 3;
 
-        List<int[]> output = splitArray(input, splitSize);
+        List<List<Integer>> output = splitArray(input, splitSize);
 
-        for (int[] subarray : output) {
-            System.out.println(Arrays.toString(subarray));
+        for (List<Integer> subList : output) {
+            System.out.println(subList);
         }
     }
 
-    public static List<int[]> splitArray(int[] input, int splitSize) {
-        List<int[]> output = new ArrayList<>();
+    public static List<List<Integer>> splitArray(int[] inputArray, int splitSize) {
+        List<List<Integer>> result = new ArrayList<>();
 
-        int startIndex = 0;
-        while (startIndex < input.length) {
-            int endIndex = Math.min(startIndex + splitSize, input.length);
-            int[] subarray = Arrays.copyOfRange(input, startIndex, endIndex);
-            output.add(subarray);
-            startIndex += splitSize;
+        for (int i = 0; i < inputArray.length; i += splitSize) {
+            List<Integer> temp = new ArrayList<>();
+            for (int j = i; j < i + splitSize && j < inputArray.length; j++) {
+                temp.add(inputArray[j]);
+            }
+            result.add(temp);
         }
-        return output;
+
+        return result;
     }
 }
