@@ -1,46 +1,45 @@
 package com.manindra.leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Solution205 { //Isomorphic String
 
     public static void main(String[] args) {
-        String s1 = "egg";
-        String t1 = "add";
-
-        String s2 = "foo";
-        String t2 = "bar";
-
-        System.out.println(isIsomorphic(s1, t1));
-        System.out.println(isIsomorphicSolutionTwo(s2, t2));
-
+        System.out.println(isIsomorphic("egg", "add"));     // true
+        System.out.println(isIsomorphic("foo", "bar"));     // false
+        System.out.println(isIsomorphic("paper", "title")); // true
+        System.out.println(isIsomorphic("ab", "aa"));       // false
     }
 
     static boolean isIsomorphic(String s, String t) {
-        Map<Character, Character> sMap = new HashMap<>();
-        Map<Character, Character> tMap = new HashMap<>();
+        if (s.length() != t.length())
+            return false;
+
+        Map<Character, Character> map = new HashMap<>();
+        Set<Character> mappedValues = new HashSet<>();
 
         for (int i = 0; i < s.length(); i++) {
-            char sChar = s.charAt(i);
-            char tChar = t.charAt(i);
+            char original = s.charAt(i);
+            char replacement = t.charAt(i);
 
-            if (sMap.containsKey(sChar)) {
-                if (sMap.get(sChar) != tChar)
+            if (!map.containsKey(original)) {
+                if (mappedValues.contains(replacement)) {
                     return false;
+                }
+                map.put(original, replacement);
+                mappedValues.add(replacement);
             } else {
-                tMap.put(tChar, sChar);
-            }
-
-            if (tMap.containsKey(tChar)) {
-                if (tMap.get(tChar) != sChar)
+                if (map.get(original) != replacement) {
                     return false;
-            } else {
-                tMap.put(tChar, sChar);
+                }
             }
         }
         return true;
     }
+
 
     static boolean isIsomorphicSolutionTwo(String s, String t) {
         if (s.length() != t.length()) return false;
@@ -63,30 +62,6 @@ public class Solution205 { //Isomorphic String
 
         }
 
-        return true;
-    }
-
-    static boolean isIsomorphic3(String s, String t) {
-        if (s.length() != t.length())
-            return false;
-        //create a hashmap to store character mapping
-        Map<Character, Character> map = new HashMap<>();
-
-        for (int i = 0; i < s.length(); i++) {
-            char original = s.charAt(i);
-            char replacement = t.charAt(i);
-
-            if (!map.containsKey(original)) {
-                if (map.containsValue(replacement))
-                    map.put(original, replacement);
-                else
-                    return false;
-            } else {
-                char mapCharacter = map.get(original);
-                if (mapCharacter != replacement)
-                    return false;
-            }
-        }
         return true;
     }
 
