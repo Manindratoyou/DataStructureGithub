@@ -46,19 +46,13 @@ public class FirstNonRepeated {
     }
 
     public static void printNonrepeated(String str) {
-        Map<Character, Long> freq = str.chars()
+        String input = "swiss";
+        Character firstNonRepeating = input.chars()
                 .mapToObj(c -> (char) c)
-                .collect(HashMap::new,
-                        (map, c) -> map.put(c, map.getOrDefault(c, 0L) + 1L),
-                        HashMap::putAll);
-
-        Optional<Character> firstNonRepeatedChar = str.chars()
-                .mapToObj(c -> (char) c)
-                .filter(c -> freq.get(c) == 1)
-                .findFirst();
-
-        firstNonRepeatedChar.ifPresent(c ->
-                System.out.println("First non-repeating character is " + c));
+                .filter(c -> input.indexOf(c) == input.lastIndexOf(c))
+                .findFirst()
+                .orElse(null);
+        System.out.println(firstNonRepeating); // Output: 'w'
     }
 
 }

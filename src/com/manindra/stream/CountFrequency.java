@@ -2,10 +2,11 @@ package com.manindra.stream;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CountEachCharactor {
+public class CountFrequency {
 
     public static void main(String[] args) {
 
@@ -15,6 +16,8 @@ public class CountEachCharactor {
                 .collect(Collectors.groupingBy(str -> str, LinkedHashMap::new, Collectors.counting()));
 
         charCount.forEach((character, count) -> System.out.println(character + ": " + count));
+        System.out.println("---------------------------");
+        CountFrequencyofElements();
     }
 
     /*public static void main(String[] args) {
@@ -32,4 +35,10 @@ public class CountEachCharactor {
         System.out.println(wordCount);
         }
         */
+    static void CountFrequencyofElements() {
+        List<String> items = List.of("apple", "banana", "apple", "orange", "banana");
+        Map<String, Long> frequencyMap = items.stream()
+                .collect(Collectors.groupingBy(item -> item, Collectors.counting()));
+        System.out.println(frequencyMap); // Output: {orange=1, banana=2, apple=2}
+    }
 }
