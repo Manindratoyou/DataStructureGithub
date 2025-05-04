@@ -5,22 +5,20 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class SubArrayWithGivenSum {
+public class SubArrayWithGivenSum { //check this program
 
     public static void main(String[] args) {
         int[] arr = {5, 8, 6, 13, 3, -1}; //6,13,3 contiguous element
         int sum = 22;
-        System.out.println(isSubArraySumSolOne(arr, sum));
+        System.out.println(isSubArraySumSolOne(arr, 21));
         System.out.println(isSubArraySumSolTwo(arr, sum));
         System.out.println(subArrayWithGivenSum(arr, sum));
     }
 
     static boolean isSubArraySumSolOne(int[] arr, int sum) {
         for (int i = 0; i < arr.length; i++) {
-            int curr_sum = 0;
-            for (int j = i; j < arr.length; j++) {
-                curr_sum += arr[j];
-                if (curr_sum == sum)
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == sum)
                     return true;
             }
         }
