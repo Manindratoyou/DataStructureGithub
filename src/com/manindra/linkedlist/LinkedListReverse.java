@@ -17,7 +17,7 @@ public class LinkedListReverse {
         printList1(head);
         System.out.println();
         //reverseList(head);
-        //head=reverseListSolutionTwo(head);
+        head=reverseListSolutionTwo(head);
         //head=reverseListSolutionThree(head);
         //head=reverseListSolutionFour(head,null);
         //head=reverseListKSize(head,3);
@@ -39,16 +39,17 @@ public class LinkedListReverse {
     }
 
     static Node reverseListSolutionTwo(Node head) {
+        Node prev = null;
         Node current = head;
-        Node previous = null;
+        Node next = null;
 
         while (current != null) {
-            Node next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+            next = current.next; // Store the next node
+            current.next = prev; // Reverse the pointer of the current node
+            prev = current;      // Move prev one step forward
+            current = next;     // Move current one step forward
         }
-        return previous;
+        return prev; // 'prev' will be the new head of the reversed list
     }
 
     static Node reverseListSolutionThree(Node head) {
