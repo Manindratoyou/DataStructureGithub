@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.linkedlist_leetcode;
 
 public class AddTwoNumbers { //solution2
 

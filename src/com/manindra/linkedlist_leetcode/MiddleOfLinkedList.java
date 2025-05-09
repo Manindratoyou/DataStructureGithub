@@ -1,6 +1,4 @@
-package com.manindra.leetcodeEasy;
-
-import com.manindra.linkedlist.Node;
+package com.manindra.linkedlist_leetcode;
 
 public class MiddleOfLinkedList { //solution 876
 

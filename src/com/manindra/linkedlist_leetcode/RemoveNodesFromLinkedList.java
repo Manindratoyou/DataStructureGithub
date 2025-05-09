@@ -1,6 +1,6 @@
 package com.manindra.linkedlist_leetcode;
 
-public class RemoveNodesFromLinkedList {
+public class RemoveNodesFromLinkedList { //solution 2487
 
     public static ListNode removeNodes(ListNode head) {
         head = reverse(head);
