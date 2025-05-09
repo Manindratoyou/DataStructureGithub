@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.linkedlist_leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +111,8 @@ public class Solution234 { // Palindrome Linked List
         int val;
         ListNode next;
 
-        ListNode() {}
+        ListNode() {
+        }
 
         ListNode(int val) {
             this.val = val;

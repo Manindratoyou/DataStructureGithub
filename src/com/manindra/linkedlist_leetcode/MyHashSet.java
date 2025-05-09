@@ -1,6 +1,6 @@
 package com.manindra.linkedlist_leetcode;
 
-class MyHashSet {
+class MyHashSet { //solution 705
 
     private final boolean[] set;
 
