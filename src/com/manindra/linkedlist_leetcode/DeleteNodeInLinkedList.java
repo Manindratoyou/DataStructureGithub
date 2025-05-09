@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.linkedlist_leetcode;
 
 public class DeleteNodeInLinkedList { //solution 237
 

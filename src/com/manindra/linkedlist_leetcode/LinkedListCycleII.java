@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.linkedlist_leetcode;
 
 public class LinkedListCycleII { // solution 142
 
