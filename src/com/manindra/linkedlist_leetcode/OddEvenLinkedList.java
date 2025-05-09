@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.linkedlist_leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,23 +45,20 @@ public class OddEvenLinkedList { // Solution 328
         return head;
     }
 
-    ListNode oddEvenList2(ListNode head) { // TC: O(n), AS: O(n)
+    ListNode oddEvenList2(ListNode head) {
         if (head == null) return head;
 
         List<ListNode> oddNodes = new ArrayList<>();
         List<ListNode> evenNodes = new ArrayList<>();
         ListNode current = head;
-        int index = 1;
 
-        // Split nodes into odd and even indexed lists
         while (current != null) {
-            if (index % 2 == 1) {
+            if (current.data % 2 == 1) {
                 oddNodes.add(current);
             } else {
                 evenNodes.add(current);
             }
             current = current.next;
-            index++;
         }
 
         // Combine odd and even nodes
@@ -77,11 +74,11 @@ public class OddEvenLinkedList { // Solution 328
             tail = tail.next;
         }
 
-        // Ensure the last node points to null
-        tail.next = null;
+        tail.next = null; // terminate list
 
-        return dummyHead.next;
+        return dummyHead.next; // return the head of new list
     }
+
 
     static class ListNode {
         private int data;
