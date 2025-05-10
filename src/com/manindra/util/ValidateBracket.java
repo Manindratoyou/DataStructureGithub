@@ -13,13 +13,13 @@ public class ValidateBracket {
 
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < bracket.length(); i++) {
-            char currentCharactor = bracket.charAt(i);
-            if (currentCharactor == '(' || currentCharactor == '{' || currentCharactor == '[') {
-                stack.push(currentCharactor);
+            char currentCharacter = bracket.charAt(i);
+            if (currentCharacter == '(' || currentCharacter == '{' || currentCharacter == '[') {
+                stack.push(currentCharacter);
             }
-            if ((currentCharactor == ')' && stack.peek() == '(') ||
-                    (currentCharactor == '}' && stack.peek() == '{') ||
-                    (currentCharactor == ']' && stack.peek() == '[')) {
+            if ((currentCharacter == ')' && stack.peek() == '(') ||
+                    (currentCharacter == '}' && stack.peek() == '{') ||
+                    (currentCharacter == ']' && stack.peek() == '[')) {
                 stack.pop();
             }
         }
