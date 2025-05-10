@@ -31,18 +31,15 @@ public class PreviousGreaterElement {
     }
 
     static void printPreviousGreaterElementUsingStack(int[] arr) {
-
         Stack<Integer> stack = new Stack<>();
 
-        stack.add(arr[0]);
-
         for (int i = 0; i < arr.length; i++) {
-            while (stack.isEmpty() == false && stack.peek() <= arr[i]) {
+            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
                 stack.pop();
             }
             int previousGreater = stack.isEmpty() ? -1 : stack.peek();
             System.out.print(previousGreater + " ");
-            stack.add(arr[i]);
+            stack.push(arr[i]);
         }
     }
 
@@ -50,15 +47,15 @@ public class PreviousGreaterElement {
 
         Stack<Integer> stack = new Stack<>();
 
-       for (int i=0;i< arr.length;i++){
-           //pop element from stack while stack is not empty and top of stack is smaller than the arr[i]
-           while (stack.isEmpty()==false && arr[i]>=stack.peek())
-               stack.pop();
+        for (int i = 0; i < arr.length; i++) {
+            //pop element from stack while stack is not empty and top of stack is smaller than the arr[i]
+            while (stack.isEmpty() == false && arr[i] >= stack.peek())
+                stack.pop();
 
-           //if stack=empty=no previous greater element is present else top of stack is previous greater
-           int result=stack.isEmpty() ? -1 : stack.peek();
-           System.out.print(result+" ");
-           stack.push(arr[i]);
-       }
+            //if stack=empty=no previous greater element is present else top of stack is previous greater
+            int result = stack.isEmpty() ? -1 : stack.peek();
+            System.out.print(result + " ");
+            stack.push(arr[i]);
+        }
     }
 }
