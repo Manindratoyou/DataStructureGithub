@@ -6,10 +6,13 @@ public class StockSpan {
 
     public static void main(String[] args) {
 
-        int [] arr={13,15,12,14,16,8,6,4,10,30};
+        int[] arr = {13, 15, 12, 14, 16, 8, 6, 4, 10, 30};
+        int[] arr1 = {30, 20, 25, 28, 27, 29};
+        int[] arr2 = {10,20,30,40};
         printSpanNaive(arr, arr.length);
         System.out.println();
-        printSpanEfficient(arr, arr.length);
+        printSpanEfficient(arr1, arr1.length);
+        printSpanEfficient(arr2, arr2.length);
     }
 
     //solution 1 : Naive
@@ -27,15 +30,15 @@ public class StockSpan {
 
     //solution 2 : efficient
     static void printSpanEfficient(int[] arr, int n) {
-        Stack<Integer> stack=new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         stack.add(0);
-        System.out.print(1+" ");
-        for (int i=1;i<n;i++){
-            while (stack.isEmpty() ==false && arr[stack.peek()]<=arr[i]){
+        System.out.print(1 + " ");
+        for (int i = 1; i < n; i++) {
+            while (stack.isEmpty() == false && arr[stack.peek()] <= arr[i]) {
                 stack.pop();
             }
-            int span= stack.isEmpty() ? i+1 : i- stack.peek();
-            System.out.print(span+" ");
+            int span = stack.isEmpty() ? i + 1 : i - stack.peek();
+            System.out.print(span + " ");
             stack.push(i);
         }
     }
