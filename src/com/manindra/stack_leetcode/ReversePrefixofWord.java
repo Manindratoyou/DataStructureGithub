@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.stack_leetcode;
 
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package com.manindra.leetcode_hard;
+package com.manindra.stack_leetcode;
 
 public class MaximalRectangle { //solution 85
 

@@ -1,11 +1,11 @@
-package com.manindra.leetcode;
+package com.manindra.stack_leetcode;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class Solution496 { //Next Greater Element I
+public class NextGreaterElementI { //solution 496
 
     /*
     Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
