@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.tree_leetcode;
 
 import java.util.*;
 

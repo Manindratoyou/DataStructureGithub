@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.tree_leetcode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

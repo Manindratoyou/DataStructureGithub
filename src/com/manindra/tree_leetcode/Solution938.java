@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.tree_leetcode;
 
 import java.util.LinkedList;
 import java.util.Queue;

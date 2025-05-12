@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.tree_leetcode;
 
 public class SubtreeOfAnotherTree { //solution 572
 
