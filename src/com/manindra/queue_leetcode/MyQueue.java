@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.queue_leetcode;
 
 import java.util.Stack;
 
