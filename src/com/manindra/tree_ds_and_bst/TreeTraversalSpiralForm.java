@@ -37,17 +37,23 @@ public class TreeTraversalSpiralForm { //level order
             int count = queue.size();
             for (int i = 0; i < count; i++) {
                 Node current = queue.poll();
-                if (reverse) stack.push(current.key);
-                else System.out.print(current.key + " ");
-                if (current.left != null) queue.add(current.left);
-                if (current.right != null) queue.add(current.right);
+                if (reverse)
+                    stack.push(current.key);
+                else
+                    System.out.print(current.key + " ");
+                if (current.left != null)
+                    queue.add(current.left);
+                if (current.right != null)
+                    queue.add(current.right);
             }
             if (reverse) {
-                while (!stack.isEmpty()) System.out.print(stack.pop() + " ");
+                while (!stack.isEmpty())
+                    System.out.print(stack.pop() + " ");
             }
             reverse = !reverse;
         }
     }
+
     static void printSpiralSolutionTwo(Node root) {
         if (root == null)
             return;
@@ -76,7 +82,6 @@ public class TreeTraversalSpiralForm { //level order
             }
         }
     }
-
 
 
     static class Node {
