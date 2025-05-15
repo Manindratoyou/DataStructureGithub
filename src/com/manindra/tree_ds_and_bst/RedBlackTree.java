@@ -15,7 +15,6 @@ public class RedBlackTree {
             this.color = RED;
         }
     }
-
     private Node root;
 
     // Left Rotate
