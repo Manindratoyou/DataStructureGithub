@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.dynamicprogramming_leetcode;
 
 class MinCostClimbingStairs { //solution 746
 

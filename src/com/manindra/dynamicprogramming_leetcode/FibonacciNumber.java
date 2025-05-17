@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.dynamicprogramming_leetcode;
 
 public class FibonacciNumber { //solution 509
 

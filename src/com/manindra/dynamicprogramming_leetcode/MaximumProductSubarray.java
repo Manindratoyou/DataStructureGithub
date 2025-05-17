@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.dynamicprogramming_leetcode;
 
 public class MaximumProductSubarray { //solution 152
 

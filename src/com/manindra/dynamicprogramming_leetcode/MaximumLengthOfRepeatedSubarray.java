@@ -1,6 +1,6 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.dynamicprogramming_leetcode;
 
-public class MaximumLengthOfRepeatedSubarray {
+public class MaximumLengthOfRepeatedSubarray { //solution 718
 
     public static void main(String[] args) {
 

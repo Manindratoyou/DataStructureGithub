@@ -1,6 +1,6 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.dynamicprogramming_leetcode;
 
-public class HouseRobberIII {
+public class HouseRobberIII { //solution 337
 
     public static void main(String[] args) {
         // Test cases

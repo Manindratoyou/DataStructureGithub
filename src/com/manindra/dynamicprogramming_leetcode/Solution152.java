@@ -1,4 +1,4 @@
-package com.manindra.leetcodeMedium;
+package com.manindra.dynamicprogramming_leetcode;
 
 public class Solution152 {
 

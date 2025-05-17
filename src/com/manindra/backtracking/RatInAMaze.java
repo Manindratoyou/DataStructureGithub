@@ -13,21 +13,18 @@ public class RatInAMaze {
         };
         int size = maze.length;
 
-        boolean result=solveMaze(maze, size);
+        boolean result = solveMaze(maze, size);
         System.out.println(result);
     }
 
-    static void printSolution(int[][] solution, int size) {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                System.out.print(solution[i][j] + " ");
-            }
-            System.out.println();
+    static boolean solveMaze(int[][] maze, int size) {
+        int[][] solution = new int[size][size];
+        if (!solveMazeUtil(maze, 0, 0, solution, size)) {
+            System.out.println("Solution doesn't exist");
+            return false;
         }
-    }
-
-    static boolean isSafe(int[][] maze, int x, int y, int size) {
-        return x >= 0 && y >= 0 && x < size && y < size && maze[x][y] == 1;
+        printSolution(solution, size);
+        return true;
     }
 
     static boolean solveMazeUtil(int[][] maze, int x, int y, int[][] solution, int size) {
@@ -48,13 +45,16 @@ public class RatInAMaze {
         return false;
     }
 
-    static boolean solveMaze(int[][] maze, int size) {
-        int[][] solution = new int[size][size];
-        if (!solveMazeUtil(maze, 0, 0, solution, size)) {
-            System.out.println("Solution doesn't exist");
-            return false;
+    static boolean isSafe(int[][] maze, int x, int y, int size) {
+        return x >= 0 && y >= 0 && x < size && y < size && maze[x][y] == 1;
+    }
+
+    static void printSolution(int[][] solution, int size) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                System.out.print(solution[i][j] + " ");
+            }
+            System.out.println();
         }
-        printSolution(solution, size);
-        return true;
     }
 }

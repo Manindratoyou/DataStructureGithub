@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.dynamicprogramming_leetcode;
 
 public class Solution70 { //Climbing Stairs
 

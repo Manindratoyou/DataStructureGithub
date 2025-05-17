@@ -1,4 +1,4 @@
-package com.manindra.util;
+package com.manindra.dynamicprogramming_leetcode;
 
 import java.util.Arrays;
 import java.util.List;
