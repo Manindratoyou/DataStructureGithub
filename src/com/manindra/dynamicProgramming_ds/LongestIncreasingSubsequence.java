@@ -4,7 +4,8 @@ public class LongestIncreasingSubsequence { //part1
 
     public static void main(String[] args) {
 
-        int [] arr={3,4,2,8,10,5,1};
+        int[] arr = {3, 4, 2, 8, 10, 5, 1}; //3 4 8 10
+        int[] arr1 = {4, 10, 6, 5, 8, 11, 2, 20}; //4 6 8 11 20  or  4 5 8 11 20
         System.out.println(LIS(arr));
     }
 
