@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.sliding_window_leetcode;
 
 import java.util.HashSet;
 import java.util.Set;

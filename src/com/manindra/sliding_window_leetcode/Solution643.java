@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.sliding_window_leetcode;
 
 public class Solution643 { //Maximum Average Sub array I (sliding Window Technique)
 

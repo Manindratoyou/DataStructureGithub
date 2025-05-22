@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.sliding_window_leetcode;
 
 public class MaxConsecutiveOnesIII { //solution 1004
 
