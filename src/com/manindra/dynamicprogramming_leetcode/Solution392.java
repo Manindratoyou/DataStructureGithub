@@ -10,6 +10,7 @@ public class Solution392 { //is Subsequence
         System.out.println(isSubsequence("abc", "")); // Output: false
         System.out.println(isSubsequence("", "")); // Output: true
         System.out.println(isSubsequence("aaaaaa", "bbaaaa")); // Output: false
+        System.out.println(isSubsequence("abc", "ahbgdc")); // Output: true
     }
 
     //approach 1 : Bruit Force Tc: 0(min(m,n) m and length of s and t AS: 0(1)
