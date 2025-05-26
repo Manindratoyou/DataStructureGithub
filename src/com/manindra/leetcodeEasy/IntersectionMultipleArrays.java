@@ -31,7 +31,6 @@ public class IntersectionMultipleArrays { //solution 2248
                 map.put(i, map.getOrDefault(i, 0) + 1);
             }
         }
-
         return map.keySet().stream()
                 .filter(x -> map.get(x) == nums.length)
                 .sorted()
