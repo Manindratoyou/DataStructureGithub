@@ -35,4 +35,50 @@ public class MaximumProductSubarray { //solution 152
         }
         return answer;
     }
+
+    public static int maxProduct2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        int maxProduct = nums[0];
+        int currMax = nums[0];
+        int currMin = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            int temp = currMax;
+
+            currMax = Math.max(nums[i], Math.max(currMax * nums[i], currMin * nums[i]));
+            currMin = Math.min(nums[i], Math.min(temp * nums[i], currMin * nums[i]));
+
+            maxProduct = Math.max(maxProduct, currMax);
+        }
+
+        return maxProduct;
+    }
+
+    public int maxProduct3(int[] nums) {
+        { //some test case are failing [-2,3,-4] op 3 expected 24
+            int n = nums.length;
+            int result = nums[0];
+            int maxEnding = nums[0];
+            for (int i = 1; i < n; i++) {
+                maxEnding = Math.max(maxEnding * nums[i], nums[i]);
+                result = Math.max(result, maxEnding);
+            }
+            return result;
+        }
+    }
+
+    public static int maxProductBruteForce(int[] nums) { //{2, 3, -2, 4};
+        int maxProduct = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            int product = 1;
+            for (int j = i; j < nums.length; j++) {
+                product *= nums[j];
+                maxProduct = Math.max(maxProduct, product);
+            }
+        }
+
+        return maxProduct;
+    }
 }
