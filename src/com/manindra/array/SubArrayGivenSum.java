@@ -1,5 +1,8 @@
 package com.manindra.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SubArrayGivenSum {
 
     public static void main(String[] args) {
@@ -59,5 +62,29 @@ public class SubArrayGivenSum {
         }
 
         return false;
+    }
+
+    //find and return the subarray itself
+    public static List<Integer> findSubarray(int[] arr, int target) {
+        int start = 0, sum = 0;
+        List<Integer> result = new ArrayList<>();
+
+        for (int end = 0; end < arr.length; end++) {
+            sum += arr[end];
+
+            while (sum > target && start <= end) {
+                sum -= arr[start++];
+            }
+
+            if (sum == target) {
+                result.clear();
+                for (int i = start; i <= end; i++) {
+                    result.add(arr[i]);
+                }
+                return result;
+            }
+        }
+
+        return result; // returns empty list if no subarray found
     }
 }
