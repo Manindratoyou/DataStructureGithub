@@ -1,9 +1,6 @@
 package com.manindra.leetcodeEasy;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class UniqueNumberOfOccurrences { //solution 1207
 
@@ -41,5 +38,29 @@ Output: true
             uniqueValues.add(value);
         }
         return true;
+    }
+
+    public boolean uniqueOccurrences2(int[] arr) {
+        int[] ca = new int[2001]; // Assuming the range of numbers in 'arr' is such that arr[i] + 1000 fits within 0-2000
+
+        // Count occurrences of each number
+        for (int i : arr) {
+            ca[i + 1000]++; // Offset by 1000 to handle negative numbers if they exist
+        }
+
+        // Sort the array of counts
+        Arrays.sort(ca);
+
+        // Check for unique occurrences
+        // We iterate up to 1999 because we compare ca[i] with ca[i+1]
+        for (int i = 0; i < 2000; i++) {
+            // If the current count is not zero (meaning it actually occurred)
+            // AND the current count is equal to the next count
+            if (ca[i] != 0 && ca[i] == ca[i + 1]) {
+                return false; // Found duplicate occurrences
+            }
+        }
+
+        return true; // All occurrences are unique
     }
 }
