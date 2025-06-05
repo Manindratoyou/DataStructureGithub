@@ -56,4 +56,19 @@ public class ReversePrefixofWord { //solution 2000
         // Append the rest of the word
         return prefix.append(word.substring(index + 1)).toString();
     }
+
+    public String reversePrefix3(String word, char ch) {
+        StringBuilder sb = new StringBuilder();
+        int n = word.indexOf(ch);
+
+        for (int i = n; i >= 0; i--) {
+            sb.append(word.charAt(i));
+        }
+
+        for (int i = n + 1; i < word.length(); i++) {
+            sb.append(word.charAt(i));
+        }
+
+        return sb.toString();
+    }
 }
