@@ -113,4 +113,34 @@ public class Solution128 { //Longest Consecutive Sequence
 
         return Math.max(longestStreak, currentStreak);
     }
+
+    public static int longestConsecutive4(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        // Step 1: Sort the array
+        Arrays.sort(nums);
+
+        int maxLength = 1;
+        int currentLength = 1;
+
+        // Step 2: Iterate through the array
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                // Skip duplicates
+                continue;
+            } else if (nums[i] == nums[i - 1] + 1) {
+                // Consecutive number found
+                currentLength++;
+            } else {
+                // Sequence ends
+                maxLength = Math.max(maxLength, currentLength);
+                currentLength = 1;
+            }
+        }
+
+        // Final check for the last sequence
+        maxLength = Math.max(maxLength, currentLength);
+
+        return maxLength;
+    }
 }
