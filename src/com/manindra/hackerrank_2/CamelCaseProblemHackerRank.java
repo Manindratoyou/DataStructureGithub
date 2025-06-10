@@ -1,4 +1,4 @@
-package com.manindra.util;
+package com.manindra.hackerrank_2;
 
 public class CamelCaseProblemHackerRank {
 

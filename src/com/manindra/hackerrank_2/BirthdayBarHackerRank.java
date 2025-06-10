@@ -1,4 +1,4 @@
-package com.manindra.util;
+package com.manindra.hackerrank_2;
 
 import java.util.ArrayList;
 import java.util.List;
