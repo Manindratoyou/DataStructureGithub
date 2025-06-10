@@ -42,4 +42,25 @@ public class ExpandString {
         return result.toString();
     }
 
+    public static String expandString2(String input) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            int j = i + 1;
+
+            // Find the number part
+            while (j < input.length() && Character.isDigit(input.charAt(j))) {
+                j++;
+            }
+
+            // Append character 'n' times
+            int count = Integer.parseInt(input.substring(i + 1, j));
+            result.append(String.valueOf(ch).repeat(count));
+
+            // Move to the next character block
+            i = j - 1;
+        }
+        return result.toString();
+    }
+
 }
