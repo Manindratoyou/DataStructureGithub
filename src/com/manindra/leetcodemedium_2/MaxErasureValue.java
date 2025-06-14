@@ -9,6 +9,7 @@ public class MaxErasureValue { //solution 1695
         int[] nums1 = {4, 2, 4, 5, 6};
         int[] nums2 = {5, 2, 1, 2, 5, 2, 1, 2, 5};
         System.out.println(maximumUniqueSubarray(nums1)); // Output: 17
+        System.out.println(maximumUniqueSubarray2(nums1)); // Output: 17
         System.out.println(maximumUniqueSubarray(nums2)); // Output: 8
     }
 
@@ -31,21 +32,22 @@ public class MaxErasureValue { //solution 1695
         return maxSum;
     }
 
-    public static int maximumUniqueSubarray2(int[] nums) {
+    static int maximumUniqueSubarray2(int[] nums) { //
+        int res = 0;
+        int left = 0;
+        int sum = 0;
         Set<Integer> set = new HashSet<>();
-        int left = 0, sum = 0, maxSum = 0;
-
         for (int right = 0; right < nums.length; right++) {
             while (set.contains(nums[right])) {
                 set.remove(nums[left]);
-                sum -= nums[left++];
+                sum -= nums[left];
+                left++;
             }
-            set.add(nums[right]);
             sum += nums[right];
-            maxSum = Math.max(maxSum, sum);
+            set.add(nums[right]);
+            res = Math.max(res, sum);
         }
-
-        return maxSum;
+        return res;
     }
 
 }
