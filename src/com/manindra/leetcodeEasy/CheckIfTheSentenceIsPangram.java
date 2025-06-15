@@ -50,11 +50,12 @@ public class CheckIfTheSentenceIsPangram { //solution 1832
         return true;
     }
 
-    public boolean checkIfPangram4(String sentence) {
-
+    private static boolean isPanagram4(String sentence) { //use this
         Set<Character> set = new HashSet<>();
-        for (int i = 0; i < sentence.length(); i++) {
-            set.add(sentence.charAt(i));
+        for (char c : sentence.toLowerCase().trim().toCharArray()) {
+            if (Character.isLetter(c)) { // Filter out non-letter characters
+                set.add(c);
+            }
         }
         return set.size() == 26;
     }
