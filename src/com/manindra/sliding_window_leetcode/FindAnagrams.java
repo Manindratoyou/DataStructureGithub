@@ -6,10 +6,17 @@ import java.util.List;
 
 public class FindAnagrams { //solution 438
 
+    public static void main(String[] args) {
+        FindAnagrams obj = new FindAnagrams();
+        System.out.println(obj.findAnagrams("cbaebabacd", "abc")); // Output: [0, 6]
+        System.out.println(obj.findAnagrams("abab", "ab"));         // Output: [0, 1, 2]
+    }
+
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
 
-        if (s.length() < p.length()) return result;
+        if (s.length() < p.length())
+            return result;
 
         int[] pCount = new int[26];
         int[] window = new int[26];
@@ -33,12 +40,6 @@ public class FindAnagrams { //solution 438
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        FindAnagrams obj = new FindAnagrams();
-        System.out.println(obj.findAnagrams("cbaebabacd", "abc")); // Output: [0, 6]
-        System.out.println(obj.findAnagrams("abab", "ab"));         // Output: [0, 1, 2]
     }
 }
 
