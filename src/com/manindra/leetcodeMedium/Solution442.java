@@ -9,15 +9,15 @@ public class Solution442 { //Find All Duplicates in an Array
 
     public static void main(String[] args) {
 
-        int[] nums = {4,3,2,7,8,2,3,1};// Output: [2,3]
+        int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};// Output: [2,3]
         //List<Integer> result1=findDuplicatesConstantSpace(nums);
         //System.out.println(result1);
-        List<Integer> result2=findDuplicatesLinearSpace(nums);
+        List<Integer> result2 = findDuplicatesLinearSpace(nums);
         System.out.println(result2);
 
     }
 
-    static List<Integer> findDuplicatesConstantSpace(int[] nums) {
+    static List<Integer> findDuplicatesConstantSpace(int[] nums) { //without any extra space 0(1)
 
         List<Integer> resultSet = new ArrayList<>();
 

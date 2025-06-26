@@ -24,21 +24,21 @@ public class GroupAnagrams { //solution 49
 
         if (strs == null || strs.length == 0)
             return new ArrayList<>();
-        Map<String, List<String>> stringAnagramMap = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
             char[] arr = s.toCharArray();
             Arrays.sort(arr);
             String key = String.valueOf(arr);
 
-            if (!stringAnagramMap.containsKey(key))
-                stringAnagramMap.put(key, new ArrayList<>());
+            if (!map.containsKey(key))
+                map.put(key, new ArrayList<>());
 
-            stringAnagramMap.get(key).add(s);
+            map.get(key).add(s);
 
         }
 
         List<List<String>> resultList = new ArrayList<>();
-        for (Map.Entry<String, List<String>> stringAnagram : stringAnagramMap.entrySet()) {
+        for (Map.Entry<String, List<String>> stringAnagram : map.entrySet()) {
             resultList.add(stringAnagram.getValue());
         }
         return resultList;
@@ -49,22 +49,22 @@ public class GroupAnagrams { //solution 49
         if (strs == null || strs.length == 0)
             return new ArrayList<>();
 
-        Map<String, List<String>> frequencyStringMap = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
             String frequencyString = getFrequencyString(str);
 
             //if the frequency string is present ,add the string to the list
-            if (frequencyStringMap.containsKey(frequencyString)) {
-                frequencyStringMap.get(frequencyString).add(str);
+            if (map.containsKey(frequencyString)) {
+                map.get(frequencyString).add(str);
             } else {
                 //else create a new list
                 List<String> strList = new ArrayList<>();
                 strList.add(str);
-                frequencyStringMap.put(frequencyString, strList);
+                map.put(frequencyString, strList);
             }
         }
 
-        return new ArrayList<>(frequencyStringMap.values());
+        return new ArrayList<>(map.values());
 
     }
 
