@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CountFrequency {
@@ -41,4 +42,14 @@ public class CountFrequency {
                 .collect(Collectors.groupingBy(item -> item, Collectors.counting()));
         System.out.println(frequencyMap); // Output: {orange=1, banana=2, apple=2}
     }
+
+    static void CountFrequencyofElements4() {
+        String s = "manindra";
+        Map<Character, Long> collect = s.chars().mapToObj(t -> (char) t).collect(Collectors.
+                groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(collect);
+
+    }
+
+
 }
