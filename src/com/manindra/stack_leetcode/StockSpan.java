@@ -3,7 +3,7 @@ package com.manindra.stack_leetcode;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class StockSpan { //leet code 901
+public class StockSpan { //solution 901
 
     public static void main(String[] args) {
 
@@ -39,6 +39,26 @@ public class StockSpan { //leet code 901
         return spans;
 
     }
+
+    /*
+
+    static int[] printSpan(int[] span) {
+        int[] result = new int[span.length];
+        result[0] = 1;
+        for (int i = span.length - 1; i >= 0; i--) {
+
+            for (int j = i - 1; j >= 0; j--) {
+
+                if (span[j] > span[i]) {
+                    result[i] = i - j;
+                    System.out.println(i - j);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+     */
 
 
 }
