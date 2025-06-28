@@ -12,6 +12,13 @@ public class Solution205 { //Isomorphic String
         System.out.println(isIsomorphic("foo", "bar"));     // false
         System.out.println(isIsomorphic("paper", "title")); // true
         System.out.println(isIsomorphic("ab", "aa"));       // false
+
+        System.out.println("=============================");
+
+        System.out.println(isIsomorphic3("egg", "add"));     // true
+        System.out.println(isIsomorphic3("foo", "bar"));     // false
+        System.out.println(isIsomorphic3("paper", "title")); // true
+        System.out.println(isIsomorphic3("badc", "kikp"));   //false
     }
 
     static boolean isIsomorphic(String s, String t) {
@@ -19,18 +26,18 @@ public class Solution205 { //Isomorphic String
             return false;
 
         Map<Character, Character> map = new HashMap<>();
-        Set<Character> mappedValues = new HashSet<>();
+        Set<Character> set = new HashSet<>();
 
         for (int i = 0; i < s.length(); i++) {
             char original = s.charAt(i);
             char replacement = t.charAt(i);
 
             if (!map.containsKey(original)) {
-                if (mappedValues.contains(replacement)) {
+                if (set.contains(replacement)) {
                     return false;
                 }
                 map.put(original, replacement);
-                mappedValues.add(replacement);
+                set.add(replacement);
             } else {
                 if (map.get(original) != replacement) {
                     return false;
@@ -62,6 +69,34 @@ public class Solution205 { //Isomorphic String
 
         }
 
+        return true;
+    }
+
+    //use this
+    public static boolean isIsomorphic3(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        // Create a hashmap to store character mappings
+        Map<Character, Character> map = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char original = s.charAt(i);
+            char replacement = t.charAt(i);
+
+            if (!map.containsKey(original)) {
+                if (map.containsValue(replacement)) {
+                    return false; // Replacement character is already mapped to a different original character
+                }
+                map.put(original, replacement);
+            } else {
+                char mappedCharacter = map.get(original);
+                if (mappedCharacter != replacement) {
+                    return false; // Original character is mapped to a different replacement character
+                }
+            }
+        }
         return true;
     }
 
