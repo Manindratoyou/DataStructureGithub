@@ -3,7 +3,7 @@ package com.manindra.leetcode;
 import java.util.Arrays;
 import java.util.TreeSet;
 
-public class Solution561 {
+public class Solution561 { //Array Partition
 
     /*
     Input: nums = [1,4,3,2]

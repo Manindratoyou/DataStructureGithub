@@ -41,8 +41,10 @@ public class Solution1365 {
         // Populate the result
         int[] result = new int[nums.length];
         for (int i = 0; i < result.length; i++) {
-            if (nums[i] == 0) result[i] = 0;
-            else result[i] = buckets[nums[i] - 1];
+            if (nums[i] == 0)
+                result[i] = 0;
+            else
+                result[i] = buckets[nums[i] - 1];
         }
 
         return result;
