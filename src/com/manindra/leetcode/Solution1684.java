@@ -12,26 +12,26 @@ public class Solution1684 {
 
     public static void main(String[] args) {
 
-        String [] words = {"ad","bd","aaab","baa","badab"};
+        String[] words = {"ad", "bd", "aaab", "baa", "badab"};
         String allowed = "ab";
         //String allowed = "abc";
         //String [] words = {"a","b","c","ab","ac","bc","abc"};
-        System.out.println(countConsistentStrings(words,allowed));
+        System.out.println(countConsistentStrings(words, allowed));
     }
 
-    static int countConsistentStrings(String [] words,String allowed){
+    static int countConsistentStrings(String[] words, String allowed) {
 
-        int count=0;
+        int count = 0;
 
-        Set<Character> set=new HashSet<>();
-        for (int i=0;i<allowed.length();i++){
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < allowed.length(); i++) {
             set.add(allowed.charAt(i));
         }
-        for (String str: words){
-            boolean flag=true;
-            for (int i=0;i<str.length();i++){
+        for (String str : words) {
+            boolean flag = true;
+            for (int i = 0; i < str.length(); i++) {
                 if (!set.contains(str.charAt(i)))
-                    flag=false;
+                    flag = false;
             }
             if (flag)
                 count++;
@@ -65,5 +65,20 @@ public class Solution1684 {
         }
 
         return count;
+    }
+
+    public int countConsistentStringsSolThree(String allowed, String[] words) {
+
+        int result = 0;
+        for (String word : words) {
+            boolean consistent = true;
+            for (char i : word.toCharArray()) {
+                if (allowed.indexOf(i) < 0)
+                    consistent = false;
+            }
+            if (consistent)
+                result++;
+        }
+        return result;
     }
 }
