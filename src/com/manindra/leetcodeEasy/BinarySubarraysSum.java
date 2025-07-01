@@ -8,7 +8,8 @@ public class BinarySubarraysSum { //solution 930
     public static void main(String[] args) {
 
         int [] nums = {1,0,1,0,1} ;int  goal = 2;
-        System.out.println(numSubarraysWithSum(nums,goal));
+        //System.out.println(numSubarraysWithSum(nums,goal));
+        System.out.println(subarraySum2(nums,goal));
     }
 
     static int numSubarraysWithSum(int[] nums, int goal) {
@@ -39,5 +40,18 @@ public class BinarySubarraysSum { //solution 930
         }
 
         return res; // Return the total count of subarrays with the given sum
+    }
+    public static int subarraySum2(int[] nums, int goal) { //copy paste from solution 560
+
+        int res = 0;
+        int curr = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        for (int num : nums) {
+            curr += num;
+            res += map.getOrDefault(curr - goal, 0);
+            map.put(curr, map.getOrDefault(curr, 0) + 1);
+        }
+        return res;
     }
 }

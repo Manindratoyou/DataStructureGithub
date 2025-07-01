@@ -42,7 +42,7 @@ public class SubarraySumEqualsK { //solution 560
         return count;
     }
 
-    public static int subarraySum2(int[] nums, int k) {
+    public static int subarraySum2(int[] nums, int k) { //similar 930
 
         int res = 0;
         int curr = 0;
