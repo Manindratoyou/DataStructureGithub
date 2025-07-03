@@ -2,7 +2,6 @@ package com.manindra.leetcode;
 
 import java.util.Arrays;
 
-//debug
 public class Solution2114 { //Maximum Number of Words Found in Sentences
 
     public static void main(String[] args) {

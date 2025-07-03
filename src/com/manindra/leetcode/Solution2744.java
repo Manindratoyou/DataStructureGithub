@@ -1,6 +1,7 @@
 package com.manindra.leetcode;
 
 import java.util.*;
+
 /*
 Input: words = ["cd","ac","dc","ca","zz"]
 Output: 2
@@ -13,27 +14,27 @@ public class Solution2744 { //Find Maximum Number of String Pairs
 
     public static void main(String[] args) {
 
-        String [] words = {"cd","ac","dc","ca","zz"};
+        String[] words = {"cd", "ac", "dc", "ca", "zz"};
 
         test(words);
         System.out.println("===========");
         System.out.println(findPairs(words));
-        System.out.println(maximumNumberOfStringPairs(words));
+        System.out.println(maximumNumberOfStringPairs2(words));
     }
 
-    static void test(String [] arr){
-        Map<String,Integer> map=new HashMap<>();
-        for (String s:arr) {
+    static void test(String[] arr) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String s : arr) {
             char[] chars = s.toCharArray();
             Arrays.sort(chars);
-            String s2=new String(chars);
-            map.put(s2,map.getOrDefault(s2,0)+1);
+            String s2 = new String(chars);
+            map.put(s2, map.getOrDefault(s2, 0) + 1);
             System.out.println(s2);
         }
         System.out.println(map);
-        int count=0;
-        for (Map.Entry<String,Integer> m : map.entrySet()){
-            if (m.getValue()>1) {
+        int count = 0;
+        for (Map.Entry<String, Integer> m : map.entrySet()) {
+            if (m.getValue() > 1) {
                 System.out.println(m.getKey());
                 count++;
                 System.out.println(count);
@@ -43,31 +44,44 @@ public class Solution2744 { //Find Maximum Number of String Pairs
 
     static int findPairs(String[] words) {
         int count = 0;
-        Set<String> reversedStrings = new HashSet<>();
-        for (String word : words)
-        {
+        Set<String> set = new HashSet<>();
+        for (String word : words) {
             StringBuilder reversed = new StringBuilder(word).reverse();
-            if (reversedStrings.contains(reversed.toString()))
-            {
+            if (set.contains(reversed.toString())) {
                 count++;
             }
-            reversedStrings.add(word);
+            set.add(word);
         }
         return count;
     }
 
-    static int maximumNumberOfStringPairs(String[] words) {
-        int MaxPairs=0;
-        for(int i=0;i<words.length;i++)
-        {
-            for(int j=i+1;j<words.length;j++)
-            {
-                if(words[i].charAt(0)==words[j].charAt(1) && words[i].charAt(1)==words[j].charAt(0))
-                    MaxPairs++;
+    public static int maximumNumberOfStringPairs2(String[] words) {
+        Set<String> set = new HashSet<>();
+        int count = 0;
+
+        for (String word : words) {
+            String rev = new StringBuilder(word).reverse().toString();
+            if (set.contains(rev)) {
+                count++;
+            } else {
+                set.add(word);
             }
         }
-        return MaxPairs;
 
+        return count;
+    }
+
+    public static int maximumNumberOfStringPairs3(String[] words) { //brut force
+        int count = 0;
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].charAt(0) == words[j].charAt(1) &&
+                        words[i].charAt(1) == words[j].charAt(0)) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
 }

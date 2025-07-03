@@ -7,7 +7,7 @@ Input: words = ["pay","attention","practice","attend"], pref = "at"
 Output: 2
 Explanation: The 2 strings that contain "at" as a prefix are: "attention" and "attend".
  */
-public class Solution2185 {
+public class Solution2185 { //Counting Words With a Given Prefix
 
     public static void main(String[] args) {
 

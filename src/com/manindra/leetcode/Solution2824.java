@@ -1,6 +1,7 @@
 package com.manindra.leetcode;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /*
 Input: nums = [-1,1,2,3,1], target = 2
@@ -15,55 +16,47 @@ public class Solution2824 { //Count Pairs Whose Sum is Less than Target
 
     public static void main(String[] args) {
 
-        int [] nums = {-1,1,2,3,1};int target = 2;
-        test(nums,target);
+        int[] nums = {-1, 1, 2, 3, 1};
+        int target = 2;
+        System.out.println(countPairs1(nums, target));
         System.out.println("===");
-        System.out.println(countPairs(nums,target));
+        System.out.println(countPairs2(nums, target));
     }
 
-    static void test(int [] arr,int target){
-
-        int count=0;
-        for (int i=0;i< arr.length;i++){
-            for (int j=i+1;j< arr.length;j++){
-                if (arr[i]+arr[j]<target){
-                    System.out.println(i+" "+j);
+    public static int countPairs1(int[] nums, int target) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] < target) {
+                    //System.out.println(i+" "+j);
                     count++;
                 }
             }
         }
-        System.out.println(count);
+        return count;
     }
 
-    static int countPairs(int[] nums, int target) {
-        if (nums == null || nums.length < 2) {
-            return 0;
-        }
 
-        int count = 0;
-        int n = nums.length;
-
-        // Sort the array
+    public static int countPairs2(int[] nums, int target) { //Sort + Two Pointers (Efficient)
         Arrays.sort(nums);
+        int left = 0, right = nums.length - 1;
+        int count = 0;
 
-        for (int i = 0; i < n - 1; i++) {
-            int left = i + 1;
-            int right = n - 1;
-
-            while (left <= right) {
-                int sum = nums[i] + nums[left] + nums[right];
-
-                if (sum < target) {
-                    // If the sum is less than the target, all pairs with the current left and right elements are valid.
-                    count += right - left + 1;
-                    left++;
-                } else {
-                    // If the sum is greater or equal to the target, move the right pointer to the left.
-                    right--;
-                }
+        while (left < right) {
+            if (nums[left] + nums[right] < target) {
+                count += (right - left); // all pairs (left, left+1..right)
+                left++;
+            } else {
+                right--;
             }
         }
-
         return count;
+    }
+
+    public static int countPairs3(int[] nums, int target) {
+        return (int) IntStream.range(0, nums.length)
+                .flatMap(i -> IntStream.range(i + 1, nums.length)
+                        .filter(j -> nums[i] + nums[j] < target))
+                .count();
     }
 }

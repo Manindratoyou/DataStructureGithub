@@ -23,19 +23,19 @@ public class Solution2053 { //Kth Distinct String in an Array
     }
 
     public static String kthDistinct(String[] arr, int k) {
-        Map<String, Integer> distinctStrings = new LinkedHashMap<>();
+        Map<String, Integer> map = new LinkedHashMap<>();
         for (String string : arr) {
-            distinctStrings.put(string, distinctStrings.getOrDefault(string, 0) + 1);
+            map.put(string, map.getOrDefault(string, 0) + 1);
         }
 
         int distinctStringCount = 0;
-        for (String string : distinctStrings.keySet()) {
-            if (distinctStrings.get(string) == 1) {
+        for (String s : map.keySet()) {
+            if (map.get(s) == 1) {
                 distinctStringCount++;
             }
 
             if (distinctStringCount == k) {
-                return string;
+                return s;
             }
         }
 
