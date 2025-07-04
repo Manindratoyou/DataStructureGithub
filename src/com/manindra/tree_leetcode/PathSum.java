@@ -26,7 +26,6 @@ public class PathSum { //solution 112
     }
 
 
-
     boolean hasPathSum(TreeNode root, int sum) {
 
         if (root == null)
@@ -60,6 +59,27 @@ public class PathSum { //solution 112
         }
 
         return false;
+    }
+
+    int target;
+
+    boolean hasPathSum2(TreeNode root, int targetSum) {
+
+        target = targetSum;
+        return helper(root, 0);
+    }
+
+    private boolean helper(TreeNode root, int sum) {
+        if (root == null)
+            return false;
+        sum += root.val;
+        if (root.left == null && root.right == null) {
+            return sum == target;
+        }
+        boolean lans = helper(root.left, sum);
+        boolean rans = helper(root.right, sum);
+
+        return lans || rans;
     }
 
     static class TreeNode {
