@@ -41,22 +41,22 @@ public class Solution938 { //Range Sum of BST
         System.out.println("Test Case 2: " + rangeSumBST(root2, low2, high2)); // Output: 23
     }
 
-    static int rangeSumBST(TreeNode root,int low,int high){
-        if (root==null)
+    static int rangeSumBST(TreeNode root, int low, int high) {
+        if (root == null)
             return 0;
-        int sum=0;
+        int sum = 0;
 
         //explore the left subtree
-        if (root.val>low)
-            sum+=rangeSumBST(root.left,low,high);
+        if (root.val > low)
+            sum += rangeSumBST(root.left, low, high);
 
         //if value is in range add it to sum
-        if (root.val>=low && root.val<=high)
-            sum+= root.val;
+        if (root.val >= low && root.val <= high)
+            sum += root.val;
 
         //explore the right subtree only if required
-        if (root.val<high)
-            sum+=rangeSumBST(root.right,low,high);
+        if (root.val < high)
+            sum += rangeSumBST(root.right, low, high);
 
         return sum;
 
@@ -93,16 +93,17 @@ public class Solution938 { //Range Sum of BST
         return sum;
     }
 
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
+        TreeNode(int x) {
+            val = x;
+        }
     }
+
+
 }
+
+
