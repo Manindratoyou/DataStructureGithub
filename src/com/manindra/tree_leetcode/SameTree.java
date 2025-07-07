@@ -47,6 +47,17 @@ public class SameTree { // solution 100
         return true;
     }
 
+    boolean isSameTree2(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null)
+            return true;
+        if (root1 == null || root2 == null)
+            return false;
+        boolean leftAnswer = isSameTree2(root1.left, root2.left);
+        boolean rightAnswer = isSameTree2(root1.right, root2.right);
+
+        return leftAnswer && rightAnswer;
+    }
+
     static class TreeNode {
         int val;
         TreeNode left;

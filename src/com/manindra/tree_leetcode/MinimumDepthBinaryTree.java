@@ -49,6 +49,16 @@ public class MinimumDepthBinaryTree { //solution 111
         return depth;
     }
 
+    int minDepth2(TreeNode root) {
+        if (root == null)
+            return 0;
+        if (root.left == null && root.right == null)
+            return 1;
+        int leftDepth = root.left == null ? Integer.MAX_VALUE : minDepth2(root.left);
+        int rightDepth = root.left == null ? Integer.MAX_VALUE : minDepth2(root.right);
+        return Math.min(leftDepth, rightDepth) + 1;
+    }
+
     static class TreeNode {
         int val;
         TreeNode left;
