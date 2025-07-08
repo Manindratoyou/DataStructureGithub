@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.hashing_leetcode;
 
 import java.util.*;
 import java.util.stream.Collectors;

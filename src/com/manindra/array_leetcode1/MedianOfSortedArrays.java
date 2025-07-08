@@ -1,4 +1,4 @@
-package com.manindra.leetcode_hard;
+package com.manindra.array_leetcode1;
 
 public class MedianOfSortedArrays { //Solution 4
 

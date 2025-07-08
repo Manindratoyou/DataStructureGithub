@@ -2,7 +2,7 @@ package com.manindra.graph_leetcode;
 
 import java.util.Arrays;
 
-public class RottingOrangesDFS {
+public class RottingOrangesDFS { //Solution 994
 
     public static void main(String[] args) {
         RottingOrangesDFS solution = new RottingOrangesDFS();

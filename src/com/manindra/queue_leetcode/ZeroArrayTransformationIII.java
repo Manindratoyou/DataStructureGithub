@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.queue_leetcode;
 
 import java.util.*;
 
