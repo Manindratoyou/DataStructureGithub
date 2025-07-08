@@ -1,6 +1,6 @@
 package com.manindra.dynamicprogramming_leetcode;
 
-public class MinimumPathSum {
+public class MinimumPathSum { //Solution 64
 
     public static void main(String[] args) {
 

@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class ArithmeticTriplets {
+public class ArithmeticTriplets { //Solution 2367
 
     public static void main(String[] args) {
         int[] nums = {0, 1, 4, 6, 7, 10};
