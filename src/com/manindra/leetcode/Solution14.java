@@ -1,5 +1,6 @@
 package com.manindra.leetcode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -98,5 +99,29 @@ public class Solution14 { //Longest Common Prefix
 
         // Return the prefix
         return first.substring(0, i);
+    }
+    public static String longestCommonPrefix4(List<String> arr) { //solution from CommonChars leetcode 1002
+        int[] minFreq = new int[26];
+        Arrays.fill(minFreq, Integer.MAX_VALUE);
+
+        for (String word : arr) {
+            int[] freq = new int[26];
+            for (char ch : word.toCharArray()) {
+                freq[ch - 'a']++;
+            }
+
+            // Update min frequency
+            for (int i = 0; i < 26; i++) {
+                minFreq[i] = Math.min(minFreq[i], freq[i]);
+            }
+        }
+
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < 26; i++) {
+            while (minFreq[i]-- > 0) {
+                result.add(String.valueOf((char) (i + 'a')));
+            }
+        }
+        return result.toString();
     }
 }
