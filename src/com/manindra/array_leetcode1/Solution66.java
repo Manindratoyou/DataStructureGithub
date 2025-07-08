@@ -1,8 +1,8 @@
-package com.manindra.leetcode;
+package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
 
-public class Solution66 {
+public class Solution66 { //Plus One
 
     public static void main(String[] args) {
 

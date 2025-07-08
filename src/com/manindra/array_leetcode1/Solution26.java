@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.array_leetcode1;
 
 public class Solution26 { //Remove Duplicates from Sorted Array
 

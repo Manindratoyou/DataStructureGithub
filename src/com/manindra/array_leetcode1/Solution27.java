@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.array_leetcode1;
 
 /*
 Example 1:

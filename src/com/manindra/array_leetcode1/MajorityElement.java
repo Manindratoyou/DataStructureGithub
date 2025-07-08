@@ -1,4 +1,4 @@
-package com.manindra.array;
+package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
 import java.util.HashMap;
