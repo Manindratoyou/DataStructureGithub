@@ -1,4 +1,4 @@
-package com.manindra.dynamicprogramming_leetcode;
+package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
 import java.util.Comparator;

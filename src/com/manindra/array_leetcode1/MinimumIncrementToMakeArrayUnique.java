@@ -1,4 +1,4 @@
-package com.manindra.leetcodemedium_2;
+package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
 

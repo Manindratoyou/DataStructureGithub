@@ -1,4 +1,4 @@
-package com.manindra.matrix;
+package com.manindra.matrix_leetcode;
 
 //Row-wise and Column-wise Sorted Matrix
 public class SearchSortedMatrix { //LeetCode 240

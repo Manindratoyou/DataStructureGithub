@@ -1,7 +1,6 @@
-package com.manindra.leetcodeMedium;
+package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Solution179 { //largest number

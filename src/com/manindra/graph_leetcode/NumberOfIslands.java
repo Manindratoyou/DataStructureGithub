@@ -1,6 +1,6 @@
 package com.manindra.graph_leetcode;
 
-public class NumberOfIslands {
+public class NumberOfIslands { //Solution 200
 
     public static void main(String[] args) {
         NumberOfIslands obj = new NumberOfIslands();

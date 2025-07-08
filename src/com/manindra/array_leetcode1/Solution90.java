@@ -1,10 +1,10 @@
-package com.manindra.leetcodeMedium;
+package com.manindra.array_leetcode1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution90 {
+public class Solution90 { //Subsets 2
 
     /*
     Given an integer array nums that may contain duplicates, return all possible

@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.hashing_leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
