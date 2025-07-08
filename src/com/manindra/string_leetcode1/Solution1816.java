@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.string_leetcode1;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

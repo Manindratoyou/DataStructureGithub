@@ -1,6 +1,18 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.array_leetcode1;
+
 
 public class DefuseTheBomb { //solution 1652
+
+    public static void main(String[] args) {
+        int[] code = {5, 7, 1, 4};
+        int k = 2;
+
+        int[] decrypted = decrypt(code, k);
+        for (int val : decrypted) {
+            System.out.print(val + " ");
+        }
+        // Output: 8 5 9 12
+    }
 
     public static int[] decrypt(int[] code, int k) {
         int n = code.length;
@@ -28,17 +40,6 @@ public class DefuseTheBomb { //solution 1652
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] code = {5, 7, 1, 4};
-        int k = 2;
-
-        int[] decrypted = decrypt(code, k);
-        for (int val : decrypted) {
-            System.out.print(val + " ");
-        }
-        // Output: 8 5 9 12
     }
 }
 

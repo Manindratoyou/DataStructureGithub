@@ -1,4 +1,4 @@
-package com.manindra.leetcode;
+package com.manindra.array_leetcode1;
 
 public class Solution1662 { //Check If Two String Arrays are Equivalent
 
