@@ -1,6 +1,6 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.dynamicprogramming_leetcode;
 
-public class ClimbingStairs {
+public class ClimbingStairs { //Solution 70
 
     public static void main(String[] args) {
 

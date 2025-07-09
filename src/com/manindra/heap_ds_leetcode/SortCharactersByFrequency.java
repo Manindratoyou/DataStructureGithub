@@ -1,4 +1,4 @@
-package com.manindra.leetcodeEasy;
+package com.manindra.heap_ds_leetcode;
 
 import java.util.*;
 import java.util.stream.Collectors;
