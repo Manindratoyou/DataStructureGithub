@@ -19,6 +19,18 @@ public class SortCharactersByFrequency { //solution 451
 
         PriorityQueue<Map.Entry<Character, Integer>> maxHeap =
                 new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+        /*
+        Using Anonymous Inner Class
+        PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>(
+         new Comparator<Map.Entry<Character, Integer>>() {
+        @Override
+        public int compare(Map.Entry<Character, Integer> a, Map.Entry<Character, Integer> b) {
+            return b.getValue() - a.getValue(); // Descending order of frequency
+        }
+        }
+         );
+
+         */
 
         maxHeap.addAll(freqMap.entrySet());
 
@@ -40,6 +52,16 @@ public class SortCharactersByFrequency { //solution 451
                 .sorted((a, b) -> Long.compare(b.getValue(), a.getValue()))
                 .map(e -> String.valueOf(e.getKey()).repeat(Math.toIntExact(e.getValue())))
                 .collect(Collectors.joining());
+    }
+
+    //
+    static class FrequencyComparator implements Comparator<Map.Entry<Character, Integer>> {
+        @Override
+        public int compare(Map.Entry<Character, Integer> a, Map.Entry<Character, Integer> b) {
+            //return b.getValue() - a.getValue(); // descending order of frequency
+            return Integer.compare(b.getValue(), a.getValue());
+
+        }
     }
 }
 
