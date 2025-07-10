@@ -1,6 +1,8 @@
 package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.IntStream;
 
 /*
@@ -58,5 +60,21 @@ public class Solution2824 { //Count Pairs Whose Sum is Less than Target
                 .flatMap(i -> IntStream.range(i + 1, nums.length)
                         .filter(j -> nums[i] + nums[j] < target))
                 .count();
+    }
+
+    public static int countPairs4(int[] nums, int target) {
+        int count = 0;
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+
+        for (int num : nums) {
+            // Get all values strictly less than (target - num)
+            for (Map.Entry<Integer, Integer> entry : map.headMap(target - num, false).entrySet()) {
+                count += entry.getValue();
+            }
+            // Add current number to map
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        return count;
     }
 }

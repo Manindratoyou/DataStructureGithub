@@ -1,18 +1,21 @@
 package com.manindra.array_leetcode1;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSumII { //solution 167
 
     public static void main(String[] args) {
         // Test Cases
         System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9))); // [1,2]
+        System.out.println(Arrays.toString(twoSum2(new int[]{2, 7, 11, 15}, 9))); // [1,2]
         System.out.println(Arrays.toString(twoSum(new int[]{1, 3, 4, 5, 7, 10, 11}, 9))); // [3,4]
-        System.out.println(Arrays.toString(twoSum(new int[]{1, 2, 3, 4, 4, 9, 56, 90}, 8))); // [4,5]
-        System.out.println(Arrays.toString(twoSum(new int[]{-3, 1, 2, 3, 8}, 5))); // [2,4]
+        System.out.println(Arrays.toString(twoSum2(new int[]{1, 2, 3, 4, 4, 9, 56, 90}, 8))); // [4,5]
+        System.out.println(Arrays.toString(twoSum2(new int[]{-3, 1, 2, 3, 8}, 5))); // [2,4]
     }
 
-    public static int[] twoSum(int[] numbers, int target) {
+    public static int[] twoSum(int[] numbers, int target) { //TC O(n) AS O(1)
         int left = 0, right = numbers.length - 1;
 
         while (left < right) {
@@ -56,16 +59,15 @@ public class TwoSumII { //solution 167
         return -1;
     }
 
-    public int[] twoSum2(int[] arr, int target) {
-        int i = 0;
-        int j = arr.length - 1;
-        while(i < j){
-            if(arr[i] + arr[j] < target){
-                i++;
-            }else if(arr[i] + arr[j] > target){
-                j--;
-            }else{
-                return new int[]{i + 1, j + 1};
+    static int[] twoSum2(int[] arr, int target) { //2, 7, 11, 15
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (map.containsKey(target - arr[i])) {
+                return new int[]{map.get(target - arr[i]) + 1, i + 1};
+            } else {
+                map.put(arr[i], i);
             }
         }
         return null;
