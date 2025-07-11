@@ -24,4 +24,16 @@ public class FirstNonRepeting {
                 map(m -> m.getKey()).findFirst().get();
         System.out.println(c);
     }
+
+    public static void main2(String[] args) {
+
+        String input="swiss";
+
+        Character c1 = input.chars().mapToObj(c -> (char) c).collect(
+                        Collectors.groupingBy(Function.identity(),
+                                LinkedHashMap::new, Collectors.counting())).entrySet().stream().
+                filter(e -> e.getValue() == 1).map(m->m.getKey()).findFirst().orElse(null);
+        System.out.println(c1);
+    }
+
 }

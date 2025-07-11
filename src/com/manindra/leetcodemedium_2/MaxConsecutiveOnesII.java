@@ -8,6 +8,7 @@ public class MaxConsecutiveOnesII { //solution 487
         MaxConsecutiveOnesII solution = new MaxConsecutiveOnesII();
         int[] nums = {1, 0, 1, 1, 0, 1};
         System.out.println(solution.findMaxConsecutiveOnes(nums)); // Output: 4
+        System.out.println(findMaxConsecutiveOnes2(nums)); // Output: 4
     }
 
     public int findMaxConsecutiveOnes(int[] nums) {
@@ -33,6 +34,31 @@ public class MaxConsecutiveOnesII { //solution 487
         }
 
         return maxCount;
+    }
+
+    static int findMaxConsecutiveOnes2(int[] nums) { //sliding window
+
+        int left = 0;
+        int ans = 0;
+        int window = 0;
+
+        for (int right = 0; right < nums.length; right++) {
+
+            //"add" elements nums[right] to window
+
+            window += nums[right];
+
+            //while condition not met
+            // do some logic to remove left from window and left ++
+            while (!(window== right - left + 1 || window==right-left)) {
+                window -= nums[left];
+                left++;
+            }
+
+            //update the answer
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
     }
 }
 

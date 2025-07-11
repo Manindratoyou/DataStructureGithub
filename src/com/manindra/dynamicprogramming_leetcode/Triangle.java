@@ -13,6 +13,12 @@ public class Triangle { //solution 120
                 List.of(6, 5, 7),
                 List.of(4, 1, 8, 3)
         );
+        List<List<Integer>> triangleList2 = List.of(
+                List.of(2),
+                List.of(1, 3),
+                List.of(8, 9, 1),
+                List.of(4, 1, 8, 3)
+        );
 
         int minimumTotal = triangle.minimumTotalSolutionOne(triangleList);
         System.out.println("Minimum total: " + minimumTotal);
@@ -29,8 +35,7 @@ public class Triangle { //solution 120
 
                 // Add the minimum amongst 2 adjacent elements
                 // from bottom level
-                dp[level][i] = triangle.get(level).get(i) +
-                        Math.min(dp[level + 1][i], dp[level + 1][i + 1]);
+                dp[level][i] = triangle.get(level).get(i) + Math.min(dp[level + 1][i], dp[level + 1][i + 1]);
             }
 
         }
@@ -39,20 +44,21 @@ public class Triangle { //solution 120
     }
 
     Integer memo[][];
+
     public int minimumTotalSolutionTwo(List<List<Integer>> triangle) {
 
         int len = triangle.size();
         memo = new Integer[len][len];
-        return FindMinimum(triangle, 0 , 0, len);
+        return FindMinimum(triangle, 0, 0, len);
 
     }
 
-    private int FindMinimum(List<List<Integer>> triangle, int row, int col, int len){
+    private int FindMinimum(List<List<Integer>> triangle, int row, int col, int len) {
 
-        if(row == len - 1)
+        if (row == len - 1)
             return triangle.get(row).get(col);
 
-        if(memo[row][col] != null)
+        if (memo[row][col] != null)
             return memo[row][col];
 
         int down = triangle.get(row).get(col) + FindMinimum(triangle, row + 1, col, len);

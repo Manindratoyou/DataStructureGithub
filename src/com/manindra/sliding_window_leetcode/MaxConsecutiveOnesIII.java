@@ -13,6 +13,8 @@ public class MaxConsecutiveOnesIII { //solution 1004
 
         // Print the result
         System.out.println("Maximum consecutive ones with at most " + k + " zeroes: " + result);
+
+        System.out.println(findMaxConsecutiveOnes2(nums,k));
     }
 
     static int longestOnes(int[] nums, int k) {
@@ -35,5 +37,30 @@ public class MaxConsecutiveOnesIII { //solution 1004
             max_ones = Math.max(max_ones, end - start + 1);
         }
         return max_ones;
+    }
+
+    static int findMaxConsecutiveOnes2(int[] nums, int k) { //sliding window
+
+        int left = 0;
+        int ans = 0; // or -1
+        int window = 0; // or sum
+
+        for (int right = 0; right < nums.length; right++) {
+
+            //"add" elements nums[right] to window
+
+            window += nums[right];
+
+            //while condition not met
+            // do some logic to remove left from window and left ++
+            while (window + k < right - left + 1) {
+                window -= nums[left];
+                left++;
+            }
+
+            //update the answer
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
     }
 }
