@@ -9,7 +9,7 @@ public class Solution34 { //find first and last position of element in sorted ar
         int [] nums1={5,7,7,8,8,10}; int target=8;
         int [] nums2={3,3,3,3,3}; int target1=3; //op 0,4
         int [] nums3={5,7,7,8,8,10}; int target2=6;
-        int [] nums4={}; int target3=0;
+        int [] nums4={0,0,1,1,2,3,5,5,5,5,5,5,5,5,7,7}; int target3=5;
 
         int [] result=searchRangeSolutionOne(nums1,target);
         System.out.println(Arrays.toString(result));
