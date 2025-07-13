@@ -87,4 +87,28 @@ public class ReverseOnlyLetters { //solution 917
         }
         return result.toString();
     }
+
+    static String reverseOnlyLetters5(String s) {
+
+        int i = 0;
+        int j = s.length();
+        char[] arr = s.toCharArray();
+        while (i < j) {
+            if (isEnglish(arr[i])) {
+                while (!isEnglish(arr[j])) { //ab-cd123-
+                    j--;
+                }
+                char temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                j--;
+            }
+            i++;
+        }
+        return new String(arr);
+    }
+
+    static boolean isEnglish(char c) {
+        return (65 <= c && c <= 90) || (97 <= c && c <= 122);
+    }
 }

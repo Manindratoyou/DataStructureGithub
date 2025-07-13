@@ -16,9 +16,9 @@ public class Solution3 { //Longest Substring Without Repeating Characters
 
         System.out.println("==============");
 
-        System.out.println(solution.lengthOfLongestSubStringSolTwo("abcabcab"));
-        System.out.println(solution.lengthOfLongestSubStringSolTwo("bbbbb"));
-        System.out.println(solution.lengthOfLongestSubStringSolTwo("pwwkewxpw"));
+        System.out.println(solution.lengthOfLongestSubstring("abcabcab"));
+        System.out.println(solution.lengthOfLongestSubstring("bbbbb"));
+        System.out.println(solution.lengthOfLongestSubstring("pwwkewxpw"));
     }
 
     public int lengthOfLongestSubString(String s) {
@@ -39,25 +39,26 @@ public class Solution3 { //Longest Substring Without Repeating Characters
         return maxLength;
     }
 
-    public int lengthOfLongestSubStringSolTwo(String s) {
-        Set<Character> set = new HashSet<>();
-
-        int maxLength = 0;
-        int left = 0;
+    public static int lengthOfLongestSubstring(String s) { //use this
+        int left = 0, maxLen = 0;
+        Set<Character> window = new HashSet<>();
 
         for (int right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
 
-            while (set.contains(s.charAt(right))) {
-                set.remove(s.charAt(left));
+            // Remove characters until the current character is unique in window
+            while (window.contains(ch)) {
+                window.remove(s.charAt(left));
                 left++;
             }
 
-            set.add(s.charAt(right));
-            maxLength = Math.max(maxLength, right - left + 1);
+            window.add(ch);
+            maxLen = Math.max(maxLen, right - left + 1);
         }
 
-        return maxLength;
+        return maxLen;
     }
+
 
     public static int lengthOfLongestSubstring3(String s) {
         Set<Character> set = new HashSet<>();

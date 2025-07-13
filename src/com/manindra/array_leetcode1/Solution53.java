@@ -1,6 +1,6 @@
 package com.manindra.array_leetcode1;
 
-public class Solution53 { //max sum sub array
+public class Solution53 { //maximum sum sub array with the largest sum
 
     public static void main(String[] args) {
         int [] arr={2,3,-8,7,-1,2,3};
