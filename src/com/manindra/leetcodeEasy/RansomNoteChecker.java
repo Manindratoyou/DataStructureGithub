@@ -8,7 +8,7 @@ public class RansomNoteChecker {  //solution 383
     // Main method with test cases
     public static void main(String[] args) {
         String[] ransomNotes = {"a", "aa", "aa", "abc", "aabbcc"};
-        String[] magazines   = {"b", "ab", "aab", "aabbcc", "abcabc"};
+        String[] magazines = {"b", "ab", "aab", "aabbcc", "abcabc"};
 
         System.out.println("Using Array:");
         for (int i = 0; i < ransomNotes.length; i++) {
@@ -47,6 +47,21 @@ public class RansomNoteChecker {  //solution 383
             if (!map.containsKey(c) || map.get(c) == 0)
                 return false;
             map.put(c, map.get(c) - 1);
+        }
+        return true;
+    }
+
+    public static boolean canConstruct3(String ransomNote, String magazine) {
+        int[] count = new int[26];
+        for (char c : ransomNote.toCharArray()) {
+            count[c - 'a']++;
+        }
+        for (char c : magazine.toCharArray()) {
+            count[c - 'a']--;
+        }
+        for (int i : count) {
+            if (i > 0)
+                return false;
         }
         return true;
     }
