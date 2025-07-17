@@ -2,45 +2,52 @@ package com.manindra.linkedlist_leetcode;
 
 import java.util.HashSet;
 import java.util.Set;
+/*
+List A: 1 → 3
+               ↘
+                 8 → 10
+               ↗
+List B:     2 →
 
+ */
 public class IntersectionOfTwoLinkedLists { //solution 160
 
     public static void main(String[] args) {
-        // Create linked list 1: 1 -> 2 -> 3 -> 6 -> 7
-        ListNode commonNode = new ListNode(6, new ListNode(7));
-        ListNode headA = new ListNode(1, new ListNode(2, new ListNode(3, commonNode)));
+        // Shared part
+        ListNode intersect = new ListNode(8);
+        intersect.next = new ListNode(10);
 
-        // Create linked list 2: 4 -> 5 -> 6 -> 7
-        ListNode headB = new ListNode(4, new ListNode(5, commonNode));
+        // List A: 1 -> 3 -> 8 -> 10
+        ListNode headA = new ListNode(1);
+        headA.next = new ListNode(3);
+        headA.next.next = intersect;
 
-        IntersectionOfTwoLinkedLists solution = new IntersectionOfTwoLinkedLists();
+        // List B: 2 -> 8 -> 10 (intersect shared)
+        ListNode headB = new ListNode(2);
+        headB.next = intersect;
 
-        // Test with Set approach
-        ListNode intersectionNodeSet = solution.getIntersectionNodeSet(headA, headB);
-        System.out.println("Intersection Node (Set): " + (intersectionNodeSet != null ? intersectionNodeSet.data : "No intersection"));
-
-        // Test with optimized approach
-        ListNode intersectionNodeOptimized = solution.getIntersectionNode(headA, headB);
-        System.out.println("Intersection Node (Optimized): " + (intersectionNodeOptimized != null ? intersectionNodeOptimized.data : "No intersection"));
+        //ListNode result = getIntersectionNodeSet(headA, headB);
+        ListNode result = getIntersectionNode(headA, headB);
+        System.out.println(result != null ? "Intersection at: " + result.data : "No intersection");
     }
 
-    public ListNode getIntersectionNodeSet(ListNode headA, ListNode headB) {
+    static ListNode getIntersectionNodeSet(ListNode headA, ListNode headB) { //use this
 
         if (headA == null) return headA;
         if (headB == null) return headB;
 
-        Set<ListNode> nodeAddress = new HashSet<>();
+        Set<ListNode> set = new HashSet<>();
 
         while (headA != null) {
 
-            nodeAddress.add(headA);
+            set.add(headA);
             headA = headA.next;
         }
 
         ListNode result = null;
 
         while (headB != null) {
-            if (nodeAddress.contains(headB))
+            if (set.contains(headB))
                 return headB;
 
             headB = headB.next;
@@ -49,7 +56,7 @@ public class IntersectionOfTwoLinkedLists { //solution 160
         return result;
     }
 
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
         int lenA = getListLength(headA);
         int lenB = getListLength(headB);
@@ -58,7 +65,7 @@ public class IntersectionOfTwoLinkedLists { //solution 160
             lenA--;
             headA = headA.next;
         }
-
+        //2 while loop - any one will be executed at a time
         while (lenB > lenA) {
             lenB--;
             headB = headB.next;
@@ -74,7 +81,7 @@ public class IntersectionOfTwoLinkedLists { //solution 160
         return headA;
     }
 
-    private int getListLength(ListNode head) {
+    static int getListLength(ListNode head) {
         int len = 0;
 
         while (head != null) {
@@ -88,11 +95,14 @@ public class IntersectionOfTwoLinkedLists { //solution 160
 
 
     static class ListNode{
+
         int data;
         public ListNode next;
+
         public ListNode(int data){
             this.data=data;
         }
+
         ListNode(int data, ListNode next){
             this.data=data;
             this.next=next;

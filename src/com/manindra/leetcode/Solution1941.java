@@ -16,29 +16,32 @@ public class Solution1941 { //Check if All Characters Have Equal Number of Occur
     public static void main(String[] args) {
 
         String s = "abacbc";
-        //System.out.println(isequal(s));
+        String s1 = "aaabb";
+        System.out.println(isequal(s));
+        //System.out.println(isequal(s1));
         System.out.println(isequalSolTwo(s));
     }
 
     static boolean isequal(String s){
-        Map<Character, Integer> charCount = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
 
         for (char c : s.toCharArray()) {
-            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        Set<Integer> occurrencesSet = new HashSet<>(charCount.values());
+        Set<Integer> set = new HashSet<>(map.values());
 
-        return occurrencesSet.size() == 1;
+        return set.size() == 1;
     }
 
-    private static boolean isequalSolTwo(String s) {
+    static boolean isequalSolTwo(String s) {
         Map<Character, Long> charCount = s.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
 
-        Set<Long> occurrencesSet = charCount.values().stream().collect(Collectors.toSet());
+        Set<Long> set = charCount.values().stream().collect(Collectors.toSet());
 
-        return occurrencesSet.size() == 1;
+        return set.size() == 1;
     }
+
 }

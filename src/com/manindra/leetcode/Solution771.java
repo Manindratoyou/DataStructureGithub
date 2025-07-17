@@ -12,11 +12,11 @@ Output: 3
 public class Solution771 { //Jewels and Stones
 
     public static void main(String[] args) {
-        String J = "aA";
-        String S = "aAAbbbb";
-        System.out.println("Number of jewels in stones: " + numJewelsInStonesSolutionTwo(J, S));
-        System.out.println("Number of jewels in stones: " + numJewelsInStonesSolutionThree(J, S));
-        System.out.println("Number of jewels in stones: " + numJewelsInStonesSolutionFour(J, S));
+        String jewels = "aA";
+        String stones = "aAAbbbb";
+        System.out.println("Number of jewels in stones: " + numJewelsInStonesSolutionTwo(jewels, stones));
+        System.out.println("Number of jewels in stones: " + numJewelsInStonesSolutionThree(jewels, stones));
+        System.out.println("Number of jewels in stones: " + numJewelsInStonesSolutionFour(jewels, stones));
     }
 
     static int numJewelsInStonesSolutionOne(String jewels,String stones){
@@ -34,11 +34,11 @@ public class Solution771 { //Jewels and Stones
     }
 
     //Brute Force Time Complexity: O(m * n) Auxiliary Space: O(1)
-    public static int numJewelsInStonesSolutionTwo(String J, String S) {
+    public static int numJewelsInStonesSolutionTwo(String jewels, String stones) {
         int count = 0;
 
-        for (char stone : S.toCharArray()) {
-            if (J.indexOf(stone) != -1) {
+        for (char stone : stones.toCharArray()) {
+            if (jewels.indexOf(stone) != -1) {
                 count++;
             }
         }
@@ -48,15 +48,15 @@ public class Solution771 { //Jewels and Stones
 
     //Time Complexity: O(m + n)
     //Auxiliary Space: O(m), where m is the number of jewels
-    public static int numJewelsInStonesSolutionThree(String J, String S) {
+    public static int numJewelsInStonesSolutionThree(String jewels, String stones) {
         Set<Character> jewelSet = new HashSet<>();
 
-        for (char jewel : J.toCharArray()) {
+        for (char jewel : jewels.toCharArray()) {
             jewelSet.add(jewel);
         }
 
         int count = 0;
-        for (char stone : S.toCharArray()) {
+        for (char stone : stones.toCharArray()) {
             if (jewelSet.contains(stone)) {
                 count++;
             }
@@ -66,15 +66,15 @@ public class Solution771 { //Jewels and Stones
     }
 
     //using array Time Complexity: O(m + n) Auxiliary Space: O(1)
-    public static int numJewelsInStonesSolutionFour(String J, String S) {
+    public static int numJewelsInStonesSolutionFour(String jewels, String stones) {
         boolean[] isJewel = new boolean[256]; // Assuming ASCII characters
 
-        for (char jewel : J.toCharArray()) {
+        for (char jewel : jewels.toCharArray()) {
             isJewel[jewel] = true;
         }
 
         int count = 0;
-        for (char stone : S.toCharArray()) {
+        for (char stone : stones.toCharArray()) {
             if (isJewel[stone]) {
                 count++;
             }
