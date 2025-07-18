@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-
+//The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
 public class Solution128 { //Longest Consecutive Sequence
 
     public static void main(String[] args) {

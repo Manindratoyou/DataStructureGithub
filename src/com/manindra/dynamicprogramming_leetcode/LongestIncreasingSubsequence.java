@@ -1,7 +1,7 @@
 package com.manindra.dynamicprogramming_leetcode;
 
 import java.util.Arrays;
-
+//The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
 public class LongestIncreasingSubsequence { //solution 300
 
     public static void main(String[] args) {
