@@ -56,5 +56,20 @@ public class SubarraySumEqualsK { //solution 560
         return res;
     }
 
+    /*
+    we cant use sliding window here , only few test cases passes
+    static int minSubArrayLength2(int[] nums,int target) {
+        int n = nums.length, window = 0, ans = Integer.MAX_VALUE, left = 0;
+        for (int right = 0; right < n; right++) {
+            window += nums[right];
+            while (window >= target) {
+                ans = Math.min(ans, right - left + 1);
+                window -= nums[left++];
+            }
+        }
+        return ans == Integer.MAX_VALUE ? 0 : ans;
+    }
+     */
+
 
 }

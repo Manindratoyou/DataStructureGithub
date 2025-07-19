@@ -1,6 +1,6 @@
 package com.manindra.dynamicProgramming_ds;
 
-public class FibonacciNumberTabulation {
+public class FibonacciNumberTabulation { //Tabulation , Bottom Up
 
     public static void main(String[] args) {
         System.out.println(fib(6));

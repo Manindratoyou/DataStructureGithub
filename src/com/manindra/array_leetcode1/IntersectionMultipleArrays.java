@@ -54,6 +54,19 @@ public class IntersectionMultipleArrays { //solution 2248
 
         return result;
     }
+
+    static List<Integer> intersection3(int[][] nums) {
+
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int[] arr : nums) {
+            for (int i : arr) {
+                map.put(i, map.getOrDefault(i, 0) + 1);
+            }
+        }
+        return map.keySet().stream().filter(s -> map.get(s) == n).sorted().collect(Collectors.toList());
+    }
+
 }
 
 

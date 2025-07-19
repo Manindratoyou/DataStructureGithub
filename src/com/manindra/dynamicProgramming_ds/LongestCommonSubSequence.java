@@ -6,6 +6,10 @@ public class LongestCommonSubSequence {
 
     public static void main(String[] args) {
         String s1 = "CDA", s2 = "DBA";
+        String s3 = "ABCDGH", s4 = "AEDFHR"; // ADH -3
+        String s5 = "AGGTAB", s6 = "GXTXAYB"; //GTAB -4
+        String s7 = "XYX", s8 = "XYZ"; //XYZ - 3
+        String s9 = "ABC", s10 = "XY"; // - 0
         System.out.println(longestCommonSubSequence(s1, s2, s1.length(), s2.length()));
 
         int[][] memoizationTable = new int[s1.length() + 1][s2.length() + 1];
