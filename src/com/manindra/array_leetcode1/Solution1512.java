@@ -18,6 +18,7 @@ public class Solution1512 { //Number of Good Pairs
         System.out.println("Number of good pairs: " + numIdenticalPairs(nums));
         System.out.println("Number of good pairs: " + numIdenticalPairsSolutionTwo(nums1));
         System.out.println("Number of good pairs: " + numIdenticalPairsSolutionTwo(nums2));
+        System.out.println("Number of good pairs: " + numIdenticalPairsSolutionThree(nums));
     }
 
     public static int numIdenticalPairs(int[] nums) {

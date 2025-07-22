@@ -18,8 +18,10 @@ public class Solution1365 {
     public static void main(String[] args) {
 
         int[] nums = {8, 1, 2, 2, 3};
+        int[] nums1 = {6, 5, 4, 8};
+        int[] nums2 = {7, 7, 7, 7};
         System.out.println(Arrays.toString(smallerNumbersThanCurrent(nums)));
-        //System.out.println(Arrays.toString(smallerNumbersThanCurrentSolTwo(nums)));
+        System.out.println(Arrays.toString(smallerNumbersThanCurrentSolTwo(nums1)));
 
     }
 
@@ -60,7 +62,7 @@ public class Solution1365 {
                 if (nums[i] > nums[j]) count++;
             }
             result[i] = count;
-            System.out.println(count);
+            //System.out.println(count);
         }
         return result;
     }
