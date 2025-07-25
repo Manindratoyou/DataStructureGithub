@@ -8,7 +8,7 @@ public class ExpandString {
         String input2 = "b3c6d15";
 
         System.out.println("Input: " + input1);
-        System.out.println("Output: " + expandString(input1));  // Expected Output: abbbbbbbbbb
+        System.out.println("Output: " + expandString2(input1));  // Expected Output: abbbbbbbbbb
 
         System.out.println("Input: " + input2);
         System.out.println("Output: " + expandString(input2));  // Expected Output: bbbccccccddddddddddddddd
@@ -44,22 +44,23 @@ public class ExpandString {
 
     public static String expandString2(String input) {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            char ch = input.charAt(i);
-            int j = i + 1;
+        int i = 0;
 
-            // Find the number part
-            while (j < input.length() && Character.isDigit(input.charAt(j))) {
-                j++;
+        while (i < input.length()) {
+            char letter = input.charAt(i++);
+            StringBuilder number = new StringBuilder();
+
+            // Read full number (can be multiple digits)
+            while (i < input.length() && Character.isDigit(input.charAt(i))) {
+                number.append(input.charAt(i++));
             }
 
-            // Append character 'n' times
-            int count = Integer.parseInt(input.substring(i + 1, j));
-            result.append(String.valueOf(ch).repeat(count));
-
-            // Move to the next character block
-            i = j - 1;
+            int count = Integer.parseInt(number.toString());
+            for (int j = 0; j < count; j++) {
+                result.append(letter);
+            }
         }
+
         return result.toString();
     }
 

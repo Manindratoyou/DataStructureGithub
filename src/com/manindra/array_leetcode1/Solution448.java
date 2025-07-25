@@ -9,9 +9,9 @@ public class Solution448 { //findDisappearedNumbers
 
     public static void main(String[] args) {
 
-        int[] nums = {4, 3, 2, 7, 8, 2, 1}; //[5, 6]
+        int[] nums = {4,3,2,7,8,2,3,1}; //[5, 6]
         int[] nums2 = {1, 1, 1}; //[2, 3]
-        List<Integer> result = findDisapprearedNumber(nums);
+        List<Integer> result = findDisappearedNumbers(nums);
         System.out.println(result);
         System.out.println("========");
         List<Integer> result2 = findDisapprearedNumberSolutionTwo(nums2);
@@ -49,7 +49,7 @@ public class Solution448 { //findDisappearedNumbers
         }
         return result;
     }
-    public List<Integer> findDisappearedNumbers(int[] nums) {
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
 
         List<Integer> result = new ArrayList<>();
 
