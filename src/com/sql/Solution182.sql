@@ -7,3 +7,8 @@ SELECT email
 FROM Person
 GROUP BY email
 HAVING count(*) > 1;
+
+SELECT email
+FROM Person
+GROUP BY email
+HAVING count(distinct ID) > 1;
