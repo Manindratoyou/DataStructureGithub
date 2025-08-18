@@ -1,7 +1,8 @@
-package com.manindra.array_leetcode1;
+package com.manindra.greedy_leetcode;
 
 public class JumpGame {//solution 55
 
+    //try to solve using DP
     public static void main(String[] args) {
         int[] nums1 = {2, 3, 1, 1, 4};  // Expected output: true
         int[] nums2 = {3, 2, 1, 0, 4};  // Expected output: false
