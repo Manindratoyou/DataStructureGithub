@@ -2,7 +2,6 @@ package com.manindra.greedy_leetcode;
 
 public class JumpGame {//solution 55
 
-    //try to solve using DP
     public static void main(String[] args) {
         int[] nums1 = {2, 3, 1, 1, 4};  // Expected output: true
         int[] nums2 = {3, 2, 1, 0, 4};  // Expected output: false
@@ -13,6 +12,7 @@ public class JumpGame {//solution 55
         System.out.println("Can jump (Test case 3): " + canJump(nums3));
     }
 
+    //Approach 1: Dynamic Programming (Backward check)
     static boolean canJump(int[] nums) {
 
         // Initially the final position is the last index
@@ -31,5 +31,17 @@ public class JumpGame {//solution 55
         // If we reach the first index, then we can
         // make the jump possible
         return finalPosition == 0;
+    }
+
+    //Approach 2: Greedy (Efficient)
+    public static boolean canJumpGreedy(int[] nums) {
+        int maxReach = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > maxReach) {
+                return false; // Can't reach this index
+            }
+            maxReach = Math.max(maxReach, i + nums[i]);
+        }
+        return true;
     }
 }
